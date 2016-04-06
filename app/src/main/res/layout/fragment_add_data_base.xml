@@ -1,0 +1,85 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            style="@style/register_text"
+            android:text="@string/txt_register_name"/>
+
+        <EditText
+            style="@style/register_edit_text"
+            android:background="@drawable/txt_textfield"/>
+
+        <TextView
+            style="@style/register_text"
+            android:text="@string/txt_register_last_name"
+            />
+
+        <EditText
+            style="@style/register_edit_text"
+            android:background="@drawable/txt_textfield"/>
+
+        <TextView
+            style="@style/register_text"
+            android:text="@string/txt_register_phone"/>
+
+        <EditText
+            style="@style/register_edit_text"
+            android:background="@drawable/txt_phone"/>
+
+        <TextView
+            style="@style/register_text"
+            android:text="@string/txt_register_mail"/>
+
+        <EditText
+            style="@style/register_edit_text"
+            android:background="@drawable/txt_email"/>
+
+        <TextView
+            style="@style/register_text"
+            android:text="@string/txt_register_diary"/>
+
+        <EditText
+            style="@style/register_edit_text"
+            android:background="@drawable/bt_select"/>
+
+        <TextView
+            style="@style/register_text"
+            android:text="@string/txt_register_code"/>
+
+        <EditText
+            style="@style/register_edit_text"
+            android:background="@drawable/bt_select"/>
+
+        <TextView
+            style="@style/register_text"
+            android:text="@string/txt_register_portability"/>
+
+        <EditText
+            style="@style/register_edit_text"
+            android:background="@drawable/txt_textfield"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/back_login"
+            android:text="@string/btn_send"
+            android:paddingTop="15sp"
+            android:onClick="login"
+            android:paddingBottom="15sp"
+            android:paddingLeft="30sp"
+            android:paddingRight="30sp"
+            android:textColor="@color/colorWhite"
+            android:layout_marginTop="40sp"/>
+
+    </LinearLayout>
+
+</ScrollView>

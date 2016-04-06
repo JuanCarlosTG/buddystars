@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <View
+        style="@style/view_support"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15sp"
+        android:gravity="center"
+        android:text="@string/txt_support_phone"
+        />
+
+    <View
+        style="@style/view_support"/>
+
+    <Button
+        style="@style/btn_support"
+        android:background="@drawable/bt_call"
+        android:id="@+id/btn_call"
+        android:text="@string/bt_call"/>
+
+    <View
+        style="@style/view_support"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/txt_support_mail"
+        android:layout_margin="15sp"/>
+
+    <View
+        style="@style/view_support"/>
+
+    <Button
+        style="@style/btn_support"
+        android:background="@drawable/bt_call"
+        android:id="@+id/btn_mail"
+        android:text="@string/bt_mail"/>
+
+
+</LinearLayout>

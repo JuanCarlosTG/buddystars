@@ -1,0 +1,45 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="20sp"
+        android:background="@drawable/back_white">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/back_white"
+            android:paddingBottom="20sp"
+            android:paddingTop="20sp"
+            android:textSize="25sp"
+            android:gravity="left"
+            android:paddingLeft="20sp"
+            android:layout_weight=".6"
+            android:id="@+id/txt_registers"
+            android:text="@string/txt_title_registers"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:layout_below="@+id/txt_registers"
+            android:layout_marginLeft="5sp"
+            android:layout_marginRight="5sp"
+            android:id="@+id/separator"
+            android:background="@drawable/panel_separator"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="15sp"
+            android:layout_below="@+id/separator">
+
+        </android.support.v7.widget.RecyclerView>
+
+
+    </RelativeLayout>
+</RelativeLayout>

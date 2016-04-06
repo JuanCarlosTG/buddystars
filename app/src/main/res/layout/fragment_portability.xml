@@ -1,0 +1,53 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/bg"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity="center|top">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#A5D464">
+
+        <TextView
+            style="@style/title_fragment"
+            android:layout_centerInParent="true"
+            android:text="@string/txt_title_portability"/>
+
+    </RelativeLayout>
+
+
+    <TextView
+        style="@style/register_text"
+        android:text="@string/txt_register_customer"/>
+
+    <EditText
+        style="@style/register_edit_text"
+        android:background="@drawable/bt_select"/>
+
+    <TextView
+        style="@style/register_text"
+        android:text="@string/txt_register_operation_code"/>
+
+    <EditText
+        style="@style/register_edit_text"
+        android:background="@drawable/txt_textfield"/>
+
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/back_login"
+        android:text="@string/btn_send"
+        android:paddingTop="15sp"
+        android:onClick="login"
+        android:paddingBottom="15sp"
+        android:paddingLeft="30sp"
+        android:paddingRight="30sp"
+        android:textColor="@color/colorWhite"
+        android:layout_marginTop="40sp"/>
+
+</LinearLayout>
+

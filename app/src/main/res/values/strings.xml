@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">Buddystars</string>
+
+    <string name="txt_user">USUARIO</string>
+    <string name="txt_pass">CONTRASEÑA</string>
+
+    <string name="btn_enter">ENVIAR</string>
+    <string name="btn_forgot_pass">¿Olvidaste tu contraseña?</string>
+
+    <string name="btn_start">INICIAR</string>
+    <string name="btn_send">ENVIAR</string>
+    <string name="btn_select_photo">Seleccionar foto</string>
+
+    <string name="error_connectivity">No se encontró señal de internet.</string>
+    <string name="desc"></string>
+
+    <string name="txt_error">Error</string>
+
+    <string name="bt_close">Cerrar</string>
+    <string name="bt_add_farmer">Guardar</string>
+
+    <string name="txt_success_farmer">Registro exitoso</string>
+
+
+    <string name="txt_error_name">Debes introducir el campo nombre</string>
+
+    <string name="txt_sending">Enviando</string>
+    <string name="title_activity_homeactivity">Homeactivity</string>
+
+    <string name="txt_menu_data_base">BASE DE DATOS</string>
+    <string name="txt_menu_add">Agregar</string>
+    <string name="txt_menu_diary">Agenda</string>
+    <string name="txt_menu_register">ALTAS</string>
+    <string name="txt_menu_news">Nuevas</string>
+    <string name="txt_menu_portability">Portabilidad</string>
+    <string name="txt_menu_reports">REPORTES</string>
+    <string name="txt_menu_points">PUNTOS</string>
+    <string name="txt_menu_support">SOPORTE</string>
+    <string name="txt_menu_logout">salir</string>
+
+    <string name="txt_register_name">Nombre*</string>
+    <string name="txt_register_last_name">Apellido*</string>
+    <string name="txt_register_phone">Teléfono</string>
+    <string name="txt_register_mail">Correo</string>
+    <string name="txt_register_diary">Agenda</string>
+    <string name="txt_register_code">Código Alta</string>
+    <string name="txt_register_portability">Código Portabilidad</string>
+
+    <string name="txt_title_add">Nuevo</string>
+    <string name="txt_title_portability">Portabilidad</string>
+
+    <string name="txt_register_customer">Cliente</string>
+    <string name="txt_register_operation_code">Código Operación</string>
+    <string name="txt_register_amount">Monto de Alta</string>
+
+    <string name="txt_support_phone">56.78.90.45</string>
+    <string name="txt_support_mail">soporte@movistar.com</string>
+
+    <string name="bt_call">Llamar</string>
+    <string name="bt_mail">Mensaje</string>
+
+    <string name="txt_points_adds">Altas Nuevas</string>
+    <string name="txt_points_portability">Portabilidad</string>
+
+    <string name="txt_beta_add">Altas</string>
+    <string name="txt_beta_portability">Portabilidad</string>
+    <string name="txt_beta_adds">Nuevas</string>
+    <string name="txt_beta_reports">Buddystars Beta</string>
+
+    <string name="txt_title_registers">Registros</string>
+
+
+</resources>
