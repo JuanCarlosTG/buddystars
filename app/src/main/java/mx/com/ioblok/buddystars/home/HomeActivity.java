@@ -1,5 +1,6 @@
 package mx.com.ioblok.buddystars.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
@@ -30,6 +31,10 @@ public class HomeActivity extends SectionActivity {
     private ListView mDrawerOptions;
     CustomMenuAdapter adapterActivity;
 
+    String vacio = "vacio";
+    String name = "";
+    String lastname = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,23 +55,23 @@ public class HomeActivity extends SectionActivity {
         mDrawerOptions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-                if(position == 1){
+                if (position == 1) {
                     dataBaseFragment(arg1);
-                }else if(position == 2) {
+                } else if (position == 2) {
                     addDataBaseFragment(arg1);
                 } else if (position == 3) {
                     diaryFragment(arg1);
-                }else if (position == 4) {
+                } else if (position == 4) {
                     registerFragment(arg1);
-                }else if (position == 5) {
+                } else if (position == 5) {
                     registerFragment(arg1);
-                }else if (position == 6) {
+                } else if (position == 6) {
                     portabilityFragment(arg1);
-                }else if (position == 7) {
+                } else if (position == 7) {
                     betaReportFragment(arg1);
-                }else if (position == 8) {
+                } else if (position == 8) {
                     pointsFragment(arg1);
-                }else if (position == 9) {
+                } else if (position == 9) {
                     supportFragment(arg1);
                 }
             }
@@ -82,6 +87,21 @@ public class HomeActivity extends SectionActivity {
 
         final DataBaseFragment dataBaseFragment = new DataBaseFragment();
         getFragmentManager().beginTransaction().add(R.id.flContent, dataBaseFragment).commit();
+
+        Bundle bundle = getIntent().getExtras();
+
+        if (bundle != null) {
+
+            name = bundle.getString("name");
+            lastname = bundle.getString("lastname");
+
+            if (name != null) {
+                Log.e("nombre" , name.toString());
+                Log.e("apellido" ,lastname.toString());
+            } else {
+                Log.e("Vacio" , vacio);
+            }
+        }
 
     }
 
@@ -130,6 +150,7 @@ public class HomeActivity extends SectionActivity {
     }
 
     public void registerFragment(View view){
+
         final RegisterFragment registerFragment = new RegisterFragment();
         getFragmentManager().beginTransaction().add(R.id.flContent, registerFragment).commit();
 
