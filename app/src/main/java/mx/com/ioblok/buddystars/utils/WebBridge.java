@@ -33,7 +33,7 @@ public class WebBridge {
     private AsyncHttpClient client;
     private String url;
 
-    static public String endpoint = "http://sysbioscience.motti.mx/ws/";
+    static public String endpoint = "http://buddystars.avanna.tech/api";
     static public ArrayList<WebBridge> instances = new ArrayList<WebBridge>();
 
 	static public String url(String url, Activity a) {

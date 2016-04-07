@@ -22,7 +22,8 @@
     <string name="txt_success_farmer">Registro exitoso</string>
 
 
-    <string name="txt_error_name">Debes introducir el campo nombre</string>
+    <string name="txt_error_user">Debes introducir el campo usuario</string>
+    <string name="txt_error_pass">Debes introducir el campo contraseña</string>
 
     <string name="txt_sending">Enviando</string>
     <string name="title_activity_homeactivity">Homeactivity</string>
