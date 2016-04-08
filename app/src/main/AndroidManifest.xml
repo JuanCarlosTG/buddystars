@@ -20,11 +20,6 @@
         <activity
             android:name=".SplashActivity"
             android:theme="@android:style/Theme.Light.NoTitleBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".home.SelectActivity"
@@ -33,7 +28,12 @@
         <activity android:name=".home.LoginActivity" />
         <activity
             android:name=".home.HomeActivity"
-            android:theme="@android:style/Theme.Light.NoTitleBar" />
+            android:theme="@android:style/Theme.Light.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".home.FBLoginActivity"></activity>
     </application>
 
