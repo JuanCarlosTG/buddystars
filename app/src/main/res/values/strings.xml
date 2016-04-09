@@ -59,7 +59,7 @@
 
     <string name="bt_call">Llamar</string>
     <string name="bt_mail">Mensaje</string>
-
+    <string name="bt_contact">Contactar</string>
     <string name="txt_points_adds">Altas Nuevas</string>
     <string name="txt_points_portability">Portabilidad</string>
 
