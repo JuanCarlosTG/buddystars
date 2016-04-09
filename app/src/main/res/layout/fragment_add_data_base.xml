@@ -70,10 +70,9 @@
             android:text="@string/txt_register_portability"/>
 
         <EditText
-
             android:id="@+id/et_code_portability"
             style="@style/register_edit_text"
-            android:background="@drawable/txt_textfield"/>
+            android:background="@drawable/bt_select"/>
 
         <Button
             android:id="@+id/btn_send_reg"

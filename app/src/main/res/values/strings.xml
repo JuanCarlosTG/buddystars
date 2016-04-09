@@ -69,8 +69,12 @@
     <string name="txt_beta_reports">Buddystars Beta</string>
 
     <string name="txt_title_registers">Registros</string>
-    
+
     <string name="prueba">prueba</string>
 
-
+    <string-array name="mont_add">
+        <item>100</item>
+        <item>200</item>
+        <item>300</item>
+    </string-array>
 </resources>
