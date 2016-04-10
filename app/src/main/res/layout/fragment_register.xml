@@ -53,7 +53,6 @@
         android:background="@drawable/back_login"
         android:text="@string/btn_send"
         android:paddingTop="15sp"
-        android:onClick="completeData"
         android:paddingBottom="15sp"
         android:paddingLeft="30sp"
         android:paddingRight="30sp"

@@ -17,14 +17,11 @@ import java.util.HashMap;
 import mx.com.ioblok.buddystars.R;
 import mx.com.ioblok.buddystars.utils.WebBridge;
 
-/**
- * Created by kreativeco on 01/02/16.
- */
 public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridgeListener {
 
     View v;
     String code_portability = "";
-    String name ="" ,lastname = "", phone ="" ,email = " " ,fecha = " ", code_new = " ";
+    String name ="" ,lastname = "", phone = "" ,email = "" ,fecha = " ", code_new = " ";
 
     private EditText et_name, et_lastname, et_telephone, et_email, et_diary, et_code_register,et_code_portability;
 
@@ -202,9 +199,9 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
 
     public void exitSendData(){
         AlertDialog.Builder dialogo1 = new AlertDialog.Builder(getContext());
-        dialogo1.setTitle("Gracias");
-        dialogo1.setMessage("El cliente ha sido guardado");
-        dialogo1.setNeutralButton("Cerrar", new DialogInterface.OnClickListener() {
+        dialogo1.setTitle(R.string.title_gracias);
+        dialogo1.setMessage(R.string.cliente_exitoso);
+        dialogo1.setNeutralButton(R.string.cerrar, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogo1, int id) {
                 et_name.setText("");
                 et_lastname.setText("");
@@ -225,6 +222,6 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
 
     @Override
     public void onWebBridgeFailure(String url, String response) {
-        Log.e("mal" , response.toString());
+        Log.e("mal" , response);
     }
 }

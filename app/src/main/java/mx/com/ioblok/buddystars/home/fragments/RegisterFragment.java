@@ -1,27 +1,37 @@
 package mx.com.ioblok.buddystars.home.fragments;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import org.json.JSONObject;
+
+import java.util.HashMap;
+
 import mx.com.ioblok.buddystars.R;
+import mx.com.ioblok.buddystars.home.ListUsers;
+import mx.com.ioblok.buddystars.utils.WebBridge;
 
-/**
- * Created by kreativeco on 01/02/16.
- */
-public class RegisterFragment extends Fragment {
+public class RegisterFragment extends Fragment implements WebBridge.WebBridgeListener {
 
-    String name_full = "", strtext = "", name = "", lastname = "", phone = "", email = " ", fecha = " ", cost = "" , vacio ="vacio";
+    private static final int RESULT_OK = 1;
+    String name_full = "", strtext = "", name = "", lastname = "", phone = "", email = " ", fecha = " ",
+            cost = "", result_listUser, register_id, type_new = "1", type_amount, cien = "100", doscientos = "200";
     View v;
     Spinner spinner_code;
-    private EditText et_name_full, et_code_operation;
+    Button button_send;
+    private EditText et_name_full, et_code_operation,et_code_register;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,13 +56,8 @@ public class RegisterFragment extends Fragment {
             et_name_full = (EditText) v.findViewById(R.id.et_name_full);
             et_code_operation = (EditText) v.findViewById(R.id.et_code_operation);
             spinner_code = (Spinner) v.findViewById(R.id.et_cost);
-            // Create an ArrayAdapter using the string array and a default spinner
             ArrayAdapter<CharSequence> staticAdapter = ArrayAdapter.createFromResource(getContext(), R.array.mont_add, android.R.layout.simple_spinner_item);
-
-            // Specify the layout to use when the list of choices appears
             staticAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-            // Apply the adapter to the spinner
             spinner_code.setAdapter(staticAdapter);
             cost = spinner_code.getSelectedItem().toString();
         }
@@ -64,63 +69,128 @@ public class RegisterFragment extends Fragment {
         et_code_operation = (EditText) v.findViewById(R.id.et_code_operation);
 
         spinner_code = (Spinner) v.findViewById(R.id.et_cost);
-        // Create an ArrayAdapter using the string array and a default spinner
         ArrayAdapter<CharSequence> staticAdapter = ArrayAdapter.createFromResource(getContext(), R.array.mont_add, android.R.layout.simple_spinner_item);
-
-        // Specify the layout to use when the list of choices appears
         staticAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // Apply the adapter to the spinner
         spinner_code.setAdapter(staticAdapter);
-        cost = spinner_code.getSelectedItem().toString();
+        spinner_code.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> arg0, View arg1,
+                                       int arg2, long arg3) {
+                cost = spinner_code.getSelectedItem().toString();
+                if (cost.equals(cien)) {
+                    type_amount = "0";
+                } else if (cost.equals(doscientos)) {
+                    type_amount = "1";
+                } else {
+                    type_amount = "2";
+                }
+            }
 
-        EditText et_code_register = (EditText) v.findViewById(R.id.et_name_full);
-        et_code_register.setOnClickListener(new View.OnClickListener()
-        {
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+            }
+        });
+
+        et_code_register = (EditText) v.findViewById(R.id.et_name_full);
+        button_send = (Button) v.findViewById(R.id.btn_send_new);
+
+        et_code_register.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 addNewUser();
             }
         });
-
-        Button button = (Button) v.findViewById(R.id.btn_send_new);
-        button.setOnClickListener(new View.OnClickListener() {
+        button_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 completeData();
-
             }
         });
-
 
         return v;
 
     }
 
-    public void addNewUser(){
-        if (et_name_full.getText().toString().trim().length() == 0){
-            Log.e("vacio",vacio);
-        }else
-        {
-            Log.e("tiene algo" ,et_name_full.getText().toString());
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 1) {
+            if (resultCode == RESULT_OK) {
+                result_listUser = data.getStringExtra("list_name_user");
+                register_id = data.getStringExtra("register_id");
+
+                et_name_full = (EditText) v.findViewById(R.id.et_name_full);
+                et_name_full.setKeyListener(null);
+                et_name_full.setText(result_listUser);
+
+            }
+        }
+    }
+
+    public void addNewUser() {
+        if (et_name_full.getText().toString().trim().length() == 0) {
+            Intent intent = new Intent(getActivity(), ListUsers.class);
+            startActivityForResult(intent, 1);
+        } else {
+            Log.e("tiene algo", et_name_full.getText().toString());
         }
 
     }
+
     public void completeData() {
 
-        final AddDataBaseFragment addDataBaseFragment = new AddDataBaseFragment();
+        if (phone.length() == 0 || phone == null || phone == "" && email.length() == 0 || email == null || email == "" && fecha.length() == 0 || fecha == null || fecha == "" ){
 
-        Bundle data = new Bundle();
-        data.putString("name", name);
-        data.putString("surename", lastname);
-        data.putString("phone", phone);
-        data.putString("email", email);
-        data.putString("schedule", fecha);
-        data.putString("code_new", et_code_operation.getText().toString());
-        data.putString("cost", cost);
-        addDataBaseFragment.setArguments(data);
-        getFragmentManager().beginTransaction().replace(R.id.flContent, addDataBaseFragment).commit();
+            sendData();
+
+        } else {;
+
+            final AddDataBaseFragment addDataBaseFragment = new AddDataBaseFragment();
+            Bundle data = new Bundle();
+            data.putString("name", name);
+            data.putString("surename", lastname);
+            data.putString("phone", phone);
+            data.putString("email", email);
+            data.putString("schedule", fecha);
+            data.putString("code_new", et_code_operation.getText().toString());
+            data.putString("cost", cost);
+            addDataBaseFragment.setArguments(data);
+            getFragmentManager().beginTransaction().replace(R.id.flContent, addDataBaseFragment).commit();
+
+        }
+
     }
 
+    public void sendData() {
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("register_id", register_id);
+        params.put("code", et_code_operation.getText().toString());
+        params.put("type", type_new);
+        params.put("amount", type_amount);
+
+        WebBridge.send("/register-code", params, "Enviando", getActivity(), this);
+    }
+
+    public void exitSendData(){
+        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(getContext());
+        dialogo1.setTitle(R.string.title_gracias);
+        dialogo1.setMessage(R.string.codigo_exitoso);
+        dialogo1.setNeutralButton(R.string.cerrar, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogo1, int id) {
+                et_name_full.setText("");
+                et_code_operation.setText("");
+            }
+        });
+        dialogo1.show();
+    }
+
+    @Override
+    public void onWebBridgeSuccess(String url, JSONObject json) {
+        exitSendData();
+    }
+
+    @Override
+    public void onWebBridgeFailure(String url, String response) {
+        Log.e("mal", response);
+    }
 }

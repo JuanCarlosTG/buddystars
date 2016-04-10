@@ -8,9 +8,6 @@ import android.view.ViewGroup;
 
 import mx.com.ioblok.buddystars.R;
 
-/**
- * Created by kreativeco on 01/02/16.
- */
 public class PointsFragment extends Fragment {
 
     View v;
