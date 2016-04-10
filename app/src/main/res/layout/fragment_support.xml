@@ -20,9 +20,9 @@
         style="@style/view_support"/>
 
     <Button
+        android:id="@+id/btn_call"
         style="@style/btn_support"
         android:background="@drawable/bt_call"
-        android:id="@+id/btn_call"
         android:text="@string/bt_call"/>
 
     <View
@@ -40,7 +40,7 @@
 
     <Button
         style="@style/btn_support"
-        android:background="@drawable/bt_call"
+        android:background="@drawable/bt_email"
         android:id="@+id/btn_mail"
         android:text="@string/bt_mail"/>
 

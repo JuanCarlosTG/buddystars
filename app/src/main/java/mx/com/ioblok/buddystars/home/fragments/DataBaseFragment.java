@@ -24,6 +24,7 @@ public class DataBaseFragment extends Fragment implements WebBridge.WebBridgeLis
 
     View v;
     RecyclerView recyclerViewDataBase;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

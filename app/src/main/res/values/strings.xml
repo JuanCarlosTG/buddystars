@@ -69,8 +69,22 @@
     <string name="txt_beta_reports">Buddystars Beta</string>
 
     <string name="txt_title_registers">Registros</string>
-    
+
     <string name="prueba">prueba</string>
 
-
+    <string-array name="mont_add">
+        <item>100</item>
+        <item>200</item>
+        <item>300</item>
+    </string-array>
+    <string name="txt_seleccion_una_opcion">Selecciona una opcion</string>
+    <string name="title_gracias">Gracias</string>
+    <string name="codigo_exitoso">El código ha sido guardado</string>
+    <string name="cliente_exitoso">El cliente ha sido guardado</string>
+    <string name="confirmar_llamada">¿Quieres llamar al 56-78-90-45?</string>
+    <string name="confirmar_mail">¿Quieres mandar un correo a soporte@movistar.com?</string>
+    <string name="cerrar">Cerrar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="llamar">Llamar</string>
+    <string name="Escribir">Escribir</string>
 </resources>
