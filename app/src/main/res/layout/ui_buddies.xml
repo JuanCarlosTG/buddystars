@@ -26,7 +26,6 @@
             android:layout_weight="0.8"
             android:gravity="left"
             android:paddingTop="15sp"
-            android:textStyle="bold"
             android:text="@string/txt_beta_portability"
             android:textSize="22sp" />
 
