@@ -1,35 +1,36 @@
 <LinearLayout
-    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:orientation="vertical"
+    android:layout_height="wrap_content"
     android:background="@drawable/bg"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_margin="20sp"
-        android:background="@drawable/back_white">
+        android:background="@drawable/back_white"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/back_white"
-            android:paddingBottom="20sp"
-            android:paddingTop="20sp"
-            android:textSize="25sp"
-            android:gravity="left"
-            android:paddingLeft="20sp"
             android:layout_weight=".6"
-            android:text="@string/txt_beta_add"/>
+            android:background="@drawable/back_white"
+            android:gravity="left"
+            android:paddingBottom="20sp"
+            android:paddingLeft="20sp"
+            android:paddingTop="20sp"
+            android:text="@string/txt_beta_add"
+            android:textColor="@color/azulMovistar"
+            android:textSize="25sp" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1sp"
             android:layout_marginLeft="5sp"
             android:layout_marginRight="5sp"
-            android:background="@drawable/panel_separator"/>
+            android:background="@drawable/panel_separator" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,26 +42,27 @@
             <TextView
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/back_white"
-                android:paddingBottom="20sp"
-                android:paddingTop="20sp"
-                android:textSize="25sp"
-                android:gravity="left"
-                android:paddingLeft="20sp"
                 android:layout_weight=".6"
-                android:text="@string/txt_beta_adds"/>
+                android:background="@drawable/back_white"
+                android:gravity="left"
+                android:paddingBottom="20sp"
+                android:paddingLeft="20sp"
+                android:paddingTop="20sp"
+                android:textColor="@color/grisMovistar"
+                android:text="@string/txt_beta_adds"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/new_container"
                 android:layout_width="0sp"
-                android:layout_weight=".4"
                 android:layout_height="wrap_content"
-                android:background="@drawable/back_white"
-                android:paddingBottom="20sp"
-                android:paddingTop="20sp"
-                android:textSize="25sp"
+                android:layout_weight=".4"
                 android:gravity="right"
-                android:paddingRight="15sp"/>
+                android:textStyle="bold"
+                android:paddingBottom="20sp"
+                android:paddingRight="15sp"
+                android:paddingTop="20sp"
+                android:textSize="25sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -71,28 +73,28 @@
             <TextView
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/back_white"
-                android:paddingBottom="20sp"
-                android:paddingTop="20sp"
-                android:textSize="25sp"
-                android:gravity="left"
-                android:paddingLeft="20sp"
                 android:layout_weight=".6"
-                android:text="@string/txt_beta_portability"/>
+                android:background="@drawable/back_white"
+                android:gravity="left"
+                android:paddingBottom="20sp"
+                android:paddingLeft="20sp"
+                android:paddingTop="20sp"
+                android:textColor="@color/grisMovistar"
+                android:text="@string/txt_beta_portability"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/new_portability"
                 android:layout_width="0sp"
-                android:layout_weight=".4"
                 android:layout_height="wrap_content"
-                android:background="@drawable/back_white"
-                android:paddingBottom="20sp"
-                android:paddingTop="20sp"
-                android:textSize="25sp"
+                android:layout_weight=".4"
                 android:gravity="right"
-                android:paddingRight="15sp"/>
+                android:textStyle="bold"
+                android:paddingBottom="20sp"
+                android:paddingRight="15sp"
+                android:paddingTop="20sp"
+                android:textSize="25sp" />
         </LinearLayout>
-
 
 
     </LinearLayout>
@@ -100,57 +102,46 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginRight="20sp"
         android:layout_marginLeft="20sp"
-        android:background="@drawable/back_white">
+        android:layout_marginRight="20sp"
+        android:background="@drawable/back_white"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/back_white"
-            android:paddingBottom="20sp"
-            android:paddingTop="20sp"
-            android:textSize="25sp"
-            android:gravity="left"
-            android:paddingLeft="20sp"
             android:layout_weight=".6"
-            android:text="@string/txt_beta_reports"/>
+            android:background="@drawable/back_white"
+            android:gravity="left"
+            android:paddingBottom="20sp"
+            android:paddingLeft="20sp"
+            android:paddingTop="20sp"
+            android:textColor="@color/azulMovistar"
+            android:text="@string/txt_beta_reports"
+            android:textSize="25sp" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1sp"
             android:layout_marginLeft="5sp"
             android:layout_marginRight="5sp"
-            android:background="@drawable/panel_separator"/>
-        <LinearLayout
+            android:background="@drawable/panel_separator" />
+
+
+        <ScrollView
+            android:scrollbars="none"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="0sp"
+            <LinearLayout
+                android:id="@+id/ll_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/back_white"
-                android:paddingBottom="20sp"
-                android:paddingTop="20sp"
-                android:textSize="25sp"
-                android:gravity="left"
-                android:paddingLeft="20sp"
-                android:layout_weight=".6"
-                android:text="@string/txt_beta_portability"/>
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="0sp"
-                android:layout_weight=".4"
-                android:layout_height="wrap_content"
-                android:background="@drawable/back_white"
-                android:paddingBottom="20sp"
-                android:paddingTop="20sp"
-                android:textSize="25sp"
-                android:gravity="right"
-                android:paddingRight="15sp"/>
-        </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
 
         <!--<android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
