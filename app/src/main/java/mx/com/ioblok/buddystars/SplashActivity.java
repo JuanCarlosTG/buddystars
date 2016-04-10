@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import mx.com.ioblok.buddystars.home.HomeActivity;
 import mx.com.ioblok.buddystars.home.SelectActivity;
 import mx.com.ioblok.buddystars.utils.User;
 
@@ -26,7 +27,7 @@ public class SplashActivity extends Activity {
                 }finally{
 
                     if (User.logged(activity)) {
-                        Intent intent = new Intent(SplashActivity.this, SelectActivity.class);
+                        Intent intent = new Intent(SplashActivity.this, HomeActivity.class);
                         startActivityForResult(intent, 1);
                     } else {
                         Intent i = new Intent(SplashActivity.this, SelectActivity.class);

@@ -74,6 +74,7 @@ public class HomeActivity extends SectionActivity {
                 } else if (position == 9) {
                     supportFragment(arg1);
                 }
+                mDrawer.closeDrawers();
             }
         });
 
