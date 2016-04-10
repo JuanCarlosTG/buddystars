@@ -51,6 +51,7 @@
                 android:text="@string/txt_beta_adds"/>
 
             <TextView
+                android:id="@+id/new_container"
                 android:layout_width="0sp"
                 android:layout_weight=".4"
                 android:layout_height="wrap_content"
@@ -59,9 +60,69 @@
                 android:paddingTop="20sp"
                 android:textSize="25sp"
                 android:gravity="right"
-                android:paddingRight="5sp"/>
+                android:paddingRight="15sp"/>
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0sp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/back_white"
+                android:paddingBottom="20sp"
+                android:paddingTop="20sp"
+                android:textSize="25sp"
+                android:gravity="left"
+                android:paddingLeft="20sp"
+                android:layout_weight=".6"
+                android:text="@string/txt_beta_portability"/>
+
+            <TextView
+                android:id="@+id/new_portability"
+                android:layout_width="0sp"
+                android:layout_weight=".4"
+                android:layout_height="wrap_content"
+                android:background="@drawable/back_white"
+                android:paddingBottom="20sp"
+                android:paddingTop="20sp"
+                android:textSize="25sp"
+                android:gravity="right"
+                android:paddingRight="15sp"/>
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginRight="20sp"
+        android:layout_marginLeft="20sp"
+        android:background="@drawable/back_white">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/back_white"
+            android:paddingBottom="20sp"
+            android:paddingTop="20sp"
+            android:textSize="25sp"
+            android:gravity="left"
+            android:paddingLeft="20sp"
+            android:layout_weight=".6"
+            android:text="@string/txt_beta_reports"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1sp"
+            android:layout_marginLeft="5sp"
+            android:layout_marginRight="5sp"
+            android:background="@drawable/panel_separator"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -88,46 +149,15 @@
                 android:paddingTop="20sp"
                 android:textSize="25sp"
                 android:gravity="right"
-                android:paddingRight="5sp"/>
+                android:paddingRight="15sp"/>
         </LinearLayout>
 
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginRight="20sp"
-        android:layout_marginLeft="20sp"
-        android:background="@drawable/back_white">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/back_white"
-            android:paddingBottom="20sp"
-            android:paddingTop="20sp"
-            android:textSize="25sp"
-            android:gravity="left"
-            android:paddingLeft="20sp"
-            android:layout_weight=".6"
-            android:text="@string/txt_beta_reports"/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1sp"
-            android:layout_marginLeft="5sp"
-            android:layout_marginRight="5sp"
-            android:background="@drawable/panel_separator"/>
-
-        <android.support.v7.widget.RecyclerView
+        <!--<android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="15sp">
 
-        </android.support.v7.widget.RecyclerView>
+        </android.support.v7.widget.RecyclerView>-->
 
 
     </LinearLayout>
