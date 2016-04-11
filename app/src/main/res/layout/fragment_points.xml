@@ -158,8 +158,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
-                android:progress="80"
-                android:max="100"
                 android:progressDrawable="@drawable/progress_bar_portability" />
             <TextView
                 android:layout_width="match_parent"
@@ -177,13 +175,10 @@
             android:orientation="horizontal">
             <ProgressBar
                 android:id="@+id/progress_new"
-                style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
-                android:indeterminate="false"
-                android:progress="40"
-                android:max="100"
+                style="?android:attr/progressBarStyleHorizontal"
                 android:progressDrawable="@drawable/progress_bar_new" />
             <TextView
                 android:layout_width="match_parent"
@@ -222,7 +217,6 @@
                 android:text="@string/txt_title_portability" />
 
         </LinearLayout>
-
 
     </LinearLayout>
 

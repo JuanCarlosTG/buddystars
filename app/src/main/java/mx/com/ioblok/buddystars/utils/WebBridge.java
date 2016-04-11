@@ -202,7 +202,7 @@ public class WebBridge {
 
 	public void success (String response) {
 
-		Log.e("RESPONSE", response.toString());
+		//Log.e("RESPONSE", response.toString());
 
 		if (progress != null) {
 			progress.dismiss();
