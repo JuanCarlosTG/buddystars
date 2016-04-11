@@ -1,5 +1,6 @@
 package mx.com.ioblok.buddystars.home.fragments;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -53,8 +54,8 @@ public class DataBaseFragment extends Fragment implements WebBridge.WebBridgeLis
                 RecyclerView.Adapter rvAdapter = new DataBaseElementAdapter(jsonArrayFarmers, getActivity());
                 recyclerViewDataBase.setAdapter(rvAdapter);
             } else {
-                /*String error = json.getString("Errors");
-                new AlertDialog.Builder(getActivity().getBaseContext()).setTitle(R.string.txt_error).setMessage(error).setNeutralButton(R.string.bt_close, null).show();*/
+                String error = json.getJSONArray("error_message").getString(0);
+                new AlertDialog.Builder(getActivity().getBaseContext()).setTitle(R.string.txt_error).setMessage(error).setNeutralButton(R.string.bt_close, null).show();
             }
 
         } catch (Exception e) {

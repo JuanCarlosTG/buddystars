@@ -20,9 +20,11 @@
         android:gravity="center"
         android:orientation="vertical">
 
+
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/btn_login_facebook"
             android:background="@drawable/bt_facebook"
             android:gravity="center_horizontal|bottom"/>
 
