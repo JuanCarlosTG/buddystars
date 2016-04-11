@@ -112,7 +112,7 @@ public class BetaReportsFragment extends Fragment implements WebBridge.WebBridge
             colors.add(c);
 
         PieData data = new PieData(labels, dataset); // initialize Piedata
-        dataset.setColors(new int[]{R.color.azulMovistar, R.color.colorPrimaryDark}, getContext());
+        dataset.setColors(new int[]{R.color.azulMovistar, R.color.colorPrimaryDark}, getActivity());
         pieChart.setData(data);
         data.setValueTextColor(Color.WHITE);
         data.setValueTextSize(15);
