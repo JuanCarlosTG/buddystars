@@ -58,7 +58,7 @@ public class SupportFragment extends Fragment {
         dialogo1.setTitle(R.string.confirmar_llamada);
         dialogo1.setPositiveButton(R.string.llamar, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogo1, int id) {
-                callMedEmer();
+                call();
             }
         });
 
@@ -85,7 +85,7 @@ public class SupportFragment extends Fragment {
     }
 
 
-    public void callMedEmer() {
+    public void call() {
         Log.e("esperando llamada" , call);
         Intent callIntent = new Intent(Intent.ACTION_CALL);
         callIntent.setData(Uri.parse("tel:" + R.string.txt_support_phone));

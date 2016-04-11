@@ -12,8 +12,8 @@ import mx.com.ioblok.buddystars.R;
 import mx.com.ioblok.buddystars.SectionActivity;
 import mx.com.ioblok.buddystars.adapter.CustomMenuAdapter;
 import mx.com.ioblok.buddystars.home.fragments.AddDataBaseFragment;
-import mx.com.ioblok.buddystars.home.fragments.AlphaReportsFragment;
 import mx.com.ioblok.buddystars.home.fragments.BetaReportsFragment;
+import mx.com.ioblok.buddystars.home.fragments.AlphaReportsFragment;
 import mx.com.ioblok.buddystars.home.fragments.DataBaseFragment;
 import mx.com.ioblok.buddystars.home.fragments.DiaryFragment;
 import mx.com.ioblok.buddystars.home.fragments.PointsFragment;
@@ -114,13 +114,13 @@ public class HomeActivity extends SectionActivity {
     }
 
     public void alphaReportFragment(View view){
-        final AlphaReportsFragment alphaReportsFragment = new AlphaReportsFragment();
+        final BetaReportsFragment alphaReportsFragment = new BetaReportsFragment();
         getFragmentManager().beginTransaction().add(R.id.flContent, alphaReportsFragment).commit();
 
     }
 
     public void betaReportFragment(View view){
-        final BetaReportsFragment betaReportsFragment = new BetaReportsFragment();
+        final AlphaReportsFragment betaReportsFragment = new AlphaReportsFragment();
         getFragmentManager().beginTransaction().add(R.id.flContent, betaReportsFragment).commit();
 
     }

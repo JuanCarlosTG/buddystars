@@ -31,7 +31,8 @@ public class RegisterFragment extends Fragment implements WebBridge.WebBridgeLis
     View v;
     Spinner spinner_code;
     Button button_send;
-    private EditText et_name_full, et_code_operation,et_code_register;
+    private EditText et_name_full;
+    private EditText et_code_operation;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -90,7 +91,7 @@ public class RegisterFragment extends Fragment implements WebBridge.WebBridgeLis
             }
         });
 
-        et_code_register = (EditText) v.findViewById(R.id.et_name_full);
+        EditText et_code_register = (EditText) v.findViewById(R.id.et_name_full);
         button_send = (Button) v.findViewById(R.id.btn_send_new);
 
         et_code_register.setOnClickListener(new View.OnClickListener() {
@@ -143,7 +144,7 @@ public class RegisterFragment extends Fragment implements WebBridge.WebBridgeLis
 
             sendData();
 
-        } else {;
+        } else {
 
             final AddDataBaseFragment addDataBaseFragment = new AddDataBaseFragment();
             Bundle data = new Bundle();
