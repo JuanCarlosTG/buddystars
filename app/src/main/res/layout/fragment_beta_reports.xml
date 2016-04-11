@@ -1,7 +1,6 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@drawable/bg"
     android:orientation="vertical">
 
@@ -48,8 +47,8 @@
                 android:paddingBottom="20sp"
                 android:paddingLeft="20sp"
                 android:paddingTop="20sp"
-                android:textColor="@color/grisMovistar"
                 android:text="@string/txt_beta_adds"
+                android:textColor="@color/grisMovistar"
                 android:textSize="25sp" />
 
             <TextView
@@ -58,11 +57,11 @@
                 android:layout_height="wrap_content"
                 android:layout_weight=".4"
                 android:gravity="right"
-                android:textStyle="bold"
                 android:paddingBottom="20sp"
                 android:paddingRight="15sp"
                 android:paddingTop="20sp"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -79,8 +78,8 @@
                 android:paddingBottom="20sp"
                 android:paddingLeft="20sp"
                 android:paddingTop="20sp"
-                android:textColor="@color/grisMovistar"
                 android:text="@string/txt_beta_portability"
+                android:textColor="@color/grisMovistar"
                 android:textSize="25sp" />
 
             <TextView
@@ -89,69 +88,106 @@
                 android:layout_height="wrap_content"
                 android:layout_weight=".4"
                 android:gravity="right"
-                android:textStyle="bold"
                 android:paddingBottom="20sp"
                 android:paddingRight="15sp"
                 android:paddingTop="20sp"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
 
     </LinearLayout>
 
-    <LinearLayout
+    <ScrollView
+        android:scrollbars="none"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20sp"
-        android:layout_marginRight="20sp"
-        android:background="@drawable/back_white"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight=".6"
+            android:layout_marginLeft="20sp"
+            android:layout_marginRight="20sp"
             android:background="@drawable/back_white"
-            android:gravity="left"
-            android:paddingBottom="20sp"
-            android:paddingLeft="20sp"
-            android:paddingTop="20sp"
-            android:textColor="@color/azulMovistar"
-            android:text="@string/txt_beta_reports"
-            android:textSize="25sp" />
+            android:orientation="vertical">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1sp"
-            android:layout_marginLeft="5sp"
-            android:layout_marginRight="5sp"
-            android:background="@drawable/panel_separator" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".6"
+                android:background="@drawable/back_white"
+                android:gravity="left"
+                android:paddingBottom="20sp"
+                android:paddingLeft="20sp"
+                android:paddingTop="20sp"
+                android:text="@string/txt_beta_circle"
+                android:textColor="@color/azulMovistar"
+                android:textSize="25sp" />
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1sp"
+                android:layout_marginLeft="5sp"
+                android:layout_marginRight="5sp"
+                android:background="@drawable/panel_separator" />
 
-        <ScrollView
-            android:scrollbars="none"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="20sp"
+                android:layout_marginTop="20sp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Abril" />
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/ll_content"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="280sp"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/chart"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
 
 
             </LinearLayout>
-        </ScrollView>
 
-        <!--<android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="15sp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="20sp"
+                android:layout_marginTop="20sp"
+                android:layout_marginBottom="20sp"
+                android:orientation="horizontal">
 
-        </android.support.v7.widget.RecyclerView>-->
+                <TextView
+                    android:id="@+id/tv_required_person"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Faltan"
+                    android:textSize="16sp" />
+            </LinearLayout>
+            <!--<android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="15sp">
+
+            </android.support.v7.widget.RecyclerView>-->
 
 
-    </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
+
 

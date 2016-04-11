@@ -22,7 +22,6 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
     View v;
     String code_portability = "";
     String name ="" ,lastname = "", phone = "" ,email = "" ,fecha = " ", code_new = " ";
-
     private EditText et_name, et_lastname, et_telephone, et_email, et_diary, et_code_register,et_code_portability;
 
     @Override

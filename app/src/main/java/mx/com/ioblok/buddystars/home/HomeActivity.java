@@ -13,8 +13,8 @@ import mx.com.ioblok.buddystars.R;
 import mx.com.ioblok.buddystars.SectionActivity;
 import mx.com.ioblok.buddystars.adapter.CustomMenuAdapter;
 import mx.com.ioblok.buddystars.home.fragments.AddDataBaseFragment;
-import mx.com.ioblok.buddystars.home.fragments.AlphaReportsFragment;
 import mx.com.ioblok.buddystars.home.fragments.BetaReportsFragment;
+import mx.com.ioblok.buddystars.home.fragments.AlphaReportsFragment;
 import mx.com.ioblok.buddystars.home.fragments.DataBaseFragment;
 import mx.com.ioblok.buddystars.home.fragments.DiaryFragment;
 import mx.com.ioblok.buddystars.home.fragments.PointsFragment;
@@ -110,7 +110,7 @@ public class HomeActivity extends SectionActivity{
                 Log.e("nombre", name.toString());
                 Log.e("apellido", lastname.toString());
             } else {
-                Log.e("Vacio", vacio);
+                Log.e("Vacio" , vacio);
             }
         }
 
@@ -125,15 +125,16 @@ public class HomeActivity extends SectionActivity{
         getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, replaceDataBaseFragment).commit();
     }
 
-    public void alphaReportFragment(View view) {
-        final AlphaReportsFragment alphaReportsFragment = new AlphaReportsFragment();
-        getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, alphaReportsFragment).commit();
+
+    public void betaReportFragment(View view){
+        final BetaReportsFragment alphaReportsFragment = new BetaReportsFragment();
+        getFragmentManager().beginTransaction().add(R.id.flContent, alphaReportsFragment).commit();
 
     }
 
-    public void betaReportFragment(View view) {
-        final BetaReportsFragment betaReportsFragment = new BetaReportsFragment();
-        getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, betaReportsFragment).commit();
+    public void alphaReportFragment(View view){
+        final AlphaReportsFragment betaReportsFragment = new AlphaReportsFragment();
+        getFragmentManager().beginTransaction().add(R.id.flContent, betaReportsFragment).commit();
 
     }
 
