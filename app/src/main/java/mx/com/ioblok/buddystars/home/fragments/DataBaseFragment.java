@@ -1,6 +1,7 @@
 package mx.com.ioblok.buddystars.home.fragments;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.support.v7.widget.LinearLayoutManager;
@@ -65,4 +66,5 @@ public class DataBaseFragment extends Fragment implements WebBridge.WebBridgeLis
     public void onWebBridgeFailure(String url, String response) {
 
     }
+
 }

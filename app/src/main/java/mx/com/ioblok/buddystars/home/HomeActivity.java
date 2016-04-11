@@ -27,7 +27,7 @@ import mx.com.ioblok.buddystars.home.fragments.RegisterFragment;
 import mx.com.ioblok.buddystars.home.fragments.SupportFragment;
 import mx.com.ioblok.buddystars.utils.Constants;
 
-public class HomeActivity extends SectionFragmentActivity {
+public class HomeActivity extends SectionActivity{
 
     public ImageButton btnMenu;
 
@@ -193,7 +193,7 @@ public class HomeActivity extends SectionFragmentActivity {
 
     }
 
-    @Override
+    /*@Override
     public void onBackPressed() {
 
         if (getFragmentManager().getBackStackEntryCount() > 0) {
@@ -202,5 +202,5 @@ public class HomeActivity extends SectionFragmentActivity {
             super.onBackPressed();
         }
 
-    }
+    }*/
 }
