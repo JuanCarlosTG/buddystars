@@ -18,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:gravity="center"
             android:id="@+id/ll_calendar_tools">
 
             <Button
@@ -34,6 +35,8 @@
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
                 android:layout_weight=".5"
+                android:textSize="16sp"
+                android:gravity="center"
                 android:id="@+id/tv_current_date"
                 android:background="@android:color/transparent" />
 
@@ -69,9 +72,18 @@
             <TextView
                 style="@style/title_fragment"
                 android:layout_centerInParent="true"
-                android:text="@string/txt_title_portability"/>
+                android:text="@string/txt_schedules"/>
 
-
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/ic_menu_add"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="10sp"
+                android:layout_marginEnd="10sp"
+                android:id="@+id/btn_add"
+                android:layout_centerVertical="true"/>
         </RelativeLayout>
 
     </LinearLayout>

@@ -87,4 +87,7 @@
     <string name="cancelar">Cancelar</string>
     <string name="llamar">Llamar</string>
     <string name="Escribir">Escribir</string>
+
+    <string name="txt_schedules">Horarios</string>
+
 </resources>
