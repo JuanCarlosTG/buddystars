@@ -148,7 +148,7 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
 
 
     public void codePortability(){
-        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(getContext());
+        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(getActivity());
         dialogo1.setTitle("Selecciona una opción");
         dialogo1.setCancelable(false);
         dialogo1.setNegativeButton("Eliminar", new DialogInterface.OnClickListener() {
@@ -198,7 +198,7 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
     }
 
     public void exitSendData(){
-        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(getContext());
+        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(getActivity());
         dialogo1.setTitle(R.string.title_gracias);
         dialogo1.setMessage(R.string.cliente_exitoso);
         dialogo1.setNeutralButton(R.string.cerrar, new DialogInterface.OnClickListener() {

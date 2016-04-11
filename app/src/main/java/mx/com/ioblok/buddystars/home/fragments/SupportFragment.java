@@ -54,7 +54,7 @@ public class SupportFragment extends Fragment {
     };
 
     public void callSupport(){
-        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(getContext());
+        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(getActivity());
         dialogo1.setTitle(R.string.confirmar_llamada);
         dialogo1.setPositiveButton(R.string.llamar, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogo1, int id) {
@@ -70,7 +70,7 @@ public class SupportFragment extends Fragment {
     }
 
     public void sendMail(){
-        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(getContext());
+        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(getActivity());
         dialogo1.setTitle(R.string.confirmar_mail);
         dialogo1.setPositiveButton(R.string.Escribir, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogo1, int id) {

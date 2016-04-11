@@ -140,7 +140,7 @@ public class PortabilityFragment extends Fragment implements WebBridge.WebBridge
     }
 
     public void exitSendData() {
-        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(getContext());
+        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(getActivity());
         dialogo1.setTitle(R.string.title_gracias);
         dialogo1.setMessage(R.string.codigo_exitoso);
         dialogo1.setNeutralButton(R.string.cerrar, new DialogInterface.OnClickListener() {
