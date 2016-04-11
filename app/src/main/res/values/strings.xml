@@ -67,6 +67,7 @@
     <string name="txt_beta_portability">Portabilidad</string>
     <string name="txt_beta_adds">Nuevas</string>
     <string name="txt_beta_reports">Buddystars Beta</string>
+    <string name="txt_beta_circle">Meta</string>
 
     <string name="txt_title_registers">Registros</string>
 
@@ -87,4 +88,7 @@
     <string name="cancelar">Cancelar</string>
     <string name="llamar">Llamar</string>
     <string name="Escribir">Escribir</string>
+    
+    <string name="first_text_required">Te faltan</string>
+    <string name="second_text_required">personas para llegar a la meta</string>
 </resources>

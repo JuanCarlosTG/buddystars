@@ -113,13 +113,13 @@ public class HomeActivity extends SectionActivity {
         getFragmentManager().beginTransaction().add(R.id.flContent, addDataBaseFragment).commit();
     }
 
-    public void alphaReportFragment(View view){
+    public void betaReportFragment(View view){
         final BetaReportsFragment alphaReportsFragment = new BetaReportsFragment();
         getFragmentManager().beginTransaction().add(R.id.flContent, alphaReportsFragment).commit();
 
     }
 
-    public void betaReportFragment(View view){
+    public void alphaReportFragment(View view){
         final AlphaReportsFragment betaReportsFragment = new AlphaReportsFragment();
         getFragmentManager().beginTransaction().add(R.id.flContent, betaReportsFragment).commit();
 
