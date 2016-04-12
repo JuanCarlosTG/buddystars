@@ -50,8 +50,8 @@ public class DataBaseFragment extends Fragment implements WebBridge.WebBridgeLis
         Log.e("json", json.toString());
         try {
             if (json.getBoolean("success")) {
-                JSONArray jsonArrayFarmers = json.getJSONArray("data");
-                RecyclerView.Adapter rvAdapter = new DataBaseElementAdapter(jsonArrayFarmers, getActivity());
+                JSONArray jsonArrayContacts = json.getJSONArray("data");
+                RecyclerView.Adapter rvAdapter = new DataBaseElementAdapter(jsonArrayContacts, getActivity());
                 recyclerViewDataBase.setAdapter(rvAdapter);
             } else {
                 String error = json.getJSONArray("error_message").getString(0);
