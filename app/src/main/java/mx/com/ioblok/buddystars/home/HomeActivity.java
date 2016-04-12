@@ -1,5 +1,9 @@
 package mx.com.ioblok.buddystars.home;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
@@ -21,6 +25,7 @@ import mx.com.ioblok.buddystars.home.fragments.PortabilityFragment;
 import mx.com.ioblok.buddystars.home.fragments.RegisterFragment;
 import mx.com.ioblok.buddystars.home.fragments.SupportFragment;
 import mx.com.ioblok.buddystars.utils.Constants;
+import mx.com.ioblok.buddystars.utils.User;
 
 public class HomeActivity extends SectionActivity {
 
@@ -95,69 +100,96 @@ public class HomeActivity extends SectionActivity {
             lastname = bundle.getString("lastname");
 
             if (name != null) {
-                Log.e("nombre" , name.toString());
-                Log.e("apellido" ,lastname.toString());
+                Log.e("nombre", name.toString());
+                Log.e("apellido", lastname.toString());
             } else {
-                Log.e("Vacio" , vacio);
+                Log.e("Vacio", vacio);
             }
         }
 
     }
 
-    public void closeDrawer(View view){
+    public void closeDrawer(View view) {
         mDrawer.closeDrawers();
     }
 
-    public void addDataBaseFragment(View view){
+    public void addDataBaseFragment(View view) {
         final AddDataBaseFragment addDataBaseFragment = new AddDataBaseFragment();
         getFragmentManager().beginTransaction().add(R.id.flContent, addDataBaseFragment).commit();
     }
 
-    public void betaReportFragment(View view){
+    public void betaReportFragment(View view) {
         final BetaReportsFragment alphaReportsFragment = new BetaReportsFragment();
         getFragmentManager().beginTransaction().add(R.id.flContent, alphaReportsFragment).commit();
 
     }
 
-    public void alphaReportFragment(View view){
+    public void alphaReportFragment(View view) {
         final AlphaReportsFragment betaReportsFragment = new AlphaReportsFragment();
         getFragmentManager().beginTransaction().add(R.id.flContent, betaReportsFragment).commit();
 
     }
 
-    public void dataBaseFragment(View view){
+    public void dataBaseFragment(View view) {
         final DataBaseFragment dataBaseFragment = new DataBaseFragment();
         getFragmentManager().beginTransaction().add(R.id.flContent, dataBaseFragment).commit();
     }
 
-    public void diaryFragment(View view){
+    public void diaryFragment(View view) {
         final DiaryFragment diaryFragment = new DiaryFragment();
         getFragmentManager().beginTransaction().add(R.id.flContent, diaryFragment).commit();
 
     }
 
-    public void pointsFragment(View view){
+    public void pointsFragment(View view) {
         final PointsFragment pointsFragment = new PointsFragment();
         getFragmentManager().beginTransaction().add(R.id.flContent, pointsFragment).commit();
 
     }
 
-    public void portabilityFragment(View view){
+    public void portabilityFragment(View view) {
         final PortabilityFragment portabilityFragment = new PortabilityFragment();
         getFragmentManager().beginTransaction().add(R.id.flContent, portabilityFragment).commit();
 
     }
 
-    public void registerFragment(View view){
+    public void registerFragment(View view) {
 
         final RegisterFragment registerFragment = new RegisterFragment();
         getFragmentManager().beginTransaction().add(R.id.flContent, registerFragment).commit();
 
     }
 
-    public void supportFragment(View view){
+    public void supportFragment(View view) {
         final SupportFragment supportFragment = new SupportFragment();
         getFragmentManager().beginTransaction().add(R.id.flContent, supportFragment).commit();
+
+    }
+
+    public void logOut(View view) {
+        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
+        dialogo1.setTitle("¿Desea cerrar sesión?");
+        dialogo1.setCancelable(false);
+        dialogo1.setNegativeButton("Aceptar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogo1, int id) {
+                removeUser();
+            }
+        });
+        dialogo1.setPositiveButton("Cancelar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialogo1, int id) {
+            }
+        });
+        dialogo1.show();
+
+    }
+
+    private void removeUser() {
+
+        User.clear(this);
+        finish();
+        Intent i = new Intent(HomeActivity.this, LoginActivity.class);
+        startActivity(i);
+        finish();
 
     }
 
