@@ -57,7 +57,7 @@ public class RegisterFragment extends Fragment implements WebBridge.WebBridgeLis
             et_name_full = (EditText) v.findViewById(R.id.et_name_full);
             et_code_operation = (EditText) v.findViewById(R.id.et_code_operation);
             spinner_code = (Spinner) v.findViewById(R.id.et_cost);
-            ArrayAdapter<CharSequence> staticAdapter = ArrayAdapter.createFromResource(getContext(), R.array.mont_add, android.R.layout.simple_spinner_item);
+            ArrayAdapter<CharSequence> staticAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.mont_add, android.R.layout.simple_spinner_item);
             staticAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinner_code.setAdapter(staticAdapter);
             cost = spinner_code.getSelectedItem().toString();
@@ -70,7 +70,7 @@ public class RegisterFragment extends Fragment implements WebBridge.WebBridgeLis
         et_code_operation = (EditText) v.findViewById(R.id.et_code_operation);
 
         spinner_code = (Spinner) v.findViewById(R.id.et_cost);
-        ArrayAdapter<CharSequence> staticAdapter = ArrayAdapter.createFromResource(getContext(), R.array.mont_add, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> staticAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.mont_add, android.R.layout.simple_spinner_item);
         staticAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner_code.setAdapter(staticAdapter);
         spinner_code.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

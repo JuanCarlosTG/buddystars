@@ -88,7 +88,11 @@
     <string name="cancelar">Cancelar</string>
     <string name="llamar">Llamar</string>
     <string name="Escribir">Escribir</string>
-    
+
+    <string name="txt_schedules">Horarios</string>
+    <string name="facebook_app_id">255385374800034</string>
+
+
     <string name="first_text_required">Te faltan</string>
     <string name="second_text_required">personas para llegar a la meta</string>
 </resources>

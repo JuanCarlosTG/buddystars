@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
@@ -27,13 +28,14 @@ import mx.com.ioblok.buddystars.home.fragments.SupportFragment;
 import mx.com.ioblok.buddystars.utils.Constants;
 import mx.com.ioblok.buddystars.utils.User;
 
-public class HomeActivity extends SectionActivity {
+public class HomeActivity extends SectionActivity{
 
     public ImageButton btnMenu;
 
     private DrawerLayout mDrawer;
     private ListView mDrawerOptions;
     CustomMenuAdapter adapterActivity;
+    FragmentManager manager;
 
     String vacio = "vacio";
     String name = "";
@@ -78,6 +80,7 @@ public class HomeActivity extends SectionActivity {
                 } else if (position == 9) {
                     supportFragment(arg1);
                 }
+                mDrawer.closeDrawers();
             }
         });
 
@@ -89,8 +92,17 @@ public class HomeActivity extends SectionActivity {
             }
         });
 
-        final DataBaseFragment dataBaseFragment = new DataBaseFragment();
-        getFragmentManager().beginTransaction().add(R.id.flContent, dataBaseFragment).commit();
+        if (findViewById(R.id.flContent) != null) {
+
+            if (savedInstanceState != null) {
+                return;
+            }
+
+            DataBaseFragment dataBaseFragment = new DataBaseFragment();
+            manager = getFragmentManager();
+            manager.beginTransaction().add(R.id.flContent, dataBaseFragment).commit();
+        }
+
 
         Bundle bundle = getIntent().getExtras();
 
@@ -114,17 +126,18 @@ public class HomeActivity extends SectionActivity {
     }
 
     public void addDataBaseFragment(View view) {
-        final AddDataBaseFragment addDataBaseFragment = new AddDataBaseFragment();
-        getFragmentManager().beginTransaction().add(R.id.flContent, addDataBaseFragment).commit();
+        final AddDataBaseFragment replaceDataBaseFragment = new AddDataBaseFragment();
+        getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, replaceDataBaseFragment).commit();
     }
 
-    public void betaReportFragment(View view) {
+
+    public void betaReportFragment(View view){
         final BetaReportsFragment alphaReportsFragment = new BetaReportsFragment();
         getFragmentManager().beginTransaction().add(R.id.flContent, alphaReportsFragment).commit();
 
     }
 
-    public void alphaReportFragment(View view) {
+    public void alphaReportFragment(View view){
         final AlphaReportsFragment betaReportsFragment = new AlphaReportsFragment();
         getFragmentManager().beginTransaction().add(R.id.flContent, betaReportsFragment).commit();
 
@@ -132,31 +145,31 @@ public class HomeActivity extends SectionActivity {
 
     public void dataBaseFragment(View view) {
         final DataBaseFragment dataBaseFragment = new DataBaseFragment();
-        getFragmentManager().beginTransaction().add(R.id.flContent, dataBaseFragment).commit();
+        getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, dataBaseFragment).commit();
     }
 
     public void diaryFragment(View view) {
         final DiaryFragment diaryFragment = new DiaryFragment();
-        getFragmentManager().beginTransaction().add(R.id.flContent, diaryFragment).commit();
+        getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, diaryFragment).commit();
 
     }
 
     public void pointsFragment(View view) {
         final PointsFragment pointsFragment = new PointsFragment();
-        getFragmentManager().beginTransaction().add(R.id.flContent, pointsFragment).commit();
+        getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, pointsFragment).commit();
 
     }
 
     public void portabilityFragment(View view) {
         final PortabilityFragment portabilityFragment = new PortabilityFragment();
-        getFragmentManager().beginTransaction().add(R.id.flContent, portabilityFragment).commit();
+        getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, portabilityFragment).commit();
 
     }
 
     public void registerFragment(View view) {
 
-        final RegisterFragment registerFragment = new RegisterFragment();
-        getFragmentManager().beginTransaction().add(R.id.flContent, registerFragment).commit();
+        RegisterFragment registerFragment = new RegisterFragment();
+        getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, registerFragment).commit();
 
     }
 
@@ -192,6 +205,9 @@ public class HomeActivity extends SectionActivity {
         startActivity(i);
         finish();
 
+        SupportFragment supportFragment = new SupportFragment();
+        getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, supportFragment).commit();
+
     }
 
     public void actionsFromSubMenuItems(View view) {
@@ -209,4 +225,14 @@ public class HomeActivity extends SectionActivity {
 
     }
 
+    /*@Override
+    public void onBackPressed() {
+
+        if (getFragmentManager().getBackStackEntryCount() > 0) {
+            getFragmentManager().popBackStack();
+        } else {
+            super.onBackPressed();
+        }
+
+    }*/
 }

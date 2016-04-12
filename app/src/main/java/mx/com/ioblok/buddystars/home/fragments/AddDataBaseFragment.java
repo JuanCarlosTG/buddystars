@@ -50,7 +50,9 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
             et_lastname = (EditText)v.findViewById(R.id.et_lastname);
             et_telephone = (EditText)v.findViewById(R.id.et_telephone);
             et_email = (EditText)v.findViewById(R.id.et_email);
+
             et_diary = (EditText)v.findViewById(R.id.et_diary);
+            et_diary.setKeyListener(null);
 
             et_code_register = (EditText)v.findViewById(R.id.et_code_register);
             et_code_register.setKeyListener(null);
@@ -67,8 +69,11 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
             et_telephone.setText(phone);
             et_email = (EditText)v.findViewById(R.id.et_email);
             et_email.setText(email);
+
             et_diary = (EditText)v.findViewById(R.id.et_diary);
+            et_diary.setKeyListener(null);
             et_diary.setText(fecha);
+
             et_code_register = (EditText)v.findViewById(R.id.et_code_register);
             et_code_register.setKeyListener(null);
             et_code_register.setText(code_new);
@@ -88,6 +93,17 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
 
             }
         });
+
+        EditText et_diary = (EditText) v.findViewById(R.id.et_diary);
+        et_diary.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                addDate();
+            }
+        });
+
 
         EditText et_code_register = (EditText) v.findViewById(R.id.et_code_register);
         et_code_register.setOnClickListener(new View.OnClickListener()
@@ -111,6 +127,7 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
         return v;
     }
 
+
     public void sendRegister(){
 
         HashMap<String, Object> params = new HashMap<>();
@@ -123,6 +140,20 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
         params.put("code_portability", et_code_portability.getText().toString());
 
         WebBridge.send("/register-add", params, "Enviando", getActivity(), this);
+    }
+
+    private void addDate() {
+        final DiaryFragment diaryFragment  = new DiaryFragment();
+
+        Bundle data = new Bundle();
+        data.putString("name" , et_name.getText().toString());
+        data.putString("surename", et_lastname.getText().toString());
+        data.putString("phone", et_telephone.getText().toString());
+        data.putString("email", et_email.getText().toString());
+
+        diaryFragment.setArguments(data);
+        getFragmentManager().beginTransaction().add(R.id.flContent, diaryFragment).commit();
+
     }
 
     public void addAltaCode(){
