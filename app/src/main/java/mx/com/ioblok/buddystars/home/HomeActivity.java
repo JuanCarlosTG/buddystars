@@ -181,6 +181,7 @@ public class HomeActivity extends SectionActivity {
         });
         dialogo1.show();
 
+        
     }
 
     private void removeUser() {
