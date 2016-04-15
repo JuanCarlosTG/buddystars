@@ -70,15 +70,6 @@ public class SectionActivity extends Activity {
         }
     }
 
-    public void hideTrademarkButton(boolean shouldHide) {
-        ImageButton btnTrademark = (ImageButton) findViewById(R.id.btn_trademark);
-        if (btnTrademark != null) {
-            if(shouldHide)
-                btnTrademark.setVisibility(View.INVISIBLE);
-            else btnTrademark.setVisibility(View.VISIBLE);
-        }
-    }
-
     public void setMainImage(int drawable) {
         ImageView mainImageHome = (ImageView) findViewById(R.id.image_header);
         if (mainImageHome != null) {

@@ -49,6 +49,7 @@
 
     <string name="txt_title_add">Nuevo</string>
     <string name="txt_title_portability">Portabilidad</string>
+    <string name="txt_tilte_go_to">Ir A</string>
 
     <string name="txt_register_customer">Cliente</string>
     <string name="txt_register_operation_code">Código Operación</string>

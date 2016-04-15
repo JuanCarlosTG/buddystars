@@ -8,17 +8,27 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.app.FragmentManager;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.TextViewCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.BitmapImageViewTarget;
 
 import mx.com.ioblok.buddystars.R;
 import mx.com.ioblok.buddystars.SectionActivity;
@@ -39,7 +49,9 @@ import mx.com.ioblok.buddystars.utils.User;
 
 public class HomeActivity extends SectionActivity implements ActivityCompat.OnRequestPermissionsResultCallback{
 
-    public ImageButton btnMenu, btnWebView;
+    public ImageButton btnMenu;
+    public ImageView imageHeaderList;
+    public TextView txtHeaderList;
 
     private DrawerLayout mDrawer;
     private ListView mDrawerOptions;
@@ -65,6 +77,27 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
 
         View header = getLayoutInflater().inflate(R.layout.header_list, null);
         View footer = getLayoutInflater().inflate(R.layout.footer_list, null);
+
+        imageHeaderList = (ImageView) header.findViewById(R.id.image_header_profile);
+        txtHeaderList = (TextView) header.findViewById(R.id.txt_username);
+        String userName = User.get("username", this);
+        String avatar = User.get("avatar", this);
+        txtHeaderList.setText(userName);
+
+
+        final int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 110, getResources().getDisplayMetrics());
+
+        Glide.with(this).load(avatar).asBitmap().centerCrop().into(new BitmapImageViewTarget(imageHeaderList) {
+            @Override
+            protected void setResource(Bitmap resource) {
+                RoundedBitmapDrawable circularBitmapDrawable =
+                        RoundedBitmapDrawableFactory.create(getResources(), resource);
+                circularBitmapDrawable.setCircular(true);
+                imageHeaderList.setImageDrawable(circularBitmapDrawable);
+                imageHeaderList.getLayoutParams().height = px;
+                imageHeaderList.getLayoutParams().width = px;
+            }
+        });
 
         mDrawerOptions = (ListView) findViewById(R.id.left_drawer);
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -136,15 +169,6 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
                 Log.e("Vacio", vacio);
             }
         }
-
-        btnWebView = (ImageButton) findViewById(R.id.i_btn_web_view);
-        btnWebView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.movistar.com.mx/promociones/cambiate-a-movistar/?utm_source=google_p&utm_medium=sem_desk&utm_content=m_portabilidad_exacta&utm_campaign=product_marca_generica_portabilidad&gclid=CK2S9Obq68sCFQUMaQodciABdQ&gclsrc=aw.ds&dclid=CJLAj-fq68sCFQ90AQodcHUDBA"));
-                startActivity(browserIntent);
-            }
-        });
 
     }
 

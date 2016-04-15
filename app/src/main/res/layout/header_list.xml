@@ -20,14 +20,15 @@
             android:layout_marginLeft="12sp"
             android:id="@+id/ib_header_list"
             android:onClick="closeDrawer"
+            android:visibility="invisible"
             android:layout_marginRight="12sp"/>
 
     </RelativeLayout>
 
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="110sp"
+        android:layout_height="110sp"
         android:layout_margin="10sp"
         android:background="@drawable/mask_avatar"
         android:id="@+id/image_header_profile"
@@ -35,8 +36,8 @@
         android:layout_centerHorizontal="true"/>
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="110sp"
+        android:layout_height="110sp"
         android:layout_margin="10sp"
         android:background="@drawable/mask_avatar"
         android:layout_below="@+id/rl_header_list"
@@ -47,6 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10sp"
         android:gravity="center"
+        android:id="@+id/txt_username"
         android:layout_below="@+id/image_header_profile"
         android:textColor="@color/colorPrimaryDark"/>
 

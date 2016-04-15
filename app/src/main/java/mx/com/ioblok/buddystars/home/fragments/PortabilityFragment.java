@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 
 import org.json.JSONObject;
@@ -32,6 +34,7 @@ public class PortabilityFragment extends Fragment implements WebBridge.WebBridge
             cuatrocuatronueve = "449", cincocuatronueve = "549",sietecuatronueve = "749", nuvenuevenueve = "999";
     private EditText et_name_full, et_code_operation;
     Spinner spinner_code;
+    ImageButton btnWebView;
     View v;
 
     @Override
@@ -114,6 +117,17 @@ public class PortabilityFragment extends Fragment implements WebBridge.WebBridge
                 completeData();
             }
         });
+
+
+        btnWebView = (ImageButton) v.findViewById(R.id.btn_trademark);
+        btnWebView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.movistar.com.mx/promociones/cambiate-a-movistar/?utm_source=google_p&utm_medium=sem_desk&utm_content=m_portabilidad_exacta&utm_campaign=product_marca_generica_portabilidad&gclid=CK2S9Obq68sCFQUMaQodciABdQ&gclsrc=aw.ds&dclid=CJLAj-fq68sCFQ90AQodcHUDBA"));
+                startActivity(browserIntent);
+            }
+        });
+
 
         return v;
 

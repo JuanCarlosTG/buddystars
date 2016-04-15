@@ -74,6 +74,7 @@ public class LoginActivity extends Activity implements WebBridge.WebBridgeListen
 
         } catch (JSONException e) {
             e.printStackTrace();
+            Log.e("EXCEPTION", e.toString());
         }
     }
 
