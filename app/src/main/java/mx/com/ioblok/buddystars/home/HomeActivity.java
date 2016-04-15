@@ -1,12 +1,19 @@
 package mx.com.ioblok.buddystars.home;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.app.FragmentManager;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,6 +22,7 @@ import android.widget.ListView;
 
 import mx.com.ioblok.buddystars.R;
 import mx.com.ioblok.buddystars.SectionActivity;
+import mx.com.ioblok.buddystars.SectionFragmentActivity;
 import mx.com.ioblok.buddystars.adapter.CustomMenuAdapter;
 import mx.com.ioblok.buddystars.home.fragments.AddDataBaseFragment;
 import mx.com.ioblok.buddystars.home.fragments.BetaReportsFragment;
@@ -26,9 +34,10 @@ import mx.com.ioblok.buddystars.home.fragments.PortabilityFragment;
 import mx.com.ioblok.buddystars.home.fragments.RegisterFragment;
 import mx.com.ioblok.buddystars.home.fragments.SupportFragment;
 import mx.com.ioblok.buddystars.utils.Constants;
+import mx.com.ioblok.buddystars.utils.PermissionUtils;
 import mx.com.ioblok.buddystars.utils.User;
 
-public class HomeActivity extends SectionActivity{
+public class HomeActivity extends SectionActivity implements ActivityCompat.OnRequestPermissionsResultCallback{
 
     public ImageButton btnMenu;
 
@@ -40,6 +49,11 @@ public class HomeActivity extends SectionActivity{
     String vacio = "vacio";
     String name = "";
     String lastname = "";
+    String call = "llamando";
+
+
+    private static final int CALL_PERMISSION_REQUEST_CODE = 1;
+    private boolean mShowPermissionDeniedDialog = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,9 +112,9 @@ public class HomeActivity extends SectionActivity{
                 return;
             }
 
-            DataBaseFragment dataBaseFragment = new DataBaseFragment();
+            AddDataBaseFragment addDataBaseFragment = new AddDataBaseFragment();
             manager = getFragmentManager();
-            manager.beginTransaction().add(R.id.flContent, dataBaseFragment).commit();
+            manager.beginTransaction().add(R.id.flContent, addDataBaseFragment).commit();
         }
 
 
@@ -194,7 +208,7 @@ public class HomeActivity extends SectionActivity{
         });
         dialogo1.show();
 
-        
+
     }
 
     private void removeUser() {
@@ -222,6 +236,53 @@ public class HomeActivity extends SectionActivity{
                 break;
 
         }*/
+
+    }
+
+    public void call() {
+        Log.e("esperando llamada" , call);
+        Intent callIntent = new Intent(Intent.ACTION_CALL);
+        callIntent.setData(Uri.parse("tel:" + "56789045"));
+        startActivity(callIntent);
+    }
+
+    public void askForPermissions() {
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.CALL_PHONE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            // Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.CALL_PHONE)) {
+
+            } else {
+
+                // No explanation needed, we can request the permission.
+                Log.e("request permission", "request 2");
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.CALL_PHONE},
+                        CALL_PERMISSION_REQUEST_CODE);
+
+            }
+        }else{
+            call();
+        }
+
+    }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] results) {
+        if (requestCode != CALL_PERMISSION_REQUEST_CODE) {
+            return;
+        }
+
+        if (PermissionUtils.isPermissionGranted(permissions, results,
+                Manifest.permission.CALL_PHONE)) {
+            call();
+        } else {
+            mShowPermissionDeniedDialog = true;
+        }
 
     }
 

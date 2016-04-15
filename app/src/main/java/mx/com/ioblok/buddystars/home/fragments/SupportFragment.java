@@ -9,6 +9,8 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,12 +18,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import mx.com.ioblok.buddystars.R;
+import mx.com.ioblok.buddystars.home.HomeActivity;
+import mx.com.ioblok.buddystars.utils.PermissionUtils;
 
 public class SupportFragment extends Fragment {
 
     View v;
-    Button btn_call , btn_mail;
-    String call = "llamando";
+    Button btn_call, btn_mail;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,12 +57,14 @@ public class SupportFragment extends Fragment {
         }
     };
 
-    public void callSupport(){
+    public void callSupport() {
         AlertDialog.Builder dialogo1 = new AlertDialog.Builder(getActivity());
         dialogo1.setTitle(R.string.confirmar_llamada);
         dialogo1.setPositiveButton(R.string.llamar, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogo1, int id) {
-                call();
+                //call();
+
+                ((HomeActivity) getActivity()).askForPermissions();                //askForPermissions();
             }
         });
 
@@ -69,7 +75,8 @@ public class SupportFragment extends Fragment {
         dialogo1.show();
     }
 
-    public void sendMail(){
+
+    public void sendMail() {
         AlertDialog.Builder dialogo1 = new AlertDialog.Builder(getActivity());
         dialogo1.setTitle(R.string.confirmar_mail);
         dialogo1.setPositiveButton(R.string.Escribir, new DialogInterface.OnClickListener() {
@@ -85,21 +92,15 @@ public class SupportFragment extends Fragment {
     }
 
 
-    public void call() {
-        Log.e("esperando llamada" , call);
-        Intent callIntent = new Intent(Intent.ACTION_CALL);
-        callIntent.setData(Uri.parse("tel:" + R.string.txt_support_phone));
-        if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
-        startActivity(callIntent);
-    }
-
 }
+
+    /*@Override
+    public void onResume() {
+        super.onResume();
+        if (mShowPermissionDeniedDialog) {
+            PermissionUtils.PermissionDeniedDialog.newInstance(false).show(getFragmentManager(), "dialog");
+            mShowPermissionDeniedDialog = false;
+        }
+    }*/
+
+

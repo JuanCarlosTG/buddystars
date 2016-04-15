@@ -92,6 +92,11 @@
     <string name="txt_schedules">Horarios</string>
     <string name="facebook_app_id">255385374800034</string>
 
+    <string name="permission_rationale_location">Buddystars necesita permiso que otorgues permiso para realizar llamadas.</string>
+    <string name="location_permission_denied">Buddystars Requiere permiso para realizar llamadas. Por favor inténtalo nuevamente y otorga el permiso.\nSi el permiso ha sido negado permanentemente, puedes habilitarlo desde las configuraciones del sistema.</string>
+    <string name="permission_required_toast">Buddystars Requiere permiso para realizar llamadas</string>
+    <!--<string name="map_not_ready">La llamada no está disponible</string>-->
+
 
     <string name="first_text_required">Te faltan</string>
     <string name="second_text_required">personas para llegar a la meta</string>

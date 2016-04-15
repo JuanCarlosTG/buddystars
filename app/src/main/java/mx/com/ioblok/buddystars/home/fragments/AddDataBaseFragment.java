@@ -30,7 +30,6 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
 
         v = inflater.inflate(R.layout.fragment_add_data_base, null);
 
-
         Bundle bundle = getArguments();
 
         if (bundle != null) {

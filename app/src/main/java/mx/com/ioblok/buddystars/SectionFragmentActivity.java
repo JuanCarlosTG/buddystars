@@ -2,14 +2,13 @@ package mx.com.ioblok.buddystars;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.view.View;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 /**
  * Created by omar on 4/10/16.
  */
-public class SectionFragmentActivity extends FragmentActivity {
+public class SectionFragmentActivity extends AppCompatActivity {
 
     /*------------*/
     /* PROPERTIES */
