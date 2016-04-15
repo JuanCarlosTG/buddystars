@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#31AE44</color>
+    <color name="colorPrimary">#84D10C</color>
     <color name="colorPrimaryDark">#2ABCB1</color>
-    <color name="colorAccent">#31AE44</color>
+    <color name="colorAccent">#84D10C</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
     <color name="azulMovistar">#065372</color>
     <color name="grisMovistar">#bcbcbc</color>
     <color name="verdeMovistar">#94d60a</color>
+    <color name="colorBlog">#58D3DA</color>
 
 </resources>

@@ -5,11 +5,13 @@ import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,6 +32,8 @@ public class DataBaseElementAdapter extends RecyclerView.Adapter<DataBaseElement
 
         public TextView textViewContactName;
         public Button btnContact;
+        public String contactPhone;
+        public String contactMail;
 
         public ContactsViewHolder(View itemView) {
             super(itemView);
@@ -43,13 +47,13 @@ public class DataBaseElementAdapter extends RecyclerView.Adapter<DataBaseElement
             btnContact.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    showMenuActions(v);
+                    showMenuActions(contactPhone);
                 }
             });
         }
 
-        public void showMenuActions(View v){
-
+        public void showMenuActions(String phone){
+            Toast.makeText(context, phone, Toast.LENGTH_LONG).show();
         }
 
     }
@@ -77,19 +81,9 @@ public class DataBaseElementAdapter extends RecyclerView.Adapter<DataBaseElement
             String contactEMail = contacts.getString("email");
             String contactSchedule = contacts.getString("schedule");
 
-            /*photoString = photoString.equals("null") ? "http://inthecheesefactory.com/uploads/source/glidepicasso/cover.jpg" : photoString;
-
-            Glide.with(activity).load(photoString).asBitmap().centerCrop().into(new BitmapImageViewTarget(holder.farmerImage) {
-                @Override
-                protected void setResource(Bitmap resource) {
-                    RoundedBitmapDrawable circularBitmapDrawable =
-                            RoundedBitmapDrawableFactory.create(context.getResources(), resource);
-                    circularBitmapDrawable.setCircular(true);
-                    holder.farmerImage.setImageDrawable(circularBitmapDrawable);
-                }
-            });*/
-
             holder.textViewContactName.setText(contactName);
+            holder.contactPhone = contactPhone;
+            holder.contactMail = contactEMail;
 
         } catch (JSONException jsonE) {
 
@@ -102,7 +96,5 @@ public class DataBaseElementAdapter extends RecyclerView.Adapter<DataBaseElement
         return jsonArrayContacts.length();
     }
 
-    private void showMenuActions(){
-    }
 
 }
