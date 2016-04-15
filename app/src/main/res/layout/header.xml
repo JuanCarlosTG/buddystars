@@ -31,24 +31,28 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/image_header_1"/>
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/image_header_2"/>
+                android:id="@+id/image_header"/>
 
             <TextView
                 android:id="@+id/txt_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorWhite"
-                android:textSize="14sp"/>
+                android:textSize="22sp"/>
 
         </LinearLayout>
 
-
-
+        <ImageButton
+            android:layout_width="50sp"
+            android:layout_height="37sp"
+            android:background="@drawable/logo_movistar"
+            android:layout_centerVertical="true"
+            android:id="@+id/btn_trademark"
+            android:paddingBottom="4sp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="12sp"
+            android:layout_marginRight="12sp"/>
 
     </RelativeLayout>
 
