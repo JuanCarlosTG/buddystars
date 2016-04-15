@@ -20,7 +20,7 @@
             android:layout_toLeftOf="@+id/btn_trademark"
             android:layout_toStartOf="@+id/btn_trademark"
             android:text="@string/txt_tilte_go_to"
-            android:textSize="8sp"/>
+            android:textSize="10sp"/>
 
         <ImageButton
             android:id="@+id/btn_trademark"

@@ -37,12 +37,12 @@
     <string name="txt_menu_reports">REPORTES</string>
     <string name="txt_menu_points">PUNTOS</string>
     <string name="txt_menu_support">SOPORTE</string>
-    <string name="txt_menu_logout">salir</string>
+    <string name="txt_menu_logout">Salir</string>
 
     <string name="txt_register_name">Nombre*</string>
     <string name="txt_register_last_name">Apellido*</string>
     <string name="txt_register_phone">Teléfono</string>
-    <string name="txt_register_mail">Correo</string>
+    <string name="txt_register_mail">Correo*</string>
     <string name="txt_register_diary">Agenda</string>
     <string name="txt_register_code">Código Alta</string>
     <string name="txt_register_portability">Código Portabilidad</string>

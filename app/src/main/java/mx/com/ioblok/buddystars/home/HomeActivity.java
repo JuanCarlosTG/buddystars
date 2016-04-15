@@ -80,12 +80,11 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
 
         imageHeaderList = (ImageView) header.findViewById(R.id.image_header_profile);
         txtHeaderList = (TextView) header.findViewById(R.id.txt_username);
-        String userName = User.get("username", this);
+        String userName = User.get("last_name", this) + "/n" + User.get("first_name", this);
         String avatar = User.get("avatar", this);
         txtHeaderList.setText(userName);
 
-
-        final int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 110, getResources().getDisplayMetrics());
+        final int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 80, getResources().getDisplayMetrics());
 
         Glide.with(this).load(avatar).asBitmap().centerCrop().into(new BitmapImageViewTarget(imageHeaderList) {
             @Override
@@ -151,7 +150,7 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
             manager.beginTransaction().add(R.id.flContent, addDataBaseFragment).commit();
         }
 
-        setTitle("AGREGAR");
+        setTitle("Agreagr");
         setMainImage(R.drawable.icon_database);
 
 
@@ -177,7 +176,7 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
     }
 
     public void addDataBaseFragment(View view) {
-        setTitle("AGREGAR");
+        setTitle("Agregar");
         setMainImage(R.drawable.icon_database);
         final AddDataBaseFragment replaceDataBaseFragment = new AddDataBaseFragment();
         getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, replaceDataBaseFragment).commit();
@@ -185,7 +184,7 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
 
 
     public void betaReportFragment(View view){
-        setTitle("REPORTES");
+        setTitle("Reportes");
         setMainImage(R.drawable.icon_reports);
         final BetaReportsFragment alphaReportsFragment = new BetaReportsFragment();
         getFragmentManager().beginTransaction().add(R.id.flContent, alphaReportsFragment).commit();
@@ -193,7 +192,7 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
     }
 
     public void alphaReportFragment(View view){
-        setTitle("REPORTES");
+        setTitle("Reportes");
         setMainImage(R.drawable.icon_reports);
         final AlphaReportsFragment betaReportsFragment = new AlphaReportsFragment();
         getFragmentManager().beginTransaction().add(R.id.flContent, betaReportsFragment).commit();
@@ -201,14 +200,15 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
     }
 
     public void dataBaseFragment(View view) {
-        setTitle("BASE DE DATOS");
+        setTitle("Base de Datos" +
+                "");
         setMainImage(R.drawable.icon_database);
         final DataBaseFragment dataBaseFragment = new DataBaseFragment();
         getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, dataBaseFragment).commit();
     }
 
     public void diaryFragment(View view) {
-        setTitle("AGENDA");
+        setTitle("Agenda");
         setMainImage(R.drawable.icon_calendar);
         final DiaryFragment diaryFragment = new DiaryFragment();
         getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, diaryFragment).commit();
@@ -216,7 +216,7 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
     }
 
     public void pointsFragment(View view) {
-        setTitle("PUNTOS");
+        setTitle("Puntos");
         setMainImage(R.drawable.icon_points);
         final PointsFragment pointsFragment = new PointsFragment();
         getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, pointsFragment).commit();
@@ -240,7 +240,7 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
     }
 
     public void supportFragment(View view) {
-        setTitle("SOPORTE  ");
+        setTitle("Soporte");
         setMainImage(R.drawable.icon_support);
         final SupportFragment supportFragment = new SupportFragment();
         getFragmentManager().beginTransaction().add(R.id.flContent, supportFragment).commit();

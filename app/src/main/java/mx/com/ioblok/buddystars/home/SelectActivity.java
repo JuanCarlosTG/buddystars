@@ -29,7 +29,7 @@ public class SelectActivity extends Activity {
                 login = new Intent(SelectActivity.this, LoginActivity.class);
                 break;
             case R.id.bt_home_guests:
-                login = new Intent(SelectActivity.this, FBLoginActivity.class);
+                login = new Intent(SelectActivity.this, BlogActivity.class);
                 break;
         }
 

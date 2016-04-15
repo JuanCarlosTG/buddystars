@@ -9,6 +9,9 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,6 +29,8 @@ import mx.com.ioblok.buddystars.utils.WebBridge;
 public class BlogActivity extends Activity implements WebBridge.WebBridgeListener{
 
     private RecyclerView recyclerViewBlog;
+    private ImageButton btnBackHeader;
+    private TextView txtTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +39,18 @@ public class BlogActivity extends Activity implements WebBridge.WebBridgeListene
 
         recyclerViewBlog = (RecyclerView) findViewById(R.id.recycler_view_blog);
 
-        recyclerViewBlog.setHasFixedSize(false);
+        btnBackHeader = (ImageButton) findViewById(R.id.btn_back_login);
+        btnBackHeader.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
+        txtTitle = (TextView) findViewById(R.id.txt_title);
+        txtTitle.setText("Blog");
+
+        recyclerViewBlog.setHasFixedSize(false);
         RecyclerView.LayoutManager rvLayoutManager = new LinearLayoutManager(this);
         recyclerViewBlog.setLayoutManager(rvLayoutManager);
 

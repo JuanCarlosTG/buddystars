@@ -115,9 +115,9 @@ public class FBLoginActivity extends Activity implements WebBridge.WebBridgeList
         Log.e("string", json.toString());
         try {
             if (json.getBoolean("success")) {
-                Intent blog = new Intent(FBLoginActivity.this, BlogActivity.class);
+                /*Intent blog = new Intent(FBLoginActivity.this, BlogActivity.class);
                 startActivity(blog);
-                finish();
+                finish();*/
             } else {
                 String error = json.getJSONArray("error_message").getString(0);
                 new AlertDialog.Builder(this).setTitle(R.string.txt_error).setMessage(error).setNeutralButton(R.string.bt_close, null).show();
