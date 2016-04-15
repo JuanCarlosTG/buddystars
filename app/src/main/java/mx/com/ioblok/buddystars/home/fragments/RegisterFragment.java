@@ -27,7 +27,8 @@ public class RegisterFragment extends Fragment implements WebBridge.WebBridgeLis
 
     private static final int RESULT_OK = 1;
     String name_full = "", strtext = "", name = "", lastname = "", phone = "", email = " ", fecha = " ",
-            cost = "", result_listUser, register_id, type_new = "1", type_amount, cien = "100", doscientos = "200";
+            cost = "", result_listUser, register_id, type_new = "1", type_amount, ciennueve = "199", trescuatronueve = "349",
+            cuatrocuatronueve = "449", cincocuatronueve = "549",sietecuatronueve = "749", nuvenuevenueve = "999";
     View v;
     Spinner spinner_code;
     Button button_send;
@@ -77,12 +78,18 @@ public class RegisterFragment extends Fragment implements WebBridge.WebBridgeLis
             public void onItemSelected(AdapterView<?> arg0, View arg1,
                                        int arg2, long arg3) {
                 cost = spinner_code.getSelectedItem().toString();
-                if (cost.equals(cien)) {
+                if (cost.equals(ciennueve)) {
                     type_amount = "0";
-                } else if (cost.equals(doscientos)) {
+                } else if (cost.equals(trescuatronueve)) {
                     type_amount = "1";
-                } else {
+                } else if (cost.equals(cuatrocuatronueve)) {
                     type_amount = "2";
+                } else if (cost.equals(cincocuatronueve)) {
+                    type_amount = "3";
+                } else if (cost.equals(sietecuatronueve)) {
+                    type_amount = "4";
+                } else {
+                    type_amount = "5";
                 }
             }
 

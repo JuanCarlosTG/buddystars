@@ -36,6 +36,14 @@
         style="@style/register_edit_text"
         android:background="@drawable/txt_textfield"/>
 
+    <TextView
+        style="@style/register_text"
+        android:text="@string/txt_register_amount"/>
+
+    <Spinner
+        android:id="@+id/et_cost"
+        style="@style/register_edit_text"
+        android:background="@drawable/bt_select"/>
 
 
     <Button
