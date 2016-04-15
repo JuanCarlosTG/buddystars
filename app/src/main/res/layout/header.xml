@@ -41,14 +41,18 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/image_header"/>
+                android:id="@+id/image_header"
+                android:layout_marginRight="10sp"
+                android:layout_marginEnd="10sp"
+                android:background="@drawable/icon_database"/>
 
             <TextView
                 android:id="@+id/txt_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorWhite"
-                android:textSize="22sp"/>
+                android:textSize="20sp"
+                android:text="AGREGAR"/>
 
         </LinearLayout>
 

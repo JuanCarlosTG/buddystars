@@ -117,6 +117,9 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
             manager.beginTransaction().add(R.id.flContent, addDataBaseFragment).commit();
         }
 
+        setTitle("AGREGAR");
+        setMainImage(R.drawable.icon_database);
+
 
         Bundle bundle = getIntent().getExtras();
 
@@ -149,54 +152,71 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
     }
 
     public void addDataBaseFragment(View view) {
+        setTitle("AGREGAR");
+        setMainImage(R.drawable.icon_database);
         final AddDataBaseFragment replaceDataBaseFragment = new AddDataBaseFragment();
         getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, replaceDataBaseFragment).commit();
     }
 
 
     public void betaReportFragment(View view){
+        setTitle("REPORTES");
+        setMainImage(R.drawable.icon_reports);
         final BetaReportsFragment alphaReportsFragment = new BetaReportsFragment();
         getFragmentManager().beginTransaction().add(R.id.flContent, alphaReportsFragment).commit();
 
     }
 
     public void alphaReportFragment(View view){
+        setTitle("REPORTES");
+        setMainImage(R.drawable.icon_reports);
         final AlphaReportsFragment betaReportsFragment = new AlphaReportsFragment();
         getFragmentManager().beginTransaction().add(R.id.flContent, betaReportsFragment).commit();
 
     }
 
     public void dataBaseFragment(View view) {
+        setTitle("BASE DE DATOS");
+        setMainImage(R.drawable.icon_database);
         final DataBaseFragment dataBaseFragment = new DataBaseFragment();
         getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, dataBaseFragment).commit();
     }
 
     public void diaryFragment(View view) {
+        setTitle("AGENDA");
+        setMainImage(R.drawable.icon_calendar);
         final DiaryFragment diaryFragment = new DiaryFragment();
         getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, diaryFragment).commit();
 
     }
 
     public void pointsFragment(View view) {
+        setTitle("PUNTOS");
+        setMainImage(R.drawable.icon_points);
         final PointsFragment pointsFragment = new PointsFragment();
         getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, pointsFragment).commit();
 
     }
 
     public void portabilityFragment(View view) {
+        setTitle("ALTA");
+        setMainImage(R.drawable.icon_add);
         final PortabilityFragment portabilityFragment = new PortabilityFragment();
         getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, portabilityFragment).commit();
 
     }
 
     public void registerFragment(View view) {
-
+        setTitle("ALTA");
+        setMainImage(R.drawable.icon_add);
         RegisterFragment registerFragment = new RegisterFragment();
         getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, registerFragment).commit();
 
     }
 
     public void supportFragment(View view) {
+        setTitle("SOPORTE  ");
+        setMainImage(R.drawable.icon_support);
         final SupportFragment supportFragment = new SupportFragment();
         getFragmentManager().beginTransaction().add(R.id.flContent, supportFragment).commit();
 
