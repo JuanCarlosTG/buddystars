@@ -1,7 +1,10 @@
 package mx.com.ioblok.buddystars.adapter;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -18,6 +21,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import mx.com.ioblok.buddystars.R;
+import mx.com.ioblok.buddystars.home.HomeActivity;
 
 /**
  * Created by kreativeco on 22/02/16.
@@ -27,6 +31,7 @@ public class DataBaseElementAdapter extends RecyclerView.Adapter<DataBaseElement
     private JSONArray jsonArrayContacts;
     Activity activity;
     private static Context context;
+    private static Activity homeActivity;
 
     public static class ContactsViewHolder extends RecyclerView.ViewHolder {
 
@@ -52,8 +57,40 @@ public class DataBaseElementAdapter extends RecyclerView.Adapter<DataBaseElement
             });
         }
 
-        public void showMenuActions(String phone){
-            Toast.makeText(context, phone, Toast.LENGTH_LONG).show();
+        public void makeCall(String phone){
+            ((HomeActivity) homeActivity).setNumberCall(phone);
+            ((HomeActivity) homeActivity).askForPermissions();
+        }
+
+        public void showMenuActions(final String phone){
+
+            AlertDialog.Builder dialogo1 = new AlertDialog.Builder(homeActivity);
+            dialogo1.setTitle("¿Cómo quieres contactar a "+ textViewContactName.getText().toString() + "?");
+            dialogo1.setCancelable(false);
+            dialogo1.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialogo1, int id) {
+
+                }
+            });
+            dialogo1.setPositiveButton("Llamar", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialogo1, int id) {
+                    makeCall(phone);
+                }
+            });
+            dialogo1.setNeutralButton("Correo", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialogo1, int id) {
+
+                    Intent i = new Intent(Intent.ACTION_SEND);
+                    i.setType("message/rfc822");
+                    i.putExtra(Intent.EXTRA_EMAIL  , new String[]{contactMail});
+                    try {
+                        homeActivity.startActivity(Intent.createChooser(i, "Send mail..."));
+                    } catch (android.content.ActivityNotFoundException ex) {
+                        Toast.makeText(homeActivity, "¡Ups! No hay un correo electrónico registrado.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+            dialogo1.show();
         }
 
     }
@@ -61,6 +98,7 @@ public class DataBaseElementAdapter extends RecyclerView.Adapter<DataBaseElement
     public DataBaseElementAdapter(JSONArray contacts, Activity activity) {
         this.jsonArrayContacts = contacts;
         this.activity = activity;
+        homeActivity = activity;
         this.context = activity.getBaseContext();
     }
 

@@ -50,6 +50,7 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
     String name = "";
     String lastname = "";
     String call = "llamando";
+    String numberCall = "56789045";
 
 
     private static final int CALL_PERMISSION_REQUEST_CODE = 1;
@@ -268,10 +269,14 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
 
     }
 
+    public void setNumberCall(String numberCall) {
+        this.numberCall = numberCall;
+    }
+
     public void call() {
         Log.e("esperando llamada" , call);
         Intent callIntent = new Intent(Intent.ACTION_CALL);
-        callIntent.setData(Uri.parse("tel:" + "56789045"));
+        callIntent.setData(Uri.parse("tel:" + numberCall));
         startActivity(callIntent);
     }
 
@@ -279,11 +284,12 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.CALL_PHONE)
                 != PackageManager.PERMISSION_GRANTED) {
-
+            Log.e("checkSelfPermission", "request 2");
             // Should we show an explanation?
             if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                     Manifest.permission.CALL_PHONE)) {
-
+                Log.e("shouldShowRequest", "request 2");
+                requestPermissions(new String[]{Manifest.permission.CALL_PHONE}, CALL_PERMISSION_REQUEST_CODE);
             } else {
 
                 // No explanation needed, we can request the permission.
@@ -298,6 +304,8 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
         }
 
     }
+
+
 
 
     @Override
