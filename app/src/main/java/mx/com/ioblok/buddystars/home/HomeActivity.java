@@ -39,7 +39,7 @@ import mx.com.ioblok.buddystars.utils.User;
 
 public class HomeActivity extends SectionActivity implements ActivityCompat.OnRequestPermissionsResultCallback{
 
-    public ImageButton btnMenu;
+    public ImageButton btnMenu, btnWebView;
 
     private DrawerLayout mDrawer;
     private ListView mDrawerOptions;
@@ -132,6 +132,15 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
                 Log.e("Vacio", vacio);
             }
         }
+
+        btnWebView = (ImageButton) findViewById(R.id.i_btn_web_view);
+        btnWebView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.movistar.com.mx/promociones/cambiate-a-movistar/?utm_source=google_p&utm_medium=sem_desk&utm_content=m_portabilidad_exacta&utm_campaign=product_marca_generica_portabilidad&gclid=CK2S9Obq68sCFQUMaQodciABdQ&gclsrc=aw.ds&dclid=CJLAj-fq68sCFQ90AQodcHUDBA"));
+                startActivity(browserIntent);
+            }
+        });
 
     }
 

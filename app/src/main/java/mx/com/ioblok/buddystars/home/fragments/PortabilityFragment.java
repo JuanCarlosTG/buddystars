@@ -9,8 +9,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import org.json.JSONObject;
 
@@ -25,8 +28,10 @@ public class PortabilityFragment extends Fragment implements WebBridge.WebBridge
     private static final int RESULT_OK = 1;
     String name_full = " ";
     String name = "", lastname = "", phone = "", email = " ", fecha = " ", code_new = "", result_listUser,
-            type_portability = "2", register_id, amount = "0";
+            type_portability = "2", register_id, cost = "", type_amount, ciennueve = "199", trescuatronueve = "349",
+            cuatrocuatronueve = "449", cincocuatronueve = "549",sietecuatronueve = "749", nuvenuevenueve = "999";
     private EditText et_name_full, et_code_operation;
+    Spinner spinner_code;
     View v;
 
     @Override
@@ -53,6 +58,11 @@ public class PortabilityFragment extends Fragment implements WebBridge.WebBridge
         if (name.length() == 0) {
             et_name_full = (EditText) v.findViewById(R.id.et_name_full);
             et_code_operation = (EditText) v.findViewById(R.id.et_code_operation);
+            spinner_code = (Spinner) v.findViewById(R.id.et_cost);
+            ArrayAdapter<CharSequence> staticAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.mont_add, android.R.layout.simple_spinner_item);
+            staticAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinner_code.setAdapter(staticAdapter);
+            cost = spinner_code.getSelectedItem().toString();
         }
 
         et_name_full = (EditText) v.findViewById(R.id.et_name_full);
@@ -60,6 +70,35 @@ public class PortabilityFragment extends Fragment implements WebBridge.WebBridge
         et_name_full.setText(name_full);
 
         et_code_operation = (EditText) v.findViewById(R.id.et_code_operation);
+
+
+        spinner_code = (Spinner) v.findViewById(R.id.et_cost);
+        ArrayAdapter<CharSequence> staticAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.mont_add, android.R.layout.simple_spinner_item);
+        staticAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_code.setAdapter(staticAdapter);
+        spinner_code.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> arg0, View arg1,
+                                       int arg2, long arg3) {
+                cost = spinner_code.getSelectedItem().toString();
+                if (cost.equals(ciennueve)) {
+                    type_amount = "0";
+                } else if (cost.equals(trescuatronueve)) {
+                    type_amount = "1";
+                } else if (cost.equals(cuatrocuatronueve)) {
+                    type_amount = "2";
+                } else if (cost.equals(cincocuatronueve)) {
+                    type_amount = "3";
+                } else if (cost.equals(sietecuatronueve)) {
+                    type_amount = "4";
+                } else {
+                    type_amount = "5";
+                }
+            }
+
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+            }
+        });
 
         EditText et_code_register = (EditText) v.findViewById(R.id.et_name_full);
         et_code_register.setOnClickListener(new View.OnClickListener() {
@@ -134,7 +173,7 @@ public class PortabilityFragment extends Fragment implements WebBridge.WebBridge
         params.put("register_id", register_id);
         params.put("code", et_code_operation.getText().toString());
         params.put("type", type_portability);
-        params.put("amount", amount);
+        params.put("amount", type_amount);
 
         WebBridge.send("/register-code", params, "Enviando", getActivity(), this);
     }
