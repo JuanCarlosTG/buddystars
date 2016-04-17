@@ -34,6 +34,7 @@
         android:background="@drawable/bg_menu"
         android:choiceMode="singleChoice"
         android:divider="#fff"
+        android:scrollbars="none"
         android:listSelector="@android:color/transparent"
         android:dividerHeight="0dp" />
 

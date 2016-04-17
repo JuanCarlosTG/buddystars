@@ -1,8 +1,10 @@
 package mx.com.ioblok.buddystars.home;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -16,17 +18,22 @@ import com.facebook.FacebookSdk;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Arrays;
 import java.util.HashMap;
 
 import mx.com.ioblok.buddystars.R;
+import mx.com.ioblok.buddystars.adapter.BlogElementAdapter;
+import mx.com.ioblok.buddystars.utils.Constants;
 import mx.com.ioblok.buddystars.utils.WebBridge;
 
-public class FBLoginActivity extends Activity implements WebBridge.WebBridgeListener{
+public class FBLoginActivity extends Activity implements WebBridge.WebBridgeListener {
 
     CallbackManager mCallbackManager;
+    private ImageButton btnBackHeader;
     private String strToken;
 
     @Override
@@ -72,6 +79,20 @@ public class FBLoginActivity extends Activity implements WebBridge.WebBridgeList
             }
         });
 
+        if(Constants.isFacebookLogged()){
+            Intent blog = new Intent(FBLoginActivity.this, BlogActivity.class);
+            startActivity(blog);
+            finish();
+        }
+
+        btnBackHeader = (ImageButton) findViewById(R.id.btn_back_login);
+        btnBackHeader.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
 
     @Override
@@ -93,21 +114,35 @@ public class FBLoginActivity extends Activity implements WebBridge.WebBridgeList
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(mCallbackManager.onActivityResult(requestCode, resultCode, data)) {
+        if (mCallbackManager.onActivityResult(requestCode, resultCode, data)) {
             return;
         }
     }
 
-    public void getBlog(){
+    public void getBlog() {
         HashMap<String, Object> params = new HashMap<String, Object>();
         params.put("token", strToken);
-
         WebBridge.send("/facebook", params, "Conectando", this, this);
     }
 
     @Override
     public void onWebBridgeSuccess(String url, JSONObject json) {
         Log.e("string", json.toString());
+        try {
+            if (json.getBoolean("success")) {
+                Constants.setFacebookLogged(true);
+                /*
+                TODO FACEBOOK
+                Intent blog = new Intent(FBLoginActivity.this, BlogActivity.class);
+                startActivity(blog);*/
+                finish();
+            } else {
+                String error = json.getJSONArray("error_message").getString(0);
+                new AlertDialog.Builder(this).setTitle(R.string.txt_error).setMessage(error).setNeutralButton(R.string.bt_close, null).show();
+            }
+        } catch (JSONException jsonE) {
+            Log.e("EXCEPTION", jsonE.toString());
+        }
     }
 
     @Override

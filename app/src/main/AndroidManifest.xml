@@ -42,6 +42,7 @@
             android:theme="@android:style/Theme.Light.NoTitleBar">
         </activity>
         <activity android:name=".home.FBLoginActivity"/>
+        <activity android:name=".home.BlogActivity"/>
 
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
 

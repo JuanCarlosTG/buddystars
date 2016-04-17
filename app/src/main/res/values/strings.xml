@@ -15,6 +15,7 @@
     <string name="desc"></string>
 
     <string name="txt_error">Error</string>
+    <string name="txt_alert">¡Ups!</string>
 
     <string name="bt_close">Cerrar</string>
     <string name="bt_add_farmer">Guardar</string>
@@ -24,6 +25,10 @@
 
     <string name="txt_error_user">Debes introducir el campo usuario</string>
     <string name="txt_error_pass">Debes introducir el campo contraseña</string>
+
+    <string name="txt_error_name">Debes introducir el campo nombre</string>
+    <string name="txt_error_last_name">Debes introducir el campo apellido</string>
+    <string name="txt_error_mail">Debes introducir el campo correo</string>
 
     <string name="txt_sending">Enviando</string>
     <string name="title_activity_homeactivity">Homeactivity</string>
@@ -37,18 +42,19 @@
     <string name="txt_menu_reports">REPORTES</string>
     <string name="txt_menu_points">PUNTOS</string>
     <string name="txt_menu_support">SOPORTE</string>
-    <string name="txt_menu_logout">salir</string>
+    <string name="txt_menu_logout">Salir</string>
 
     <string name="txt_register_name">Nombre*</string>
     <string name="txt_register_last_name">Apellido*</string>
     <string name="txt_register_phone">Teléfono</string>
-    <string name="txt_register_mail">Correo</string>
+    <string name="txt_register_mail">Correo*</string>
     <string name="txt_register_diary">Agenda</string>
     <string name="txt_register_code">Código Alta</string>
     <string name="txt_register_portability">Código Portabilidad</string>
 
     <string name="txt_title_add">Nuevo</string>
     <string name="txt_title_portability">Portabilidad</string>
+    <string name="txt_tilte_go_to">Ir A</string>
 
     <string name="txt_register_customer">Cliente</string>
     <string name="txt_register_operation_code">Código Operación</string>

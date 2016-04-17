@@ -83,8 +83,7 @@ public class SupportFragment extends Fragment {
         dialogo1.setTitle(R.string.confirmar_llamada);
         dialogo1.setPositiveButton(R.string.llamar, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialogo1, int id) {
-                //call();
-
+                ((HomeActivity) getActivity()).setNumberCall("56789045");
                 ((HomeActivity) getActivity()).askForPermissions();                //askForPermissions();
             }
         });

@@ -6,13 +6,15 @@
     android:background="@drawable/bg_facebook"
     tools:context=".home.LoginActivity">
 
-    <ImageView
+    <include layout="@layout/header_login"/>
+
+    <!--ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/logo_movistar"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_margin="20sp"/>
+        android:layout_margin="20sp"/-->
 
     <LinearLayout
         android:layout_width="match_parent"

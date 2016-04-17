@@ -2,11 +2,14 @@ package mx.com.ioblok.buddystars;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -66,6 +69,15 @@ public class SectionActivity extends Activity {
             txtTitle.setText(title);
         }
     }
+
+    public void setMainImage(int drawable) {
+        ImageView mainImageHome = (ImageView) findViewById(R.id.image_header);
+        if (mainImageHome != null) {
+            mainImageHome.setBackgroundResource(drawable);
+        }
+    }
+
+
 
 
 

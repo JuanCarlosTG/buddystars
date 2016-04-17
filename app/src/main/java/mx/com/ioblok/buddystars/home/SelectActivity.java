@@ -11,12 +11,15 @@ import mx.com.ioblok.buddystars.R;
 
 public class SelectActivity extends Activity {
 
+    public static SelectActivity selectActivity;
     ImageButton btnNormalLogin, btnFBLogin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select);
 
+        selectActivity = this;
         btnNormalLogin  = (ImageButton) findViewById(R.id.btn_buddystars);
         btnFBLogin      = (ImageButton) findViewById(R.id.bt_home_guests);
 
@@ -29,7 +32,7 @@ public class SelectActivity extends Activity {
                 login = new Intent(SelectActivity.this, LoginActivity.class);
                 break;
             case R.id.bt_home_guests:
-                login = new Intent(SelectActivity.this, FBLoginActivity.class);
+                login = new Intent(SelectActivity.this, BlogActivity.class);
                 break;
         }
 

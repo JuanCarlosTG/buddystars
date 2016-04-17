@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import mx.com.ioblok.buddystars.R;
@@ -177,6 +178,24 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
     }
 
     public void sendRegister(){
+
+        ArrayList<String> errors = new ArrayList<String>();
+        if (et_name == null || et_name.getText().toString().equals(""))
+            errors.add(getString(R.string.txt_error_name));
+        if (et_lastname == null || et_lastname.getText().toString().equals(""))
+            errors.add(getString(R.string.txt_error_last_name));
+        if (et_email == null || et_email.getText().toString().equals(""))
+            errors.add(getString(R.string.txt_error_mail));
+
+        if (errors.size() != 0) {
+            String msg = "";
+            for (String s : errors) {
+                msg += "* " + s + "\n";
+            }
+            new AlertDialog.Builder(getActivity()).setTitle(R.string.txt_alert).setMessage(msg.trim()).setNeutralButton(R.string.bt_close, null).show();
+            return;
+        }
+
 
         HashMap<String, Object> params = new HashMap<>();
         params.put("name", et_name.getText().toString());

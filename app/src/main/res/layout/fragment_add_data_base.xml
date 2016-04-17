@@ -39,7 +39,8 @@
         <EditText
             android:id="@+id/et_telephone"
             style="@style/register_edit_text"
-            android:background="@drawable/txt_phone"/>
+            android:background="@drawable/txt_phone"
+            android:inputType="phone"/>
 
         <TextView
             android:id="@+id/tv_email"
@@ -49,7 +50,8 @@
         <EditText
             android:id="@+id/et_email"
             style="@style/register_edit_text"
-            android:background="@drawable/txt_email"/>
+            android:background="@drawable/txt_email"
+            android:inputType="textEmailAddress"/>
 
         <TextView
             android:id="@+id/tv_agen"
@@ -92,7 +94,8 @@
             android:paddingLeft="30sp"
             android:paddingRight="30sp"
             android:textColor="@color/colorWhite"
-            android:layout_marginTop="40sp"/>
+            android:layout_marginTop="40sp"
+            android:layout_marginBottom="20sp"/>
 
     </LinearLayout>
 

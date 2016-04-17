@@ -11,9 +11,21 @@
         android:background="#A5D464">
 
         <TextView
-            style="@style/title_fragment"
-            android:layout_centerInParent="true"
-            android:text="@string/txt_title_portability"/>
+            style="@style/title_fragment_register"
+            android:text="@string/txt_title_portability"
+            android:textSize="14sp"/>
+
+        <TextView
+            style="@style/title_fragment_register"
+            android:text="@string/txt_tilte_go_to"
+            android:layout_toLeftOf="@+id/btn_trademark"
+            android:layout_toStartOf="@+id/btn_trademark"
+            android:textSize="10sp"/>
+
+
+        <ImageButton
+            android:id="@+id/btn_trademark"
+            style="@style/image_button_fragment_register"/>
 
     </RelativeLayout>
 

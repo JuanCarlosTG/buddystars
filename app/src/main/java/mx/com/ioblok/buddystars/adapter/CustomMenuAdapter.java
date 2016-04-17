@@ -2,6 +2,7 @@ package mx.com.ioblok.buddystars.adapter;
 
 import android.app.Activity;
 import android.os.Build;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ import mx.com.ioblok.buddystars.utils.CustomTextViewMenu;
 public class CustomMenuAdapter extends ArrayAdapter<ListModelMenu> {
 
     Activity activity;
+    private static Activity homeActivity;
     public ArrayList<ListModelMenu> customListView = null;
     int resource;
     LayoutInflater inflater;
@@ -30,6 +32,7 @@ public class CustomMenuAdapter extends ArrayAdapter<ListModelMenu> {
         super(activity, resource, objects);
         this.activity = activity;
         this.resource = resource;
+        homeActivity = activity;
         inflater = activity.getLayoutInflater();
         customListView = objects;
     }
@@ -78,7 +81,23 @@ public class CustomMenuAdapter extends ArrayAdapter<ListModelMenu> {
     public void hideSubmenu(ListModelMenuHolder holder, int position) {
 
         if(position == 0 || position == 1 || position == 3 || position == 4 || position == 8){
-            holder.separator.setVisibility(View.INVISIBLE);
+            holder.separator.setVisibility(View.GONE);
+
+
+        }
+
+        if(position == 1 || position == 2 || position == 4 || position == 5){
+
+            final int marginTopAndBottom = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 5, homeActivity.getResources().getDisplayMetrics());
+            final int marginLeft = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 60, homeActivity.getResources().getDisplayMetrics());
+
+            RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
+                    RelativeLayout.LayoutParams.MATCH_PARENT,
+                    RelativeLayout.LayoutParams.WRAP_CONTENT
+            );
+            params.setMargins(marginLeft, marginTopAndBottom, 0, marginTopAndBottom);
+            holder.textView.setLayoutParams(params);
+
         }
 
     }
