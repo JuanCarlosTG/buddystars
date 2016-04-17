@@ -3,6 +3,7 @@ package mx.com.ioblok.buddystars.home.fragments;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -22,10 +24,13 @@ import mx.com.ioblok.buddystars.utils.WebBridge;
 /**
  * Created by kreativeco on 01/02/16.
  */
-public class DataBaseFragment extends Fragment implements WebBridge.WebBridgeListener{
+public class DataBaseFragment extends Fragment implements WebBridge.WebBridgeListener {
 
     View v;
     RecyclerView recyclerViewDataBase;
+
+
+    TextView txt_registers;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,7 +45,19 @@ public class DataBaseFragment extends Fragment implements WebBridge.WebBridgeLis
         recyclerViewDataBase.setLayoutManager(rvLayoutManager);
 
         WebBridge.send("/register-list", "Cargando", getActivity(), this);
+        initialize();
+
         return v;
+
+    }
+
+    public void initialize() {
+
+        Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "telefonica_regular.otf");
+
+        txt_registers = (TextView)v.findViewById(R.id.txt_registers);
+        txt_registers.setTypeface(font);
+        txt_registers.setTextColor(getResources().getColor(R.color.azulMovistar));
 
     }
 

@@ -12,6 +12,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tv_altas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".6"
@@ -39,6 +40,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tv_news"
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
                 android:layout_weight=".6"
@@ -70,6 +72,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/tv_portability"
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
                 android:layout_weight=".6"
@@ -112,6 +115,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/tv_meta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight=".6"

@@ -11,6 +11,7 @@
         android:gravity="center">
 
         <TextView
+            android:id="@+id/tv_name"
             style="@style/register_text"
             android:text="@string/txt_register_name"/>
 
@@ -20,6 +21,7 @@
             android:background="@drawable/txt_textfield"/>
 
         <TextView
+            android:id="@+id/tv_last_name"
             style="@style/register_text"
             android:text="@string/txt_register_last_name"
             />
@@ -30,6 +32,7 @@
             android:background="@drawable/txt_textfield"/>
 
         <TextView
+            android:id="@+id/tv_telephone"
             style="@style/register_text"
             android:text="@string/txt_register_phone"/>
 
@@ -39,6 +42,7 @@
             android:background="@drawable/txt_phone"/>
 
         <TextView
+            android:id="@+id/tv_email"
             style="@style/register_text"
             android:text="@string/txt_register_mail"/>
 
@@ -48,6 +52,7 @@
             android:background="@drawable/txt_email"/>
 
         <TextView
+            android:id="@+id/tv_agen"
             style="@style/register_text"
             android:text="@string/txt_register_diary"/>
 
@@ -57,6 +62,7 @@
             android:background="@drawable/bt_select"/>
 
         <TextView
+            android:id="@+id/tv_code"
             style="@style/register_text"
             android:text="@string/txt_register_code"/>
 
@@ -66,6 +72,7 @@
             android:background="@drawable/bt_select"/>
 
         <TextView
+            android:id="@+id/tv_code_portability"
             style="@style/register_text"
             android:text="@string/txt_register_portability"/>
 

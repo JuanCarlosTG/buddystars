@@ -3,6 +3,7 @@ package mx.com.ioblok.buddystars.home.fragments;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.DialogInterface;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -23,7 +26,7 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
     String code_portability = "";
     String name ="" ,lastname = "", phone = "" ,email = "" ,fecha = " ", code_new = " ";
     private EditText et_name, et_lastname, et_telephone, et_email, et_diary, et_code_register,et_code_portability;
-
+    TextView tv_name, tv_last_name ,tv_code, tv_agen, tv_email, tv_telephone,tv_code_portability;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -31,6 +34,8 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
         v = inflater.inflate(R.layout.fragment_add_data_base, null);
 
         Bundle bundle = getArguments();
+
+        Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "telefonica_regular.otf");
 
         if (bundle != null) {
             name = getArguments().getString("name");
@@ -46,40 +51,57 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
         if (name.length()==0 && lastname.length()==0 && phone.length()==0 && email.length()==0 && fecha.length()==0){
 
             et_name = (EditText)v.findViewById(R.id.et_name);
+            et_name.setTypeface(font);
             et_lastname = (EditText)v.findViewById(R.id.et_lastname);
+            et_lastname.setTypeface(font);
             et_telephone = (EditText)v.findViewById(R.id.et_telephone);
+            et_telephone.setTypeface(font);
             et_email = (EditText)v.findViewById(R.id.et_email);
+            et_email.setTypeface(font);
 
             et_diary = (EditText)v.findViewById(R.id.et_diary);
+            et_diary.setTypeface(font);
             et_diary.setKeyListener(null);
 
             et_code_register = (EditText)v.findViewById(R.id.et_code_register);
             et_code_register.setKeyListener(null);
+            et_code_register.setTypeface(font);
 
             et_code_portability = (EditText)v.findViewById(R.id.et_code_portability);
             et_code_portability.setKeyListener(null);
+            et_code_portability.setTypeface(font);
 
         } else {
             et_name = (EditText)v.findViewById(R.id.et_name);
             et_name.setText(name);
+            et_name.setTypeface(font);
+
             et_lastname = (EditText)v.findViewById(R.id.et_lastname);
             et_lastname.setText(lastname);
+            et_lastname.setTypeface(font);
+
             et_telephone = (EditText)v.findViewById(R.id.et_telephone);
             et_telephone.setText(phone);
+            et_telephone.setTypeface(font);
+
             et_email = (EditText)v.findViewById(R.id.et_email);
             et_email.setText(email);
+            et_email.setTypeface(font);
 
             et_diary = (EditText)v.findViewById(R.id.et_diary);
             et_diary.setKeyListener(null);
             et_diary.setText(fecha);
+            et_diary.setTypeface(font);
 
             et_code_register = (EditText)v.findViewById(R.id.et_code_register);
             et_code_register.setKeyListener(null);
             et_code_register.setText(code_new);
+            et_code_register.setTypeface(font);
 
             et_code_portability = (EditText)v.findViewById(R.id.et_code_portability);
             et_code_portability.setKeyListener(null);
             et_code_portability.setText(code_portability);
+            et_code_portability.setTypeface(font);
         }
 
         Button button = (Button) v.findViewById(R.id.btn_send_reg);
@@ -122,10 +144,37 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
                 codePortability();
             }
         });
-
+        initialize();
         return v;
     }
 
+    public void initialize(){
+
+        Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "telefonica_bold.otf");
+
+        tv_name = (TextView)v.findViewById(R.id.tv_name);
+        tv_name.setTypeface(font);
+
+        tv_last_name = (TextView)v.findViewById(R.id.tv_last_name);
+        tv_last_name.setTypeface(font);
+
+        tv_code = (TextView)v.findViewById(R.id.tv_code);
+        tv_code.setTypeface(font);
+
+        tv_agen = (TextView)v.findViewById(R.id.tv_agen);
+        tv_agen.setTypeface(font);
+
+        tv_email = (TextView)v.findViewById(R.id.tv_email);
+        tv_email.setTypeface(font);
+
+        tv_telephone = (TextView)v.findViewById(R.id.tv_telephone);
+        tv_telephone.setTypeface(font);
+
+        tv_code_portability = (TextView)v.findViewById(R.id.tv_code_portability);
+        tv_code_portability.setTypeface(font);
+
+
+    }
 
     public void sendRegister(){
 

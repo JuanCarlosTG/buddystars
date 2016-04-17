@@ -2,6 +2,7 @@ package mx.com.ioblok.buddystars.home.fragments;
 
 import android.app.Fragment;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,7 +32,7 @@ import mx.com.ioblok.buddystars.utils.WebBridge;
 public class BetaReportsFragment extends Fragment implements WebBridge.WebBridgeListener {
 
     View v;
-    TextView new_container, new_portability, tv_required_person;
+    TextView new_container, new_portability, tv_required_person, tv_altas, tv_news,tv_portability,tv_meta;
     private LinearLayout mainLayout;
     private PieChart mChart;
     PieChart pieChart;
@@ -47,6 +48,8 @@ public class BetaReportsFragment extends Fragment implements WebBridge.WebBridge
         tv_required_person = (TextView) v.findViewById(R.id.tv_required_person);
 
         getData();
+
+        initialize();
         return v;
 
     }
@@ -62,13 +65,19 @@ public class BetaReportsFragment extends Fragment implements WebBridge.WebBridge
 
             JSONObject main = json.getJSONObject("data");
             String e = main.getString("count_new");
+
+
+            Typeface fontBold = Typeface.createFromAsset(getActivity().getAssets(), "telefonica_bold.otf");
             new_container.setText(e);
+            new_container.setTypeface(fontBold);
             new_container.setTextColor(getResources().getColor(R.color.azulMovistar));
             String f = main.getString("count_portability");
             new_portability.setText(f);
+            new_portability.setTypeface(fontBold);
             new_portability.setTextColor(getResources().getColor(R.color.azulMovistar));
             String r = main.getString("required_total");
             tv_required_person.setText("Te faltan " + r + " personas para llegar a la meta");
+            tv_required_person.setTypeface(fontBold);
             percent_total = main.getString("percent_total");
             percent_point = main.getString("percent_point");
 
@@ -77,6 +86,25 @@ public class BetaReportsFragment extends Fragment implements WebBridge.WebBridge
         } catch (Exception e) {
             Log.e("Exception Wey", e.toString());
         }
+    }
+
+    public void initialize(){
+
+        Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "telefonica_regular.otf");
+
+        tv_altas = (TextView)v.findViewById(R.id.tv_altas);
+        tv_altas.setTypeface(font);
+
+        tv_news = (TextView)v.findViewById(R.id.tv_news);
+        tv_news.setTypeface(font);
+
+        tv_portability = (TextView)v.findViewById(R.id.tv_portability);
+        tv_portability.setTypeface(font);
+
+        tv_meta = (TextView)v.findViewById(R.id.tv_meta);
+        tv_meta.setTypeface(font);
+
+
     }
 
     @Override

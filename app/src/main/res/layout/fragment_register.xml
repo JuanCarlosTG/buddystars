@@ -19,6 +19,7 @@
 
 
     <TextView
+        android:id="@+id/tv_cliente"
         style="@style/register_text"
         android:text="@string/txt_register_customer"/>
 
@@ -28,6 +29,7 @@
         android:background="@drawable/bt_select"/>
 
     <TextView
+        android:id="@+id/tv_code"
         style="@style/register_text"
         android:text="@string/txt_register_operation_code"/>
 
@@ -37,6 +39,7 @@
         android:background="@drawable/txt_textfield"/>
 
     <TextView
+        android:id="@+id/tv_spinner"
         style="@style/register_text"
         android:text="@string/txt_register_amount"/>
 

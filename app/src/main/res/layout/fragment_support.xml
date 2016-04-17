@@ -9,6 +9,7 @@
         style="@style/view_support"/>
 
     <TextView
+        android:id="@+id/tv_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15sp"
@@ -29,6 +30,7 @@
         style="@style/view_support"/>
 
     <TextView
+        android:id="@+id/tv_label_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"

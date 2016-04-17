@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import org.json.JSONObject;
 
@@ -34,6 +36,7 @@ public class RegisterFragment extends Fragment implements WebBridge.WebBridgeLis
     Button button_send;
     private EditText et_name_full;
     private EditText et_code_operation;
+    TextView tv_cliente, tv_code,tv_spinner;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -114,7 +117,23 @@ public class RegisterFragment extends Fragment implements WebBridge.WebBridgeLis
             }
         });
 
+        initialize();
         return v;
+
+    }
+
+    public void initialize(){
+
+        Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "telefonica_bold.otf");
+
+        tv_cliente = (TextView)v.findViewById(R.id.tv_cliente);
+        tv_cliente.setTypeface(font);
+
+        tv_code = (TextView)v.findViewById(R.id.tv_code);
+        tv_code.setTypeface(font);
+
+        tv_spinner = (TextView)v.findViewById(R.id.tv_spinner);
+        tv_spinner.setTypeface(font);
 
     }
 

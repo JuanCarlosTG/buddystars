@@ -14,6 +14,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import mx.com.ioblok.buddystars.R;
+import mx.com.ioblok.buddystars.utils.CustomTextViewMenu;
 
 /**
  * Created by kreativeco on 27/03/16.
@@ -41,6 +42,7 @@ public class CustomMenuAdapter extends ArrayAdapter<ListModelMenu> {
             row = inflater.inflate(resource, parent, false);
             holder = new ListModelMenuHolder();
             holder.textView = (TextView) row.findViewById(R.id.tv_name_menu);
+            //holder.textView = (CustomTextViewMenu) row.findViewById(R.id.tv_name_menu);
             holder.rlParent = (RelativeLayout) row.findViewById(R.id.rl_header);
             holder.separator = row.findViewById(R.id.list_separator);
             holder.imageMenuItem = (ImageView) row.findViewById(R.id.image_menu_item);
@@ -66,6 +68,7 @@ public class CustomMenuAdapter extends ArrayAdapter<ListModelMenu> {
     }
 
     static class ListModelMenuHolder {
+        //CustomTextViewMenu textView;
         TextView textView;
         ImageView imageMenuItem;
         View separator;

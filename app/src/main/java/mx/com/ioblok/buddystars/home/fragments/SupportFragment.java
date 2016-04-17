@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
@@ -16,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import mx.com.ioblok.buddystars.R;
 import mx.com.ioblok.buddystars.home.HomeActivity;
@@ -25,7 +27,7 @@ public class SupportFragment extends Fragment {
 
     View v;
     Button btn_call, btn_mail;
-
+    TextView tv_number,tv_label_email;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,12 +35,19 @@ public class SupportFragment extends Fragment {
 
         v = inflater.inflate(R.layout.fragment_support, null);
 
+
+        Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "telefonica_regular.otf");
+
         btn_call = (Button) v.findViewById(R.id.btn_call);
+        btn_call.setTypeface(font);
+
         btn_mail = (Button) v.findViewById(R.id.btn_mail);
+        btn_mail.setTypeface(font);
 
         btn_call.setOnClickListener(action);
         btn_mail.setOnClickListener(action);
 
+        initialize();
         return v;
 
     }
@@ -57,6 +66,18 @@ public class SupportFragment extends Fragment {
         }
     };
 
+
+    public void initialize() {
+
+        Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "telefonica_regular.otf");
+
+        tv_number = (TextView) v.findViewById(R.id.tv_number);
+        tv_number.setTypeface(font);
+
+        tv_label_email = (TextView) v.findViewById(R.id.tv_label_email);
+        tv_label_email.setTypeface(font);
+
+    }
     public void callSupport() {
         AlertDialog.Builder dialogo1 = new AlertDialog.Builder(getActivity());
         dialogo1.setTitle(R.string.confirmar_llamada);
