@@ -2,6 +2,7 @@ package mx.com.ioblok.buddystars.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -19,6 +21,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import mx.com.ioblok.buddystars.R;
+import mx.com.ioblok.buddystars.home.BlogActivity;
+import mx.com.ioblok.buddystars.home.FBLoginActivity;
+import mx.com.ioblok.buddystars.home.HomeActivity;
+import mx.com.ioblok.buddystars.utils.Constants;
 
 /**
  * Created by kreativeco on 22/02/16.
@@ -27,12 +33,15 @@ public class BlogElementAdapter extends RecyclerView.Adapter<BlogElementAdapter.
 
     private JSONArray jsonArrayBlog;
     Activity activity;
+    private static Activity blogActivity;
     private static Context context;
 
     public static class BlogViewHolder extends RecyclerView.ViewHolder {
 
         public ImageView imageBlog;
         public TextView txtBlog;
+        public String descriptionBlog;
+        public String urlImageBlog;
 
         public BlogViewHolder(View itemView) {
             super(itemView);
@@ -43,12 +52,16 @@ public class BlogElementAdapter extends RecyclerView.Adapter<BlogElementAdapter.
             imageBlog = (ImageView) cardViewItem.findViewById(R.id.image_blog);
             txtBlog = (TextView) cardViewItem.findViewById(R.id.txt_blog);
 
-            /*btnContact.setOnClickListener(new View.OnClickListener() {
+            cardViewItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    showMenuActions(v);
+                    Constants.setSpotDescription(descriptionBlog);
+                    Constants.setSpotFullImage(urlImageBlog);
+                    Intent fbLogin = new Intent(blogActivity, FBLoginActivity.class);
+                    blogActivity.startActivity(fbLogin);
+                    Toast.makeText(blogActivity, Constants.getSpotFullImage(), Toast.LENGTH_SHORT).show();
                 }
-            });*/
+            });
         }
 
         public void showMenuActions(View v){
@@ -60,6 +73,7 @@ public class BlogElementAdapter extends RecyclerView.Adapter<BlogElementAdapter.
     public BlogElementAdapter(JSONArray blog, Activity activity) {
         this.jsonArrayBlog = blog;
         this.activity = activity;
+        blogActivity = activity;
         this.context = activity.getBaseContext();
     }
 
@@ -76,25 +90,16 @@ public class BlogElementAdapter extends RecyclerView.Adapter<BlogElementAdapter.
             JSONObject blog = jsonArrayBlog.getJSONObject(position);
 
             String blogTitle = blog.getString("title");
-            String blogDescriotion = blog.getString("description");
+            String blogDescription = blog.getString("description");
             String blogReleased = blog.getString("released");
-            String blogThumb = blog.getString("full");
+            String blogFull = blog.getString("full");
 
-
-            blogThumb = blogThumb.equals("null") ? "http://inthecheesefactory.com/uploads/source/glidepicasso/cover.jpg" : blogThumb;
-            Glide.with(activity).load(blogThumb).into(holder.imageBlog);
-
-            /*Glide.with(activity).load(photoString).asBitmap().centerCrop().into(new BitmapImageViewTarget(holder.farmerImage) {
-                @Override
-                protected void setResource(Bitmap resource) {
-                    RoundedBitmapDrawable circularBitmapDrawable =
-                            RoundedBitmapDrawableFactory.create(context.getResources(), resource);
-                    circularBitmapDrawable.setCircular(true);
-                    holder.farmerImage.setImageDrawable(circularBitmapDrawable);
-                }
-            });*/
+            blogFull = blogFull.equals("null") ? "http://inthecheesefactory.com/uploads/source/glidepicasso/cover.jpg" : blogFull;
+            Glide.with(activity).load(blogFull).into(holder.imageBlog);
 
             holder.txtBlog.setText(blogTitle);
+            holder.descriptionBlog = blogDescription;
+            holder.urlImageBlog = blogFull;
 
         } catch (JSONException jsonE) {
 

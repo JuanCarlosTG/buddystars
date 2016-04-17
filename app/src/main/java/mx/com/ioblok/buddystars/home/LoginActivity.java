@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.Objects;
 
 import mx.com.ioblok.buddystars.R;
+import mx.com.ioblok.buddystars.utils.Constants;
 import mx.com.ioblok.buddystars.utils.User;
 import mx.com.ioblok.buddystars.utils.WebBridge;
 
@@ -36,7 +37,11 @@ public class LoginActivity extends Activity implements WebBridge.WebBridgeListen
         btnBackHeader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                if(Constants.isUserOffline()){
+                    Intent selectLogin = new Intent(LoginActivity.this, SelectActivity.class);
+                    startActivity(selectLogin);
+                    finish();
+                }else finish();
             }
         });
 
@@ -87,6 +92,7 @@ public class LoginActivity extends Activity implements WebBridge.WebBridgeListen
                 User.set("last_name", json.getJSONObject("data").getString("last_name"), this);
 
                 startActivity(home);
+                SelectActivity.selectActivity.finish();
                 finish();
 
             }

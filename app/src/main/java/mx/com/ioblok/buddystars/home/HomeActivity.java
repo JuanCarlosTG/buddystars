@@ -80,7 +80,7 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
 
         imageHeaderList = (ImageView) header.findViewById(R.id.image_header_profile);
         txtHeaderList = (TextView) header.findViewById(R.id.txt_username);
-        String userName = User.get("last_name", this) + "/n" + User.get("first_name", this);
+        String userName = User.get("last_name", this) + "\n" + User.get("first_name", this);
         String avatar = User.get("avatar", this);
         txtHeaderList.setText(userName);
 
@@ -268,9 +268,11 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
     private void removeUser() {
 
         User.clear(this);
+        Constants.setUserOffline(true);
         finish();
         Intent i = new Intent(HomeActivity.this, LoginActivity.class);
         startActivity(i);
+
         finish();
 
         SupportFragment supportFragment = new SupportFragment();
