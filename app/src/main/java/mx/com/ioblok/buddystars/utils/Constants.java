@@ -24,6 +24,7 @@ public class Constants {
     private static String registerSchedule = "";
     private static String registerCode = "";
     private static String registerPortability = "";
+    private static String registerSim = "";
 
 
     public static String baseURL;
@@ -36,6 +37,8 @@ public class Constants {
         add(new ListModelMenu(R.string.txt_menu_register, R.drawable.menu_icon_add));
         add(new ListModelMenu(R.string.txt_menu_news));
         add(new ListModelMenu(R.string.txt_menu_portability));
+
+        add(new ListModelMenu(R.string.txt_menu_register_sim));
 
         add(new ListModelMenu(R.string.txt_menu_reports, R.drawable.menu_icon_report));
         add(new ListModelMenu(R.string.txt_menu_points, R.drawable.menu_icon_points));
@@ -137,6 +140,14 @@ public class Constants {
         Constants.registerPortability = registerPortability;
     }
 
+    public static String getRegisterSim() {
+        return registerSim;
+    }
+
+    public static void setRegisterSim(String registerSim) {
+        Constants.registerSim = registerSim;
+    }
+
     public static String getRegisterSchedule() {
         return registerSchedule;
     }
@@ -153,6 +164,7 @@ public class Constants {
         Constants.registerCode = "";
         Constants.registerPortability = "";
         Constants.registerSchedule = "";
+        Constants.registerSim = "";
     }
 
 }

@@ -45,6 +45,7 @@ import mx.com.ioblok.buddystars.home.fragments.DiaryFragment;
 import mx.com.ioblok.buddystars.home.fragments.PointsFragment;
 import mx.com.ioblok.buddystars.home.fragments.PortabilityFragment;
 import mx.com.ioblok.buddystars.home.fragments.RegisterFragment;
+import mx.com.ioblok.buddystars.home.fragments.RegisterSimFragment;
 import mx.com.ioblok.buddystars.home.fragments.SupportFragment;
 import mx.com.ioblok.buddystars.utils.Constants;
 import mx.com.ioblok.buddystars.utils.PermissionUtils;
@@ -129,10 +130,12 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
                 } else if (position == 6) {
                     portabilityFragment(arg1);
                 } else if (position == 7) {
-                    betaReportFragment(arg1);
+                    registerSimFragment(arg1);
                 } else if (position == 8) {
-                    pointsFragment(arg1);
+                    betaReportFragment(arg1);
                 } else if (position == 9) {
+                    pointsFragment(arg1);
+                } else if (position == 10) {
                     supportFragment(arg1);
                 }
                 mDrawer.closeDrawers();
@@ -251,6 +254,14 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
         setMainImage(R.drawable.icon_add);
         RegisterFragment registerFragment = new RegisterFragment();
         getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, registerFragment).commit();
+    }
+
+    public void registerSimFragment(View view) {
+
+        setTitle("ALTA");
+        setMainImage(R.drawable.icon_add);
+        RegisterSimFragment registerSimFragment = new RegisterSimFragment();
+        getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, registerSimFragment).commit();
     }
 
     public void supportFragment(View view) {

@@ -43,6 +43,7 @@
     <string name="txt_menu_register">ALTAS</string>
     <string name="txt_menu_news">Nuevas</string>
     <string name="txt_menu_portability">Portabilidad</string>
+    <string name="txt_menu_register_sim">ALTA CHIP</string>
     <string name="txt_menu_reports">REPORTES</string>
     <string name="txt_menu_points">PUNTOS</string>
     <string name="txt_menu_support">SOPORTE</string>
@@ -55,6 +56,7 @@
     <string name="txt_register_diary">Agenda</string>
     <string name="txt_register_code">Código Alta</string>
     <string name="txt_register_portability">Código Portabilidad</string>
+    <string name="txt_alta_sim">Alta Chip</string>
 
     <string name="txt_title_add">Nuevo</string>
     <string name="txt_title_portability">Portabilidad</string>
@@ -62,6 +64,7 @@
 
     <string name="txt_register_customer">Cliente</string>
     <string name="txt_register_operation_code">Código Operación</string>
+    <string name="txt_register_sim">Código Chip</string>
     <string name="txt_register_amount">Monto de Alta</string>
 
     <string name="txt_support_phone">56.78.90.45</string>
