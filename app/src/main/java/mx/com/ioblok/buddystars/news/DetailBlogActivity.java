@@ -33,6 +33,7 @@ public class DetailBlogActivity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_blog);
+        overridePendingTransition(R.anim.slide_left_from, R.anim.slide_left);
 
         iv_description_blog = (ImageView)findViewById(R.id.iv_description_blog);
         tv_txt_description_video = (CustomTextViewRegular) findViewById(R.id.tv_txt_description_video);
@@ -43,6 +44,7 @@ public class DetailBlogActivity extends Activity{
             @Override
             public void onClick(View v) {
                 finish();
+                DetailBlogActivity.this.overridePendingTransition(R.anim.slide_right_from, R.anim.slide_right);
             }
         });
 

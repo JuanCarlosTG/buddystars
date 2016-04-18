@@ -38,6 +38,7 @@ public class BlogActivity extends Activity implements WebBridge.WebBridgeListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blog);
+        overridePendingTransition(R.anim.slide_left_from, R.anim.slide_left);
 
         recyclerViewBlog = (RecyclerView) findViewById(R.id.recycler_view_blog);
 
@@ -46,6 +47,7 @@ public class BlogActivity extends Activity implements WebBridge.WebBridgeListene
             @Override
             public void onClick(View v) {
                 finish();
+                BlogActivity.this.overridePendingTransition(R.anim.slide_right_from, R.anim.slide_right);
             }
         });
 

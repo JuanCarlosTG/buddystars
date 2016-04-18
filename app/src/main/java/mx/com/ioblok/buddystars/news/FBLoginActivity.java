@@ -64,6 +64,7 @@ public class FBLoginActivity extends Activity implements WebBridge.WebBridgeList
                 });
 
         setContentView(R.layout.activity_fblogin);
+        overridePendingTransition(R.anim.slide_left_from, R.anim.slide_left);
 
         ImageButton btn_fb_login = (ImageButton) findViewById(R.id.btn_login_facebook);
 
@@ -78,6 +79,7 @@ public class FBLoginActivity extends Activity implements WebBridge.WebBridgeList
             Intent detailBlog = new Intent(FBLoginActivity.this, DetailBlogActivity.class);
             startActivity(detailBlog);
             finish();
+            FBLoginActivity.this.overridePendingTransition(R.anim.slide_right_from, R.anim.slide_right);
         }
 
         btnBackHeader = (ImageButton) findViewById(R.id.btn_back_login);
@@ -85,6 +87,7 @@ public class FBLoginActivity extends Activity implements WebBridge.WebBridgeList
             @Override
             public void onClick(View v) {
                 finish();
+                FBLoginActivity.this.overridePendingTransition(R.anim.slide_right_from, R.anim.slide_right);
             }
         });
 
@@ -130,6 +133,7 @@ public class FBLoginActivity extends Activity implements WebBridge.WebBridgeList
                 Intent blog = new Intent(FBLoginActivity.this, DetailBlogActivity.class);
                 startActivity(blog);
                 finish();
+                FBLoginActivity.this.overridePendingTransition(R.anim.slide_right_from, R.anim.slide_right);
             } else {
                 String error = json.getJSONArray("error_message").getString(0);
                 new AlertDialog.Builder(this).setTitle(R.string.txt_error).setMessage(error).setNeutralButton(R.string.bt_close, null).show();
