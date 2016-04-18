@@ -59,6 +59,7 @@
         <activity android:name=".home.activities.DiaryActivity"/>
         <activity android:name=".home.activities.RegisterActivity"/>
         <activity android:name=".home.activities.PortabilityActivity"/>
+
         <activity android:name=".home.activities.RegisterSimActivity"/>
 
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
