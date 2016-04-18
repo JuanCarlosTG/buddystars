@@ -10,73 +10,73 @@
         android:orientation="vertical"
         android:gravity="center">
 
-        <TextView
+        <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
             style="@style/register_text"
             android:text="@string/txt_register_name"/>
 
-        <EditText
+        <mx.com.ioblok.buddystars.customviews.CustomEditTextRegular
             android:id="@+id/et_name"
             style="@style/register_edit_text"
             android:background="@drawable/txt_textfield"/>
 
-        <TextView
+        <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
             style="@style/register_text"
             android:text="@string/txt_register_last_name"
             />
 
-        <EditText
+        <mx.com.ioblok.buddystars.customviews.CustomEditTextRegular
             android:id="@+id/et_lastname"
             style="@style/register_edit_text"
             android:background="@drawable/txt_textfield"/>
 
-        <TextView
+        <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
             style="@style/register_text"
             android:text="@string/txt_register_phone"/>
 
-        <EditText
+        <mx.com.ioblok.buddystars.customviews.CustomEditTextRegular
             android:id="@+id/et_telephone"
             style="@style/register_edit_text"
             android:background="@drawable/txt_phone"
             android:inputType="phone"/>
 
-        <TextView
+        <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
             style="@style/register_text"
             android:text="@string/txt_register_mail"/>
 
-        <EditText
+        <mx.com.ioblok.buddystars.customviews.CustomEditTextRegular
             android:id="@+id/et_email"
             style="@style/register_edit_text"
             android:background="@drawable/txt_email"
             android:inputType="textEmailAddress"/>
 
-        <TextView
+        <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
             style="@style/register_text"
             android:text="@string/txt_register_diary"/>
 
-        <EditText
+        <mx.com.ioblok.buddystars.customviews.CustomEditTextRegular
             android:id="@+id/et_diary"
             style="@style/register_edit_text"
             android:background="@drawable/bt_select"/>
 
-        <TextView
+        <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
             style="@style/register_text"
             android:text="@string/txt_register_code"/>
 
-        <EditText
+        <mx.com.ioblok.buddystars.customviews.CustomEditTextRegular
             android:id="@+id/et_code_register"
             style="@style/register_edit_text"
             android:background="@drawable/bt_select"/>
 
-        <TextView
+        <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
             style="@style/register_text"
             android:text="@string/txt_register_portability"/>
 
-        <EditText
+        <mx.com.ioblok.buddystars.customviews.CustomEditTextRegular
             android:id="@+id/et_code_portability"
             style="@style/register_edit_text"
             android:background="@drawable/bt_select"/>
 
-        <Button
+        <mx.com.ioblok.buddystars.customviews.CustomButtonRegular
             android:id="@+id/btn_send_reg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
