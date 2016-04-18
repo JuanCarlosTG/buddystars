@@ -18,6 +18,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import mx.com.ioblok.buddystars.R;
+import mx.com.ioblok.buddystars.customviews.CustomButtonRegular;
+import mx.com.ioblok.buddystars.customviews.CustomEditTextRegular;
 import mx.com.ioblok.buddystars.home.activities.DiaryActivity;
 import mx.com.ioblok.buddystars.home.activities.PortabilityActivity;
 import mx.com.ioblok.buddystars.home.activities.RegisterActivity;
@@ -27,7 +29,7 @@ import mx.com.ioblok.buddystars.utils.WebBridge;
 public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridgeListener {
 
     View v;
-    private EditText et_name, et_lastname, et_telephone, et_email, et_diary, et_code_register, et_code_portability;
+    private CustomEditTextRegular et_name, et_lastname, et_telephone, et_email, et_diary, et_code_register, et_code_portability;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,15 +37,15 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
 
         v = inflater.inflate(R.layout.fragment_add_data_base, null);
 
-        et_name = (EditText) v.findViewById(R.id.et_name);
-        et_lastname = (EditText) v.findViewById(R.id.et_lastname);
-        et_telephone = (EditText) v.findViewById(R.id.et_telephone);
-        et_email = (EditText) v.findViewById(R.id.et_email);
-        et_diary = (EditText) v.findViewById(R.id.et_diary);
-        et_code_register = (EditText) v.findViewById(R.id.et_code_register);
-        et_code_portability = (EditText) v.findViewById(R.id.et_code_portability);
+        et_name = (CustomEditTextRegular) v.findViewById(R.id.et_name);
+        et_lastname = (CustomEditTextRegular) v.findViewById(R.id.et_lastname);
+        et_telephone = (CustomEditTextRegular) v.findViewById(R.id.et_telephone);
+        et_email = (CustomEditTextRegular) v.findViewById(R.id.et_email);
+        et_diary = (CustomEditTextRegular) v.findViewById(R.id.et_diary);
+        et_code_register = (CustomEditTextRegular) v.findViewById(R.id.et_code_register);
+        et_code_portability = (CustomEditTextRegular) v.findViewById(R.id.et_code_portability);
 
-        Button button = (Button) v.findViewById(R.id.btn_send_reg);
+        CustomButtonRegular button = (CustomButtonRegular) v.findViewById(R.id.btn_send_reg);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -239,7 +241,7 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
     }
 
     public void Eliminar() {
-        et_code_portability = (EditText) v.findViewById(R.id.et_code_portability);
+        et_code_portability = (CustomEditTextRegular) v.findViewById(R.id.et_code_portability);
         et_code_portability.setKeyListener(null);
         et_code_portability.setText("");
     }
