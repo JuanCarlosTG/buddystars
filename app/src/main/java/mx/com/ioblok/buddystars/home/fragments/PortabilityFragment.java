@@ -31,7 +31,7 @@ public class PortabilityFragment extends Fragment implements WebBridge.WebBridge
     String name_full = " ";
     String name = "", lastname = "", phone = "", email = " ", fecha = " ", code_new = "", result_listUser,
             type_portability = "2", register_id, cost = "", type_amount, ciennueve = "199", trescuatronueve = "349",
-            cuatrocuatronueve = "449", cincocuatronueve = "549",sietecuatronueve = "749", nuvenuevenueve = "999";
+            cuatrocuatronueve = "449", cincocuatronueve = "549", sietecuatronueve = "749", nuvenuevenueve = "999";
     private EditText et_name_full, et_code_operation;
     Spinner spinner_code;
     ImageButton btnWebView;
@@ -43,35 +43,7 @@ public class PortabilityFragment extends Fragment implements WebBridge.WebBridge
 
         v = inflater.inflate(R.layout.fragment_portability, null);
 
-        Bundle bundle = getArguments();
-
-        if (bundle != null) {
-
-
-        name = getArguments().getString("name");
-        lastname = getArguments().getString("surename");
-        phone = getArguments().getString("phone");
-        email = getArguments().getString("email");
-        fecha = getArguments().getString("schedule");
-        code_new = getArguments().getString("code_new");
-
-        name_full = name + " " + lastname;
-        }
-
-        if (name.length() == 0) {
-            et_name_full = (EditText) v.findViewById(R.id.et_name_full);
-            et_code_operation = (EditText) v.findViewById(R.id.et_code_operation);
-            spinner_code = (Spinner) v.findViewById(R.id.et_cost);
-            ArrayAdapter<CharSequence> staticAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.mont_add, android.R.layout.simple_spinner_item);
-            staticAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            spinner_code.setAdapter(staticAdapter);
-            cost = spinner_code.getSelectedItem().toString();
-        }
-
         et_name_full = (EditText) v.findViewById(R.id.et_name_full);
-        et_name_full.setKeyListener(null);
-        et_name_full.setText(name_full);
-
         et_code_operation = (EditText) v.findViewById(R.id.et_code_operation);
 
 
@@ -103,8 +75,7 @@ public class PortabilityFragment extends Fragment implements WebBridge.WebBridge
             }
         });
 
-        EditText et_code_register = (EditText) v.findViewById(R.id.et_name_full);
-        et_code_register.setOnClickListener(new View.OnClickListener() {
+        et_name_full.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addNewUser();
@@ -155,34 +126,18 @@ public class PortabilityFragment extends Fragment implements WebBridge.WebBridge
             Intent intent = new Intent(getActivity(), ListUsers.class);
             startActivityForResult(intent, 1);
         } else {
-            Log.e("tiene un valor",et_name_full.getText().toString());
+            Log.e("tiene un valor", et_name_full.getText().toString());
         }
 
     }
 
     public void completeData() {
 
-        if (phone.length() == 0 || phone == null || phone == "" && email.length() == 0 || email == null || email == "" && fecha.length() == 0 || fecha == null || fecha == "") {
-            sendData();
-
-        } else {
-
-            final AddDataBaseFragment addDataBaseFragment = new AddDataBaseFragment();
-
-            Bundle data = new Bundle();
-            data.putString("name", name);
-            data.putString("surename", lastname);
-            data.putString("phone", phone);
-            data.putString("email", email);
-            data.putString("schedule", fecha);
-            data.putString("code_new", code_new);
-            data.putString("code_portability", et_code_operation.getText().toString());
-            addDataBaseFragment.setArguments(data);
-            getFragmentManager().beginTransaction().replace(R.id.flContent, addDataBaseFragment).commit();
-        }
+        sendData();
     }
 
     public void sendData() {
+
         HashMap<String, Object> params = new HashMap<>();
         params.put("register_id", register_id);
         params.put("code", et_code_operation.getText().toString());
@@ -214,6 +169,5 @@ public class PortabilityFragment extends Fragment implements WebBridge.WebBridge
     public void onWebBridgeFailure(String url, String response) {
         Log.e("MAl", response);
     }
-
 
 }

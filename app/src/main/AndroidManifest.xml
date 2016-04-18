@@ -43,6 +43,9 @@
         </activity>
         <activity android:name=".home.FBLoginActivity"/>
         <activity android:name=".home.BlogActivity"/>
+        <activity android:name=".home.DiaryActivity"/>
+        <activity android:name=".home.RegisterActivity"/>
+        <activity android:name=".home.PortabilityActivity"/>
 
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
 

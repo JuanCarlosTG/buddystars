@@ -29,6 +29,10 @@
     <string name="txt_error_name">Debes introducir el campo nombre</string>
     <string name="txt_error_last_name">Debes introducir el campo apellido</string>
     <string name="txt_error_mail">Debes introducir el campo correo</string>
+    <string name="txt_error_phone">Debes introducir el campo teléfono para continuar</string>
+    <string name="txt_error_code">Debes introducir el código de registro para continuar</string>
+    <string name="txt_error_portability">Debes introducir el código de portabilidad</string>
+    <string name="txt_error_diary">Debes introducir la fecha para contactar</string>
 
     <string name="txt_sending">Enviando</string>
     <string name="title_activity_homeactivity">Homeactivity</string>

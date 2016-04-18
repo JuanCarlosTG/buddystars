@@ -11,7 +11,10 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.SyncStateContract;
+import android.support.annotation.BoolRes;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
@@ -57,6 +60,11 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
     private ListView mDrawerOptions;
     CustomMenuAdapter adapterActivity;
     FragmentManager manager;
+
+    private static final int ANY_FRAGMENT = -1;
+    private static final int DIARY_FRAGMENT = 1;
+    private static final int REGISTER_FRAGMENT = 2;
+    private static final int PORTABILITY_FRAGMENT = 3;
 
     String vacio = "vacio";
     String name = "";
@@ -176,6 +184,7 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
     }
 
     public void addDataBaseFragment(View view) {
+
         setTitle("Agregar");
         setMainImage(R.drawable.icon_database);
         final AddDataBaseFragment replaceDataBaseFragment = new AddDataBaseFragment();
@@ -184,6 +193,7 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
 
 
     public void betaReportFragment(View view){
+
         setTitle("Reportes");
         setMainImage(R.drawable.icon_reports);
         final BetaReportsFragment alphaReportsFragment = new BetaReportsFragment();
@@ -192,6 +202,7 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
     }
 
     public void alphaReportFragment(View view){
+
         setTitle("Reportes");
         setMainImage(R.drawable.icon_reports);
         final AlphaReportsFragment betaReportsFragment = new AlphaReportsFragment();
@@ -200,14 +211,15 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
     }
 
     public void dataBaseFragment(View view) {
-        setTitle("Base de Datos" +
-                "");
+
+        setTitle("Base de Datos");
         setMainImage(R.drawable.icon_database);
         final DataBaseFragment dataBaseFragment = new DataBaseFragment();
         getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, dataBaseFragment).commit();
     }
 
     public void diaryFragment(View view) {
+
         setTitle("Agenda");
         setMainImage(R.drawable.icon_calendar);
         final DiaryFragment diaryFragment = new DiaryFragment();
@@ -216,6 +228,7 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
     }
 
     public void pointsFragment(View view) {
+
         setTitle("Puntos");
         setMainImage(R.drawable.icon_points);
         final PointsFragment pointsFragment = new PointsFragment();
@@ -224,6 +237,7 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
     }
 
     public void portabilityFragment(View view) {
+
         setTitle("ALTA");
         setMainImage(R.drawable.icon_add);
         final PortabilityFragment portabilityFragment = new PortabilityFragment();
@@ -232,14 +246,15 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
     }
 
     public void registerFragment(View view) {
+
         setTitle("ALTA");
         setMainImage(R.drawable.icon_add);
         RegisterFragment registerFragment = new RegisterFragment();
         getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, registerFragment).commit();
-
     }
 
     public void supportFragment(View view) {
+
         setTitle("Soporte");
         setMainImage(R.drawable.icon_support);
         final SupportFragment supportFragment = new SupportFragment();
@@ -262,7 +277,6 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
         });
         dialogo1.show();
 
-
     }
 
     private void removeUser() {
@@ -277,21 +291,6 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
 
         SupportFragment supportFragment = new SupportFragment();
         getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, supportFragment).commit();
-
-    }
-
-    public void actionsFromSubMenuItems(View view) {
-
-        Log.e("ID", view.getId() + "");
-
-        /*switch (view.getId()) {
-
-            //listeners for families submenu
-            case R.id.rl_parent:
-
-                break;
-
-        }*/
 
     }
 
@@ -330,9 +329,6 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
         }
 
     }
-
-
-
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] results) {

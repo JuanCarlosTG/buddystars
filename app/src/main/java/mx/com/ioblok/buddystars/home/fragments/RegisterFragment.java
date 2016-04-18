@@ -30,7 +30,7 @@ public class RegisterFragment extends Fragment implements WebBridge.WebBridgeLis
     private static final int RESULT_OK = 1;
     String name_full = "", strtext = "", name = "", lastname = "", phone = "", email = " ", fecha = " ",
             cost = "", result_listUser, register_id, type_new = "1", type_amount, ciennueve = "199", trescuatronueve = "349",
-            cuatrocuatronueve = "449", cincocuatronueve = "549",sietecuatronueve = "749", nuvenuevenueve = "999";
+            cuatrocuatronueve = "449", cincocuatronueve = "549", sietecuatronueve = "749", nuvenuevenueve = "999";
     View v;
     Spinner spinner_code;
     Button button_send;
@@ -44,33 +44,7 @@ public class RegisterFragment extends Fragment implements WebBridge.WebBridgeLis
 
         v = inflater.inflate(R.layout.fragment_register, null);
 
-        Bundle bundle = getArguments();
-
-        if (bundle != null) {
-
-            name = getArguments().getString("name");
-            lastname = getArguments().getString("surename");
-            phone = getArguments().getString("phone");
-            email = getArguments().getString("email");
-            fecha = getArguments().getString("schedule");
-            strtext = getArguments().getString("fromActivity");
-            name_full = name + " " + lastname;
-        }
-
-        if (name.length() == 0) {
-            et_name_full = (EditText) v.findViewById(R.id.et_name_full);
-            et_code_operation = (EditText) v.findViewById(R.id.et_code_operation);
-            spinner_code = (Spinner) v.findViewById(R.id.et_cost);
-            ArrayAdapter<CharSequence> staticAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.mont_add, android.R.layout.simple_spinner_item);
-            staticAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            spinner_code.setAdapter(staticAdapter);
-            cost = spinner_code.getSelectedItem().toString();
-        }
-
         et_name_full = (EditText) v.findViewById(R.id.et_name_full);
-        et_name_full.setKeyListener(null);
-        et_name_full.setText(name_full);
-
         et_code_operation = (EditText) v.findViewById(R.id.et_code_operation);
 
         spinner_code = (Spinner) v.findViewById(R.id.et_cost);
@@ -101,10 +75,9 @@ public class RegisterFragment extends Fragment implements WebBridge.WebBridgeLis
             }
         });
 
-        EditText et_code_register = (EditText) v.findViewById(R.id.et_name_full);
         button_send = (Button) v.findViewById(R.id.btn_send_new);
 
-        et_code_register.setOnClickListener(new View.OnClickListener() {
+        et_name_full.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addNewUser();
@@ -159,27 +132,7 @@ public class RegisterFragment extends Fragment implements WebBridge.WebBridgeLis
     }
 
     public void completeData() {
-
-        if (phone.length() == 0 || phone == null || phone == "" && email.length() == 0 || email == null || email == "" && fecha.length() == 0 || fecha == null || fecha == "" ){
-
-            sendData();
-
-        } else {
-
-            final AddDataBaseFragment addDataBaseFragment = new AddDataBaseFragment();
-            Bundle data = new Bundle();
-            data.putString("name", name);
-            data.putString("surename", lastname);
-            data.putString("phone", phone);
-            data.putString("email", email);
-            data.putString("schedule", fecha);
-            data.putString("code_new", et_code_operation.getText().toString());
-            data.putString("cost", cost);
-            addDataBaseFragment.setArguments(data);
-            getFragmentManager().beginTransaction().replace(R.id.flContent, addDataBaseFragment).commit();
-
-        }
-
+        sendData();
     }
 
     public void sendData() {
@@ -192,7 +145,7 @@ public class RegisterFragment extends Fragment implements WebBridge.WebBridgeLis
         WebBridge.send("/register-code", params, "Enviando", getActivity(), this);
     }
 
-    public void exitSendData(){
+    public void exitSendData() {
         AlertDialog.Builder dialogo1 = new AlertDialog.Builder(getActivity());
         dialogo1.setTitle(R.string.title_gracias);
         dialogo1.setMessage(R.string.codigo_exitoso);
