@@ -4,11 +4,8 @@ import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
-<<<<<<< HEAD
 import android.graphics.Typeface;
-=======
 import android.net.Uri;
->>>>>>> 0e519f14d6d09c68ab3d72558051ced579ec684f
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -124,9 +121,7 @@ public class PortabilityFragment extends Fragment implements WebBridge.WebBridge
             }
         });
 
-<<<<<<< HEAD
         initialize();
-=======
 
         btnWebView = (ImageButton) v.findViewById(R.id.btn_trademark);
         btnWebView.setOnClickListener(new View.OnClickListener() {
@@ -137,8 +132,6 @@ public class PortabilityFragment extends Fragment implements WebBridge.WebBridge
             }
         });
 
-
->>>>>>> 0e519f14d6d09c68ab3d72558051ced579ec684f
         return v;
 
     }

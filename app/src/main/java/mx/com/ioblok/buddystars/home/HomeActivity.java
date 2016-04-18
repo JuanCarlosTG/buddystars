@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.app.FragmentManager;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
@@ -178,8 +179,12 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
     public void addDataBaseFragment(View view) {
         setTitle("Agregar");
         setMainImage(R.drawable.icon_database);
-        final AddDataBaseFragment replaceDataBaseFragment = new AddDataBaseFragment();
-        getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, replaceDataBaseFragment).commit();
+        //final AddDataBaseFragment replaceDataBaseFragment = new AddDataBaseFragment();
+        //getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, replaceDataBaseFragment).commit();
+
+        Intent intent = new Intent();
+        intent.setClass(HomeActivity.this, ActivityAddDataBase.class);
+        startActivity(intent);
     }
 
 
@@ -226,17 +231,21 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
     public void portabilityFragment(View view) {
         setTitle("ALTA");
         setMainImage(R.drawable.icon_add);
-        final PortabilityFragment portabilityFragment = new PortabilityFragment();
-        getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, portabilityFragment).commit();
-
+        //final PortabilityFragment portabilityFragment = new PortabilityFragment();
+        //getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, portabilityFragment).commit();
+        Intent intent = new Intent();
+        intent.setClass(HomeActivity.this, ActivityPortability.class);
+        startActivity(intent);
     }
 
     public void registerFragment(View view) {
         setTitle("ALTA");
         setMainImage(R.drawable.icon_add);
-        RegisterFragment registerFragment = new RegisterFragment();
-        getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, registerFragment).commit();
-
+        //RegisterFragment registerFragment = new RegisterFragment();
+        //getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, registerFragment).commit();
+        Intent intent = new Intent();
+        intent.setClass(HomeActivity.this, ActivityRegister.class);
+        startActivity(intent);
     }
 
     public void supportFragment(View view) {
@@ -349,6 +358,10 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
 
     }
 
+    public Typeface setText(){
+        Typeface font = Typeface.createFromAsset(this.getAssets(), "telefonica_regular.otf");
+        return font;
+    }
     /*@Override
     public void onBackPressed() {
 
