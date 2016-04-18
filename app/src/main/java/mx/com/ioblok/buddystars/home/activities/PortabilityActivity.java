@@ -1,4 +1,4 @@
-package mx.com.ioblok.buddystars.home;
+package mx.com.ioblok.buddystars.home.activities;
 
 import android.app.Activity;
 import android.content.Intent;

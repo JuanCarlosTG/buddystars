@@ -1,11 +1,9 @@
-package mx.com.ioblok.buddystars.home;
+package mx.com.ioblok.buddystars.home.activities;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,12 +12,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 
-import org.json.JSONObject;
-
 import mx.com.ioblok.buddystars.R;
-import mx.com.ioblok.buddystars.home.fragments.AddDataBaseFragment;
 import mx.com.ioblok.buddystars.utils.Constants;
-import mx.com.ioblok.buddystars.utils.WebBridge;
 
 /**
  * Created by omar on 4/17/16.

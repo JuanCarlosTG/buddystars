@@ -35,7 +35,6 @@ import com.bumptech.glide.request.target.BitmapImageViewTarget;
 
 import mx.com.ioblok.buddystars.R;
 import mx.com.ioblok.buddystars.SectionActivity;
-import mx.com.ioblok.buddystars.SectionFragmentActivity;
 import mx.com.ioblok.buddystars.adapter.CustomMenuAdapter;
 import mx.com.ioblok.buddystars.home.fragments.AddDataBaseFragment;
 import mx.com.ioblok.buddystars.home.fragments.BetaReportsFragment;

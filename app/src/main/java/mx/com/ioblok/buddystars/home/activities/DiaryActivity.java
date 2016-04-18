@@ -1,47 +1,23 @@
-package mx.com.ioblok.buddystars.home;
+package mx.com.ioblok.buddystars.home.activities;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.TimePickerDialog;
-import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
-import com.github.sundeepk.compactcalendarview.domain.CalendarDayEvent;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
-import io.realm.Realm;
-import io.realm.RealmConfiguration;
-import io.realm.RealmResults;
 import mx.com.ioblok.buddystars.R;
-import mx.com.ioblok.buddystars.SectionActivity;
-import mx.com.ioblok.buddystars.adapter.CalendarDates;
-import mx.com.ioblok.buddystars.adapter.DiaryElementAdapter;
-import mx.com.ioblok.buddystars.home.fragments.AddDataBaseFragment;
 import mx.com.ioblok.buddystars.utils.Constants;
-import mx.com.ioblok.buddystars.utils.WebBridge;
 
 /**
  * Created by omar on 4/17/16.

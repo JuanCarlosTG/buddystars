@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,9 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import mx.com.ioblok.buddystars.R;
-import mx.com.ioblok.buddystars.home.BlogActivity;
-import mx.com.ioblok.buddystars.home.FBLoginActivity;
-import mx.com.ioblok.buddystars.home.HomeActivity;
+import mx.com.ioblok.buddystars.news.FBLoginActivity;
 import mx.com.ioblok.buddystars.utils.Constants;
 
 /**

@@ -4,10 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import mx.com.ioblok.buddystars.R;
+import mx.com.ioblok.buddystars.news.BlogActivity;
 
 public class SelectActivity extends Activity {
 

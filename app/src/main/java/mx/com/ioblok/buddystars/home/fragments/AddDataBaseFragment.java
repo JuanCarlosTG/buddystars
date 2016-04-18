@@ -18,9 +18,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import mx.com.ioblok.buddystars.R;
-import mx.com.ioblok.buddystars.home.DiaryActivity;
-import mx.com.ioblok.buddystars.home.PortabilityActivity;
-import mx.com.ioblok.buddystars.home.RegisterActivity;
+import mx.com.ioblok.buddystars.home.activities.DiaryActivity;
+import mx.com.ioblok.buddystars.home.activities.PortabilityActivity;
+import mx.com.ioblok.buddystars.home.activities.RegisterActivity;
 import mx.com.ioblok.buddystars.utils.Constants;
 import mx.com.ioblok.buddystars.utils.WebBridge;
 
