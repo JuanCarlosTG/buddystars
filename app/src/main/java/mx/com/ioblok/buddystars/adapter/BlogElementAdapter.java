@@ -10,8 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -60,13 +58,8 @@ public class BlogElementAdapter extends RecyclerView.Adapter<BlogElementAdapter.
 
                     Intent fbLogin = new Intent(blogActivity, FBLoginActivity.class);
                     blogActivity.startActivity(fbLogin);
-                    //Toast.makeText(blogActivity, Constants.getSpotFullImage(), Toast.LENGTH_SHORT).show();
                 }
             });
-        }
-
-        public void showMenuActions(View v){
-
         }
 
     }
@@ -114,9 +107,6 @@ public class BlogElementAdapter extends RecyclerView.Adapter<BlogElementAdapter.
     @Override
     public int getItemCount() {
         return jsonArrayBlog.length();
-    }
-
-    private void showMenuActions(){
     }
 
 }

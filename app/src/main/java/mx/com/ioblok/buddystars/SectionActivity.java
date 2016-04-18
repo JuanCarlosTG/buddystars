@@ -2,15 +2,9 @@ package mx.com.ioblok.buddystars;
 
 import android.app.Activity;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import mx.com.ioblok.buddystars.customviews.CustomTextViewRegular;
 

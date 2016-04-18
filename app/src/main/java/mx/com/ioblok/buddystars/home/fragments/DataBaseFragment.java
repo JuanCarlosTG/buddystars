@@ -2,7 +2,6 @@ package mx.com.ioblok.buddystars.home.fragments;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 

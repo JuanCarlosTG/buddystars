@@ -1,23 +1,18 @@
 package mx.com.ioblok.buddystars.home;
 
 import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import mx.com.ioblok.buddystars.R;
 import mx.com.ioblok.buddystars.customviews.CustomTextViewRegular;
-import mx.com.ioblok.buddystars.home.fragments.RegisterFragment;
 import mx.com.ioblok.buddystars.utils.WebBridge;
 
 public class ListUsers extends Activity implements WebBridge.WebBridgeListener {

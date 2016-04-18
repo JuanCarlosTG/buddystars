@@ -1,26 +1,17 @@
 package mx.com.ioblok.buddystars.news;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import mx.com.ioblok.buddystars.R;
-import mx.com.ioblok.buddystars.adapter.BlogElementAdapter;
 import mx.com.ioblok.buddystars.customviews.CustomTextViewRegular;
 import mx.com.ioblok.buddystars.utils.Constants;
-import mx.com.ioblok.buddystars.utils.WebBridge;
 
 public class DetailBlogActivity extends Activity{
 

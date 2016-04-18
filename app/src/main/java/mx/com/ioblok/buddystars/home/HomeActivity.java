@@ -54,11 +54,6 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
     CustomMenuAdapter adapterActivity;
     FragmentManager manager;
 
-    private static final int ANY_FRAGMENT = -1;
-    private static final int DIARY_FRAGMENT = 1;
-    private static final int REGISTER_FRAGMENT = 2;
-    private static final int PORTABILITY_FRAGMENT = 3;
-
     String vacio = "vacio";
     String name = "";
     String lastname = "";
@@ -347,15 +342,4 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
         }
 
     }
-
-    /*@Override
-    public void onBackPressed() {
-
-        if (getFragmentManager().getBackStackEntryCount() > 0) {
-            getFragmentManager().popBackStack();
-        } else {
-            super.onBackPressed();
-        }
-
-    }*/
 }

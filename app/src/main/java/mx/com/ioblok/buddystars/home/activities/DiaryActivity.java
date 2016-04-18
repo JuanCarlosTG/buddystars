@@ -4,9 +4,7 @@ import android.app.Activity;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;

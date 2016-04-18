@@ -12,8 +12,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -121,18 +119,6 @@ public class DiaryElementAdapter extends RecyclerView.Adapter<DiaryElementAdapte
             String contactEMail = contacts.getString("email");
             String contactSchedule = contacts.getString("schedule");
 
-            /*photoString = photoString.equals("null") ? "http://inthecheesefactory.com/uploads/source/glidepicasso/cover.jpg" : photoString;
-
-            Glide.with(activity).load(photoString).asBitmap().centerCrop().into(new BitmapImageViewTarget(holder.farmerImage) {
-                @Override
-                protected void setResource(Bitmap resource) {
-                    RoundedBitmapDrawable circularBitmapDrawable =
-                            RoundedBitmapDrawableFactory.create(context.getResources(), resource);
-                    circularBitmapDrawable.setCircular(true);
-                    holder.farmerImage.setImageDrawable(circularBitmapDrawable);
-                }
-            });*/
-
             holder.textViewContactName.setText(contactName);
             String [] strSplit = contactSchedule.split(" ");
             Log.e("splt 1", strSplit[0]);
@@ -152,9 +138,6 @@ public class DiaryElementAdapter extends RecyclerView.Adapter<DiaryElementAdapte
     @Override
     public int getItemCount() {
         return jsonArrayContacts.length();
-    }
-
-    private void showMenuActions(){
     }
 
 }

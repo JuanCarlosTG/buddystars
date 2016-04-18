@@ -2,30 +2,19 @@ package mx.com.ioblok.buddystars.news;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 
 import mx.com.ioblok.buddystars.R;
 import mx.com.ioblok.buddystars.adapter.BlogElementAdapter;
-import mx.com.ioblok.buddystars.adapter.DataBaseElementAdapter;
-import mx.com.ioblok.buddystars.customviews.CustomEditTextRegular;
 import mx.com.ioblok.buddystars.customviews.CustomTextViewRegular;
-import mx.com.ioblok.buddystars.utils.User;
 import mx.com.ioblok.buddystars.utils.WebBridge;
 
 public class BlogActivity extends Activity implements WebBridge.WebBridgeListener{

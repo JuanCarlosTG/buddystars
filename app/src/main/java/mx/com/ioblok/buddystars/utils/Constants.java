@@ -1,6 +1,5 @@
 package mx.com.ioblok.buddystars.utils;
 
-
 import java.util.ArrayList;
 
 import mx.com.ioblok.buddystars.R;

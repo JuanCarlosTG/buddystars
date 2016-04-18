@@ -2,7 +2,6 @@ package mx.com.ioblok.buddystars.home.fragments;
 
 import android.app.AlertDialog;
 import android.app.Fragment;
-import android.app.TimePickerDialog;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,10 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TextView;
-import android.widget.TimePicker;
 
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.github.sundeepk.compactcalendarview.domain.CalendarDayEvent;
@@ -29,7 +25,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -71,9 +66,6 @@ public class DiaryFragment extends Fragment implements WebBridge.WebBridgeListen
     private RecyclerView recyclerViewDiary;
 
     final Calendar myCalendar = Calendar.getInstance();
-
-    String name = "", lastname = "", phone = "", email = "";
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
