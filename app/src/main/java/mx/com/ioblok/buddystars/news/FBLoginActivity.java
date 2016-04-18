@@ -37,14 +37,6 @@ public class FBLoginActivity extends Activity implements WebBridge.WebBridgeList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-        Bundle bundle = getIntent().getExtras();
-
-        if (bundle != null){
-            id = bundle.getString("id");
-            Log.e("El valor de id bundle", id);
-        }
-
         FacebookSdk.sdkInitialize(getApplicationContext());
 
         mCallbackManager = CallbackManager.Factory.create();
@@ -56,8 +48,6 @@ public class FBLoginActivity extends Activity implements WebBridge.WebBridgeList
                         Log.e("Success", loginResult.getAccessToken().getToken());
                         strToken = loginResult.getAccessToken().getToken();
                         getBlog();
-                        /*Intent home = new Intent(FBLoginActivity.this, HomeActivity.class);
-                        startActivity(home);*/
                     }
 
                     @Override
@@ -85,8 +75,8 @@ public class FBLoginActivity extends Activity implements WebBridge.WebBridgeList
         });
 
         if(Constants.isFacebookLogged()){
-            Intent blog = new Intent(FBLoginActivity.this, BlogActivity.class);
-            startActivity(blog);
+            Intent detailBlog = new Intent(FBLoginActivity.this, DetailBlogActivity.class);
+            startActivity(detailBlog);
             finish();
         }
 
@@ -138,7 +128,6 @@ public class FBLoginActivity extends Activity implements WebBridge.WebBridgeList
                 Constants.setFacebookLogged(true);
                 /*TODO FACEBOOK*/
                 Intent blog = new Intent(FBLoginActivity.this, DetailBlogActivity.class);
-                blog.putExtra("id" , id);
                 startActivity(blog);
                 finish();
             } else {

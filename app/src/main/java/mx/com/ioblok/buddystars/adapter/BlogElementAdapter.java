@@ -40,7 +40,7 @@ public class BlogElementAdapter extends RecyclerView.Adapter<BlogElementAdapter.
         public CustomTextViewRegular txtBlog;
         public String descriptionBlog;
         public String urlImageBlog;
-        public String id;
+        public String titleBlog;
 
         public BlogViewHolder(View itemView) {
             super(itemView);
@@ -56,8 +56,9 @@ public class BlogElementAdapter extends RecyclerView.Adapter<BlogElementAdapter.
                 public void onClick(View v) {
                     Constants.setSpotDescription(descriptionBlog);
                     Constants.setSpotFullImage(urlImageBlog);
+                    Constants.setSpotTitle(titleBlog);
+
                     Intent fbLogin = new Intent(blogActivity, FBLoginActivity.class);
-                    fbLogin.putExtra("id", id);
                     blogActivity.startActivity(fbLogin);
                     //Toast.makeText(blogActivity, Constants.getSpotFullImage(), Toast.LENGTH_SHORT).show();
                 }
@@ -102,7 +103,7 @@ public class BlogElementAdapter extends RecyclerView.Adapter<BlogElementAdapter.
             holder.txtBlog.setText(blogTitle);
             holder.descriptionBlog = blogDescription;
             holder.urlImageBlog = blogFull;
-            holder.id = id;
+            holder.titleBlog = blogTitle;
 
         } catch (JSONException jsonE) {
 

@@ -25,7 +25,7 @@
             android:layout_height="138sp"
             />
 
-        <TextView
+        <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
             android:id="@+id/tv_txt_description_video"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,7 +33,6 @@
             android:background="@color/colorBlog"
             android:gravity="center"
             android:padding="20sp"
-            android:text="@string/loreim"
             android:textColor="@color/colorWhite" />
     </LinearLayout>
 </RelativeLayout>

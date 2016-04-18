@@ -15,6 +15,7 @@ public class Constants {
     private static boolean facebookLogged = false;
     private static String spotDescription = "";
     private static String spotFullImage = "";
+    private static String spotTitle = "";
     private static int tagFragment = -1;
 
     private static String registerName = "";
@@ -167,4 +168,11 @@ public class Constants {
         Constants.registerSim = "";
     }
 
+    public static String getSpotTitle() {
+        return spotTitle;
+    }
+
+    public static void setSpotTitle(String spotTitle) {
+        Constants.spotTitle = spotTitle;
+    }
 }
