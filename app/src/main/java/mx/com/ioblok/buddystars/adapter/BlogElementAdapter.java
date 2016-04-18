@@ -20,7 +20,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import mx.com.ioblok.buddystars.R;
-import mx.com.ioblok.buddystars.customviews.CustomTextViewRegular;
 import mx.com.ioblok.buddystars.news.FBLoginActivity;
 import mx.com.ioblok.buddystars.utils.Constants;
 
@@ -37,9 +36,10 @@ public class BlogElementAdapter extends RecyclerView.Adapter<BlogElementAdapter.
     public static class BlogViewHolder extends RecyclerView.ViewHolder {
 
         public ImageView imageBlog;
-        public CustomTextViewRegular txtBlog;
+        public TextView txtBlog;
         public String descriptionBlog;
         public String urlImageBlog;
+        public String id;
 
         public BlogViewHolder(View itemView) {
             super(itemView);
@@ -48,7 +48,7 @@ public class BlogElementAdapter extends RecyclerView.Adapter<BlogElementAdapter.
             cardViewItem.setCardBackgroundColor(Color.argb(0, 255, 255, 255));
 
             imageBlog = (ImageView) cardViewItem.findViewById(R.id.image_blog);
-            txtBlog = (CustomTextViewRegular) cardViewItem.findViewById(R.id.txt_blog);
+            txtBlog = (TextView) cardViewItem.findViewById(R.id.txt_blog);
 
             cardViewItem.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -56,8 +56,9 @@ public class BlogElementAdapter extends RecyclerView.Adapter<BlogElementAdapter.
                     Constants.setSpotDescription(descriptionBlog);
                     Constants.setSpotFullImage(urlImageBlog);
                     Intent fbLogin = new Intent(blogActivity, FBLoginActivity.class);
+                    fbLogin.putExtra("id", id);
                     blogActivity.startActivity(fbLogin);
-                    Toast.makeText(blogActivity, Constants.getSpotFullImage(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(blogActivity, Constants.getSpotFullImage(), Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -87,6 +88,8 @@ public class BlogElementAdapter extends RecyclerView.Adapter<BlogElementAdapter.
         try {
             JSONObject blog = jsonArrayBlog.getJSONObject(position);
 
+
+            String id = blog.getString("id");
             String blogTitle = blog.getString("title");
             String blogDescription = blog.getString("description");
             String blogReleased = blog.getString("released");
@@ -98,6 +101,7 @@ public class BlogElementAdapter extends RecyclerView.Adapter<BlogElementAdapter.
             holder.txtBlog.setText(blogTitle);
             holder.descriptionBlog = blogDescription;
             holder.urlImageBlog = blogFull;
+            holder.id = id;
 
         } catch (JSONException jsonE) {
 

@@ -32,10 +32,18 @@ public class FBLoginActivity extends Activity implements WebBridge.WebBridgeList
     CallbackManager mCallbackManager;
     private ImageButton btnBackHeader;
     private String strToken;
-
+    private String id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        Bundle bundle = getIntent().getExtras();
+
+        if (bundle != null){
+            id = bundle.getString("id");
+            Log.e("El valor de id bundle", id);
+        }
 
         FacebookSdk.sdkInitialize(getApplicationContext());
 
@@ -128,10 +136,10 @@ public class FBLoginActivity extends Activity implements WebBridge.WebBridgeList
         try {
             if (json.getBoolean("success")) {
                 Constants.setFacebookLogged(true);
-                /*
-                TODO FACEBOOK
-                Intent blog = new Intent(FBLoginActivity.this, BlogActivity.class);
-                startActivity(blog);*/
+                /*TODO FACEBOOK*/
+                Intent blog = new Intent(FBLoginActivity.this, DetailBlogActivity.class);
+                blog.putExtra("id" , id);
+                startActivity(blog);
                 finish();
             } else {
                 String error = json.getJSONArray("error_message").getString(0);
