@@ -9,10 +9,12 @@ import android.content.SharedPreferences;
 import android.app.FragmentManager;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.SyncStateContract;
+import android.support.annotation.BoolRes;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
@@ -33,7 +35,6 @@ import com.bumptech.glide.request.target.BitmapImageViewTarget;
 
 import mx.com.ioblok.buddystars.R;
 import mx.com.ioblok.buddystars.SectionActivity;
-import mx.com.ioblok.buddystars.SectionFragmentActivity;
 import mx.com.ioblok.buddystars.adapter.CustomMenuAdapter;
 import mx.com.ioblok.buddystars.home.fragments.AddDataBaseFragment;
 import mx.com.ioblok.buddystars.home.fragments.BetaReportsFragment;
@@ -43,6 +44,7 @@ import mx.com.ioblok.buddystars.home.fragments.DiaryFragment;
 import mx.com.ioblok.buddystars.home.fragments.PointsFragment;
 import mx.com.ioblok.buddystars.home.fragments.PortabilityFragment;
 import mx.com.ioblok.buddystars.home.fragments.RegisterFragment;
+import mx.com.ioblok.buddystars.home.fragments.RegisterSimFragment;
 import mx.com.ioblok.buddystars.home.fragments.SupportFragment;
 import mx.com.ioblok.buddystars.utils.Constants;
 import mx.com.ioblok.buddystars.utils.PermissionUtils;
@@ -58,6 +60,11 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
     private ListView mDrawerOptions;
     CustomMenuAdapter adapterActivity;
     FragmentManager manager;
+
+    private static final int ANY_FRAGMENT = -1;
+    private static final int DIARY_FRAGMENT = 1;
+    private static final int REGISTER_FRAGMENT = 2;
+    private static final int PORTABILITY_FRAGMENT = 3;
 
     String vacio = "vacio";
     String name = "";
@@ -122,10 +129,12 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
                 } else if (position == 6) {
                     portabilityFragment(arg1);
                 } else if (position == 7) {
-                    betaReportFragment(arg1);
+                    registerSimFragment(arg1);
                 } else if (position == 8) {
-                    pointsFragment(arg1);
+                    betaReportFragment(arg1);
                 } else if (position == 9) {
+                    pointsFragment(arg1);
+                } else if (position == 10) {
                     supportFragment(arg1);
                 }
                 mDrawer.closeDrawers();
@@ -177,18 +186,16 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
     }
 
     public void addDataBaseFragment(View view) {
+
         setTitle("Agregar");
         setMainImage(R.drawable.icon_database);
-        //final AddDataBaseFragment replaceDataBaseFragment = new AddDataBaseFragment();
-        //getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, replaceDataBaseFragment).commit();
-
-        Intent intent = new Intent();
-        intent.setClass(HomeActivity.this, ActivityAddDataBase.class);
-        startActivity(intent);
+        final AddDataBaseFragment replaceDataBaseFragment = new AddDataBaseFragment();
+        getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, replaceDataBaseFragment).commit();
     }
 
 
     public void betaReportFragment(View view){
+
         setTitle("Reportes");
         setMainImage(R.drawable.icon_reports);
         final BetaReportsFragment alphaReportsFragment = new BetaReportsFragment();
@@ -197,6 +204,7 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
     }
 
     public void alphaReportFragment(View view){
+
         setTitle("Reportes");
         setMainImage(R.drawable.icon_reports);
         final AlphaReportsFragment betaReportsFragment = new AlphaReportsFragment();
@@ -205,14 +213,15 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
     }
 
     public void dataBaseFragment(View view) {
-        setTitle("Base de Datos" +
-                "");
+
+        setTitle("Base de Datos");
         setMainImage(R.drawable.icon_database);
         final DataBaseFragment dataBaseFragment = new DataBaseFragment();
         getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, dataBaseFragment).commit();
     }
 
     public void diaryFragment(View view) {
+
         setTitle("Agenda");
         setMainImage(R.drawable.icon_calendar);
         final DiaryFragment diaryFragment = new DiaryFragment();
@@ -221,6 +230,7 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
     }
 
     public void pointsFragment(View view) {
+
         setTitle("Puntos");
         setMainImage(R.drawable.icon_points);
         final PointsFragment pointsFragment = new PointsFragment();
@@ -229,26 +239,32 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
     }
 
     public void portabilityFragment(View view) {
+
         setTitle("ALTA");
         setMainImage(R.drawable.icon_add);
-        //final PortabilityFragment portabilityFragment = new PortabilityFragment();
-        //getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, portabilityFragment).commit();
-        Intent intent = new Intent();
-        intent.setClass(HomeActivity.this, ActivityPortability.class);
-        startActivity(intent);
+        final PortabilityFragment portabilityFragment = new PortabilityFragment();
+        getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, portabilityFragment).commit();
+
     }
 
     public void registerFragment(View view) {
+
         setTitle("ALTA");
         setMainImage(R.drawable.icon_add);
-        //RegisterFragment registerFragment = new RegisterFragment();
-        //getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, registerFragment).commit();
-        Intent intent = new Intent();
-        intent.setClass(HomeActivity.this, ActivityRegister.class);
-        startActivity(intent);
+        RegisterFragment registerFragment = new RegisterFragment();
+        getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, registerFragment).commit();
+    }
+
+    public void registerSimFragment(View view) {
+
+        setTitle("ALTA");
+        setMainImage(R.drawable.icon_add);
+        RegisterSimFragment registerSimFragment = new RegisterSimFragment();
+        getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, registerSimFragment).commit();
     }
 
     public void supportFragment(View view) {
+
         setTitle("Soporte");
         setMainImage(R.drawable.icon_support);
         final SupportFragment supportFragment = new SupportFragment();
@@ -271,7 +287,6 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
         });
         dialogo1.show();
 
-
     }
 
     private void removeUser() {
@@ -286,21 +301,6 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
 
         SupportFragment supportFragment = new SupportFragment();
         getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, supportFragment).commit();
-
-    }
-
-    public void actionsFromSubMenuItems(View view) {
-
-        Log.e("ID", view.getId() + "");
-
-        /*switch (view.getId()) {
-
-            //listeners for families submenu
-            case R.id.rl_parent:
-
-                break;
-
-        }*/
 
     }
 
@@ -340,9 +340,6 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
 
     }
 
-
-
-
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] results) {
         if (requestCode != CALL_PERMISSION_REQUEST_CODE) {
@@ -358,10 +355,6 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
 
     }
 
-    public Typeface setText(){
-        Typeface font = Typeface.createFromAsset(this.getAssets(), "telefonica_regular.otf");
-        return font;
-    }
     /*@Override
     public void onBackPressed() {
 

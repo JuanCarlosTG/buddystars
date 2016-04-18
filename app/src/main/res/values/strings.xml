@@ -29,6 +29,10 @@
     <string name="txt_error_name">Debes introducir el campo nombre</string>
     <string name="txt_error_last_name">Debes introducir el campo apellido</string>
     <string name="txt_error_mail">Debes introducir el campo correo</string>
+    <string name="txt_error_phone">Debes introducir el campo teléfono para continuar</string>
+    <string name="txt_error_code">Debes introducir el código de registro para continuar</string>
+    <string name="txt_error_portability">Debes introducir el código de portabilidad</string>
+    <string name="txt_error_diary">Debes introducir la fecha para contactar</string>
 
     <string name="txt_sending">Enviando</string>
     <string name="title_activity_homeactivity">Homeactivity</string>
@@ -39,6 +43,7 @@
     <string name="txt_menu_register">ALTAS</string>
     <string name="txt_menu_news">Nuevas</string>
     <string name="txt_menu_portability">Portabilidad</string>
+    <string name="txt_menu_register_sim">ALTA CHIP</string>
     <string name="txt_menu_reports">REPORTES</string>
     <string name="txt_menu_points">PUNTOS</string>
     <string name="txt_menu_support">SOPORTE</string>
@@ -51,6 +56,7 @@
     <string name="txt_register_diary">Agenda</string>
     <string name="txt_register_code">Código Alta</string>
     <string name="txt_register_portability">Código Portabilidad</string>
+    <string name="txt_alta_sim">Alta Chip</string>
 
     <string name="txt_title_add">Nuevo</string>
     <string name="txt_title_portability">Portabilidad</string>
@@ -58,6 +64,7 @@
 
     <string name="txt_register_customer">Cliente</string>
     <string name="txt_register_operation_code">Código Operación</string>
+    <string name="txt_register_sim">Código Chip</string>
     <string name="txt_register_amount">Monto de Alta</string>
 
     <string name="txt_support_phone">56.78.90.45</string>

@@ -1,10 +1,9 @@
-package mx.com.ioblok.buddystars.home;
+package mx.com.ioblok.buddystars.news;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -18,7 +17,6 @@ import com.facebook.FacebookSdk;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -26,7 +24,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 import mx.com.ioblok.buddystars.R;
-import mx.com.ioblok.buddystars.adapter.BlogElementAdapter;
 import mx.com.ioblok.buddystars.utils.Constants;
 import mx.com.ioblok.buddystars.utils.WebBridge;
 

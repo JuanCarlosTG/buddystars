@@ -1,4 +1,4 @@
-package mx.com.ioblok.buddystars.home;
+package mx.com.ioblok.buddystars.news;
 
 import android.app.Activity;
 import android.app.AlertDialog;

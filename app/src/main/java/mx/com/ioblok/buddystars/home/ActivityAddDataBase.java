@@ -31,7 +31,7 @@ public class ActivityAddDataBase extends Activity implements WebBridge.WebBridge
     View v;
     String code_portability = "";
     String name ="" ,lastname = "", phone = "" ,email = "" ,fecha = " ", code_new = " ";
-    private EditText et_name, et_lastname, et_telephone, et_email, et_diary, et_code_register,et_code_portability;
+    private EditText et_name, et_lastname, et_telephone, et_email, et_diary, et_code_register,et_code_portability,et_alta_sim;
     TextView tv_name, tv_last_name ,tv_code, tv_agen, tv_email, tv_telephone,tv_code_portability;
 
     @Override
@@ -209,6 +209,7 @@ public class ActivityAddDataBase extends Activity implements WebBridge.WebBridge
         params.put("schedule", et_diary.getText().toString());
         params.put("code_new", et_code_register.getText().toString());
         params.put("code_portability", et_code_portability.getText().toString());
+        params.put("alta_sim",et_alta_sim.getText().toString());
 
         WebBridge.send("/register-add", params, "Enviando", this, this);
     }
@@ -315,6 +316,7 @@ public class ActivityAddDataBase extends Activity implements WebBridge.WebBridge
                 et_diary.setText("");
                 et_code_register.setText("");
                 et_code_portability.setText("");
+                et_alta_sim.setText("");
             }
         });
         dialogo1.show();

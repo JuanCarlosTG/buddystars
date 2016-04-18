@@ -36,18 +36,16 @@ import io.realm.RealmConfiguration;
 import io.realm.RealmResults;
 import mx.com.ioblok.buddystars.R;
 import mx.com.ioblok.buddystars.adapter.CalendarDates;
-import mx.com.ioblok.buddystars.adapter.DataBaseElementAdapter;
 import mx.com.ioblok.buddystars.adapter.DiaryElementAdapter;
-import mx.com.ioblok.buddystars.utils.Utils;
 import mx.com.ioblok.buddystars.utils.WebBridge;
 
 /**
  * Created by kreativeco on 01/02/16.
  */
-public class DiaryFragment extends Fragment implements WebBridge.WebBridgeListener{
+public class DiaryFragment extends Fragment implements WebBridge.WebBridgeListener {
 
     View v;
-    String [] daysOfWeek = {"Lunes",
+    String[] daysOfWeek = {"Lunes",
             "Martes",
             "Miércoles",
             "Jueves",
@@ -75,7 +73,6 @@ public class DiaryFragment extends Fragment implements WebBridge.WebBridgeListen
     String name = "", lastname = "", phone = "", email = "";
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -89,10 +86,10 @@ public class DiaryFragment extends Fragment implements WebBridge.WebBridgeListen
         RecyclerView.LayoutManager rvLayoutManager = new LinearLayoutManager(getActivity().getBaseContext());
         recyclerViewDiary.setLayoutManager(rvLayoutManager);
 
-        btnPreviousMonth    = (Button) v.findViewById(R.id.btn_previous_month);
-        btnNextMonth        = (Button) v.findViewById(R.id.btn_next_month);
-        textViewCalendar    = (TextView) v.findViewById(R.id.tv_current_date);
-        imageButtonAdd      = (ImageButton) v.findViewById(R.id.btn_add);
+        btnPreviousMonth = (Button) v.findViewById(R.id.btn_previous_month);
+        btnNextMonth = (Button) v.findViewById(R.id.btn_next_month);
+        textViewCalendar = (TextView) v.findViewById(R.id.tv_current_date);
+        imageButtonAdd = (ImageButton) v.findViewById(R.id.btn_add);
         compactCalendarView = (CompactCalendarView) v.findViewById(R.id.compact_calendar_view);
 
         compactCalendarView.drawSmallIndicatorForEvents(true);
@@ -100,26 +97,9 @@ public class DiaryFragment extends Fragment implements WebBridge.WebBridgeListen
         compactCalendarView.setUseThreeLetterAbbreviation(true);
         compactCalendarView.setShouldDrawDaysHeader(true);
         compactCalendarView.shouldScrollMonth(true);
-        //compactCalendarView.invalidate();
 
-        Bundle bundle = getArguments();
-
-        if (bundle != null) {
-
-            name = getArguments().getString("name");
-            Log.e("name",name );
-            lastname = getArguments().getString("surename");
-            Log.e("name",name );
-            phone = getArguments().getString("phone");
-            Log.e("name",name );
-            email = getArguments().getString("email");
-            Log.e("name",name );
-
-        }else{
-            imageButtonAdd.setVisibility(View.INVISIBLE);
-            isCalendarEnable = true;
-            getDates();
-        }
+        isCalendarEnable = true;
+        getDates();
 
         setListeners();
         setHeaderDate();
@@ -133,16 +113,16 @@ public class DiaryFragment extends Fragment implements WebBridge.WebBridgeListen
         WebBridge.send("/register-list", "Cargando", getActivity(), this);
     }
 
-    private void setListeners(){
+    private void setListeners() {
 
         //compactCalendarView Listener
         compactCalendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
             @Override
             public void onDayClick(Date dateClicked) {
-                if(isCalendarEnable){
-                    strDay      = (String) android.text.format.DateFormat.format("dd", dateClicked);
-                    strMonth    = (String) android.text.format.DateFormat.format("MM", dateClicked);
-                    strYear     = (String) android.text.format.DateFormat.format("yyyy", dateClicked);
+                if (isCalendarEnable) {
+                    strDay = (String) android.text.format.DateFormat.format("dd", dateClicked);
+                    strMonth = (String) android.text.format.DateFormat.format("MM", dateClicked);
+                    strYear = (String) android.text.format.DateFormat.format("yyyy", dateClicked);
 
                 }
 
@@ -171,31 +151,10 @@ public class DiaryFragment extends Fragment implements WebBridge.WebBridgeListen
             }
         });
 
-        final TimePickerDialog.OnTimeSetListener timeSetListener = new TimePickerDialog.OnTimeSetListener(){
-
-            @Override
-            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                myCalendar.set(Calendar.HOUR, hourOfDay);
-                myCalendar.set(Calendar.MINUTE, minute);
-                updateTime();
-            }
-        };
-
-        //Lister for show TimePicker
-        imageButtonAdd.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                new TimePickerDialog(getActivity(), timeSetListener,
-                        myCalendar.get(Calendar.HOUR),
-                        myCalendar.get(Calendar.MINUTE), true).show();
-            }
-        });
     }
 
     private void setDatesOnRecyclerView() {
-        String stringForQuery = strYear + "-" + strMonth + "-" +strDay;
+        String stringForQuery = strYear + "-" + strMonth + "-" + strDay;
         RealmResults<CalendarDates> results = realm.where(CalendarDates.class)
                 .contains("schedule", stringForQuery).findAll();
 
@@ -203,7 +162,7 @@ public class DiaryFragment extends Fragment implements WebBridge.WebBridgeListen
 
             JSONArray jsonArrayContacts = new JSONArray();
 
-            for(CalendarDates calendarDates : results){
+            for (CalendarDates calendarDates : results) {
 
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("name", calendarDates.getName());
@@ -218,7 +177,7 @@ public class DiaryFragment extends Fragment implements WebBridge.WebBridgeListen
             RecyclerView.Adapter rvAdapter = new DiaryElementAdapter(jsonArrayContacts, getActivity());
             recyclerViewDiary.setAdapter(rvAdapter);
 
-        }catch (JSONException jsonE){
+        } catch (JSONException jsonE) {
 
         }
 
@@ -227,42 +186,17 @@ public class DiaryFragment extends Fragment implements WebBridge.WebBridgeListen
 
     private void setInitialDates() {
 
-        date     = compactCalendarView.getFirstDayOfCurrentMonth();
+        date = compactCalendarView.getFirstDayOfCurrentMonth();
 
-        strDay      = (String) android.text.format.DateFormat.format("dd", date);
-        strMonth    = (String) android.text.format.DateFormat.format("MM", date);
-        strYear     = (String) android.text.format.DateFormat.format("yyyy", date);
-
-    }
-
-    private void updateTime() {
-
-        String hourFormat = "HH:mm";
-        SimpleDateFormat sdf = new SimpleDateFormat(hourFormat, Locale.US);
-
-        strHour     = Integer.toString(myCalendar.get(Calendar.HOUR));
-        strMinute   = Integer.toString(myCalendar.get(Calendar.MINUTE));
-
-        Utils.setStringSchedule(strYear + "-" + strMonth + "-"
-                + strDay + " " + strHour + ":" + strMinute + ":00");
-
-        final AddDataBaseFragment addDataBaseFragment = new AddDataBaseFragment();
-
-        Bundle data = new Bundle();
-        data.putString("name", name);
-        data.putString("surename", lastname);
-        data.putString("phone", phone);
-        data.putString("email", email);
-        data.putString("schedule", Utils.getStringSchedule());
-
-        addDataBaseFragment.setArguments(data);
-        getFragmentManager().beginTransaction().replace(R.id.flContent, addDataBaseFragment).commit();
+        strDay = (String) android.text.format.DateFormat.format("dd", date);
+        strMonth = (String) android.text.format.DateFormat.format("MM", date);
+        strYear = (String) android.text.format.DateFormat.format("yyyy", date);
 
     }
 
-    private void setHeaderDate(){
+    private void setHeaderDate() {
 
-        date     = compactCalendarView.getFirstDayOfCurrentMonth();
+        date = compactCalendarView.getFirstDayOfCurrentMonth();
         String txtMonth = setStringMonth((String) android.text.format.DateFormat.format("MM", date));
         String txtYear = (String) android.text.format.DateFormat.format("yyyy", date);
 
@@ -272,9 +206,9 @@ public class DiaryFragment extends Fragment implements WebBridge.WebBridgeListen
 
     }
 
-    private String setStringMonth(String stringMonth){
+    private String setStringMonth(String stringMonth) {
 
-        switch (stringMonth){
+        switch (stringMonth) {
             case "01":
                 stringMonth = "Enero";
                 break;
@@ -332,13 +266,17 @@ public class DiaryFragment extends Fragment implements WebBridge.WebBridgeListen
                 realm.commitTransaction();
 
                 List<CalendarDayEvent> calendarDayEventList = new ArrayList<>();
-                for (int i = 0; i<jsonArrayDates.length(); i++){
+                for (int i = 0; i < jsonArrayDates.length(); i++) {
 
                     String strDate = jsonArrayDates.getJSONObject(i).getString("schedule");
-                    String strRegisterId = jsonArrayDates.getJSONObject(i).getString("register_id");;
-                    String strName = jsonArrayDates.getJSONObject(i).getString("name");;
-                    String strPhone = jsonArrayDates.getJSONObject(i).getString("phone");;
-                    String strEMail = jsonArrayDates.getJSONObject(i).getString("email");;
+                    String strRegisterId = jsonArrayDates.getJSONObject(i).getString("register_id");
+                    ;
+                    String strName = jsonArrayDates.getJSONObject(i).getString("name");
+                    ;
+                    String strPhone = jsonArrayDates.getJSONObject(i).getString("phone");
+                    ;
+                    String strEMail = jsonArrayDates.getJSONObject(i).getString("email");
+                    ;
 
                     realm.beginTransaction();
                     realm.createObjectFromJson(CalendarDates.class, jsonArrayDates.getJSONObject(i));
@@ -350,8 +288,8 @@ public class DiaryFragment extends Fragment implements WebBridge.WebBridgeListen
                         Date mDate = sdf.parse(strDate);
                         long timeInMilliseconds = mDate.getTime();
 
-                        compactCalendarView.addEvent(new CalendarDayEvent(timeInMilliseconds,  Color.argb(255, 6, 83, 114)), true);
-                    } catch (  ParseException e) {
+                        compactCalendarView.addEvent(new CalendarDayEvent(timeInMilliseconds, Color.argb(255, 6, 83, 114)), true);
+                    } catch (ParseException e) {
                         e.printStackTrace();
                         Log.e("Exception", e.toString());
                     }

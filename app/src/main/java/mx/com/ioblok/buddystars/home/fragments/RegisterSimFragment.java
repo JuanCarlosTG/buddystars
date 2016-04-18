@@ -27,11 +27,11 @@ import mx.com.ioblok.buddystars.R;
 import mx.com.ioblok.buddystars.home.ListUsers;
 import mx.com.ioblok.buddystars.utils.WebBridge;
 
-public class RegisterFragment extends Fragment implements WebBridge.WebBridgeListener {
+public class RegisterSimFragment extends Fragment implements WebBridge.WebBridgeListener {
 
     private static final int RESULT_OK = 1;
     String name_full = "", strtext = "", name = "", lastname = "", phone = "", email = " ", fecha = " ",
-            cost = "", result_listUser, register_id, type_new = "1", type_amount, ciennueve = "199", trescuatronueve = "349",
+            cost = "", result_listUser, register_id, type_new = "3", type_amount, ciennueve = "199", trescuatronueve = "349",
             cuatrocuatronueve = "449", cincocuatronueve = "549", sietecuatronueve = "749", nuvenuevenueve = "999";
     View v;
     Spinner spinner_code;
@@ -45,7 +45,7 @@ public class RegisterFragment extends Fragment implements WebBridge.WebBridgeLis
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        v = inflater.inflate(R.layout.fragment_register, null);
+        v = inflater.inflate(R.layout.fragment_register_sim, null);
 
         et_name_full = (EditText) v.findViewById(R.id.et_name_full);
         et_code_operation = (EditText) v.findViewById(R.id.et_code_operation);
