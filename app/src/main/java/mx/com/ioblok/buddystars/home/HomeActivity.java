@@ -36,6 +36,7 @@ import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import mx.com.ioblok.buddystars.R;
 import mx.com.ioblok.buddystars.SectionActivity;
 import mx.com.ioblok.buddystars.adapter.CustomMenuAdapter;
+import mx.com.ioblok.buddystars.customviews.CustomTextViewRegular;
 import mx.com.ioblok.buddystars.home.fragments.AddDataBaseFragment;
 import mx.com.ioblok.buddystars.home.fragments.BetaReportsFragment;
 import mx.com.ioblok.buddystars.home.fragments.AlphaReportsFragment;
@@ -53,7 +54,7 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
 
     public ImageButton btnMenu;
     public ImageView imageHeaderList;
-    public TextView txtHeaderList;
+    public CustomTextViewRegular txtHeaderList;
 
     private DrawerLayout mDrawer;
     private ListView mDrawerOptions;
@@ -86,7 +87,7 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
         View footer = getLayoutInflater().inflate(R.layout.footer_list, null);
 
         imageHeaderList = (ImageView) header.findViewById(R.id.image_header_profile);
-        txtHeaderList = (TextView) header.findViewById(R.id.txt_username);
+        txtHeaderList = (CustomTextViewRegular) header.findViewById(R.id.txt_username);
         String userName = User.get("last_name", this) + "\n" + User.get("first_name", this);
         String avatar = User.get("avatar", this);
         txtHeaderList.setText(userName);

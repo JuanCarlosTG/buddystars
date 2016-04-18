@@ -17,6 +17,8 @@ import java.util.Date;
 import java.util.Locale;
 
 import mx.com.ioblok.buddystars.R;
+import mx.com.ioblok.buddystars.customviews.CustomButtonRegular;
+import mx.com.ioblok.buddystars.customviews.CustomTextViewRegular;
 import mx.com.ioblok.buddystars.utils.Constants;
 
 /**
@@ -24,7 +26,6 @@ import mx.com.ioblok.buddystars.utils.Constants;
  */
 public class DiaryActivity extends Activity{
 
-    View v;
     String [] daysOfWeek = {"Lunes",
             "Martes",
             "Miércoles",
@@ -35,9 +36,9 @@ public class DiaryActivity extends Activity{
     };
 
     private CompactCalendarView compactCalendarView;
-    private TextView textViewCalendar;
+    private CustomTextViewRegular textViewCalendar;
     private ImageButton imageButtonAdd, imageButtonDown;
-    private Button btnPreviousMonth, btnNextMonth;
+    private CustomButtonRegular btnPreviousMonth, btnNextMonth;
     private Date date;
     private String strYear;
     private String strMonth;
@@ -57,9 +58,9 @@ public class DiaryActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary);
 
-        btnPreviousMonth    = (Button) findViewById(R.id.btn_previous_month);
-        btnNextMonth        = (Button) findViewById(R.id.btn_next_month);
-        textViewCalendar    = (TextView) findViewById(R.id.tv_current_date);
+        btnPreviousMonth    = (CustomButtonRegular) findViewById(R.id.btn_previous_month);
+        btnNextMonth        = (CustomButtonRegular) findViewById(R.id.btn_next_month);
+        textViewCalendar    = (CustomTextViewRegular) findViewById(R.id.tv_current_date);
         imageButtonAdd      = (ImageButton) findViewById(R.id.btn_add);
         imageButtonDown      = (ImageButton) findViewById(R.id.btn_header_back);
         compactCalendarView = (CompactCalendarView) findViewById(R.id.compact_calendar_view);

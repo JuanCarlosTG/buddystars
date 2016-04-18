@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
@@ -26,12 +25,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import mx.com.ioblok.buddystars.R;
+import mx.com.ioblok.buddystars.customviews.CustomTextViewRegular;
 import mx.com.ioblok.buddystars.utils.WebBridge;
 
 public class BetaReportsFragment extends Fragment implements WebBridge.WebBridgeListener {
 
     View v;
-    TextView new_container, new_portability, tv_required_person;
+    CustomTextViewRegular new_container, new_portability, tv_required_person;
     private LinearLayout mainLayout;
     private PieChart mChart;
     PieChart pieChart;
@@ -42,9 +42,9 @@ public class BetaReportsFragment extends Fragment implements WebBridge.WebBridge
                              Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.fragment_beta_reports, null);
 
-        new_container = (TextView) v.findViewById(R.id.new_container);
-        new_portability = (TextView) v.findViewById(R.id.new_portability);
-        tv_required_person = (TextView) v.findViewById(R.id.tv_required_person);
+        new_container = (CustomTextViewRegular) v.findViewById(R.id.new_container);
+        new_portability = (CustomTextViewRegular) v.findViewById(R.id.new_portability);
+        tv_required_person = (CustomTextViewRegular) v.findViewById(R.id.tv_required_person);
 
         getData();
         return v;

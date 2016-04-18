@@ -22,6 +22,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 
 import mx.com.ioblok.buddystars.R;
+import mx.com.ioblok.buddystars.customviews.CustomButtonRegular;
+import mx.com.ioblok.buddystars.customviews.CustomEditTextRegular;
 import mx.com.ioblok.buddystars.home.ListUsers;
 import mx.com.ioblok.buddystars.utils.WebBridge;
 
@@ -33,9 +35,9 @@ public class RegisterFragment extends Fragment implements WebBridge.WebBridgeLis
             cuatrocuatronueve = "449", cincocuatronueve = "549", sietecuatronueve = "749", nuvenuevenueve = "999";
     View v;
     Spinner spinner_code;
-    Button button_send;
-    private EditText et_name_full;
-    private EditText et_code_operation;
+    CustomButtonRegular button_send;
+    private CustomEditTextRegular et_name_full;
+    private CustomEditTextRegular et_code_operation;
     ImageButton btnWebView;
 
     @Override
@@ -44,8 +46,8 @@ public class RegisterFragment extends Fragment implements WebBridge.WebBridgeLis
 
         v = inflater.inflate(R.layout.fragment_register, null);
 
-        et_name_full = (EditText) v.findViewById(R.id.et_name_full);
-        et_code_operation = (EditText) v.findViewById(R.id.et_code_operation);
+        et_name_full = (CustomEditTextRegular) v.findViewById(R.id.et_name_full);
+        et_code_operation = (CustomEditTextRegular) v.findViewById(R.id.et_code_operation);
 
         spinner_code = (Spinner) v.findViewById(R.id.et_cost);
         ArrayAdapter<CharSequence> staticAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.mont_add, android.R.layout.simple_spinner_item);
@@ -75,7 +77,7 @@ public class RegisterFragment extends Fragment implements WebBridge.WebBridgeLis
             }
         });
 
-        button_send = (Button) v.findViewById(R.id.btn_send_new);
+        button_send = (CustomButtonRegular) v.findViewById(R.id.btn_send_new);
 
         et_name_full.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,7 +115,7 @@ public class RegisterFragment extends Fragment implements WebBridge.WebBridgeLis
                 result_listUser = data.getStringExtra("list_name_user");
                 register_id = data.getStringExtra("register_id");
 
-                et_name_full = (EditText) v.findViewById(R.id.et_name_full);
+                et_name_full = (CustomEditTextRegular) v.findViewById(R.id.et_name_full);
                 et_name_full.setKeyListener(null);
                 et_name_full.setText(result_listUser);
 

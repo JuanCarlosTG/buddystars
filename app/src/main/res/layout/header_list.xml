@@ -43,7 +43,7 @@
         android:layout_below="@+id/rl_header_list"
         android:layout_centerHorizontal="true"/>
 
-    <TextView
+    <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10sp"

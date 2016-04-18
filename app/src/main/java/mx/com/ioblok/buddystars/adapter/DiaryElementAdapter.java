@@ -21,6 +21,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import mx.com.ioblok.buddystars.R;
+import mx.com.ioblok.buddystars.customviews.CustomTextViewRegular;
 import mx.com.ioblok.buddystars.home.HomeActivity;
 
 /**
@@ -35,8 +36,8 @@ public class DiaryElementAdapter extends RecyclerView.Adapter<DiaryElementAdapte
 
     public static class ContactsViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView textViewContactName;
-        public TextView textViewTime;
+        public CustomTextViewRegular textViewContactName;
+        public CustomTextViewRegular textViewTime;
         public String contactPhone;
         public String contactMail;
 
@@ -52,8 +53,8 @@ public class DiaryElementAdapter extends RecyclerView.Adapter<DiaryElementAdapte
                     showMenuActions(contactPhone);
                 }
             });
-            textViewTime = (TextView) cardViewItem.findViewById(R.id.tv_time);
-            textViewContactName = (TextView) cardViewItem.findViewById(R.id.tv_contact_name);
+            textViewTime = (CustomTextViewRegular) cardViewItem.findViewById(R.id.tv_time);
+            textViewContactName = (CustomTextViewRegular) cardViewItem.findViewById(R.id.tv_contact_name);
 
 
         }

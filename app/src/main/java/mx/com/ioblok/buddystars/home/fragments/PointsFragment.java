@@ -13,12 +13,13 @@ import android.widget.TextView;
 import org.json.JSONObject;
 
 import mx.com.ioblok.buddystars.R;
+import mx.com.ioblok.buddystars.customviews.CustomTextViewRegular;
 import mx.com.ioblok.buddystars.utils.WebBridge;
 
 public class PointsFragment extends Fragment implements WebBridge.WebBridgeListener {
 
     View v;
-    TextView tv_total_pts, tv_portability, tv_new;
+    CustomTextViewRegular tv_total_pts, tv_portability, tv_new;
     ProgressBar pBarNew, pBarPor;
     private ProgressTask task;
 
@@ -30,9 +31,9 @@ public class PointsFragment extends Fragment implements WebBridge.WebBridgeListe
 
         v = inflater.inflate(R.layout.fragment_points, null);
 
-        tv_total_pts = (TextView) v.findViewById(R.id.tv_total_pts);
-        tv_new = (TextView) v.findViewById(R.id.tv_new);
-        tv_portability = (TextView) v.findViewById(R.id.tv_portability);
+        tv_total_pts = (CustomTextViewRegular) v.findViewById(R.id.tv_total_pts);
+        tv_new = (CustomTextViewRegular) v.findViewById(R.id.tv_new);
+        tv_portability = (CustomTextViewRegular) v.findViewById(R.id.tv_portability);
 
         pBarNew = (ProgressBar) v.findViewById(R.id.progress_new);
         pBarPor = (ProgressBar) v.findViewById(R.id.progress_portability);

@@ -12,8 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 
@@ -22,6 +20,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 
 import mx.com.ioblok.buddystars.R;
+import mx.com.ioblok.buddystars.customviews.CustomButtonRegular;
+import mx.com.ioblok.buddystars.customviews.CustomEditTextRegular;
 import mx.com.ioblok.buddystars.home.ListUsers;
 import mx.com.ioblok.buddystars.utils.WebBridge;
 
@@ -32,7 +32,7 @@ public class PortabilityFragment extends Fragment implements WebBridge.WebBridge
     String name = "", lastname = "", phone = "", email = " ", fecha = " ", code_new = "", result_listUser,
             type_portability = "2", register_id, cost = "", type_amount, ciennueve = "199", trescuatronueve = "349",
             cuatrocuatronueve = "449", cincocuatronueve = "549", sietecuatronueve = "749", nuvenuevenueve = "999";
-    private EditText et_name_full, et_code_operation;
+    private CustomEditTextRegular et_name_full, et_code_operation;
     Spinner spinner_code;
     ImageButton btnWebView;
     View v;
@@ -43,8 +43,8 @@ public class PortabilityFragment extends Fragment implements WebBridge.WebBridge
 
         v = inflater.inflate(R.layout.fragment_portability, null);
 
-        et_name_full = (EditText) v.findViewById(R.id.et_name_full);
-        et_code_operation = (EditText) v.findViewById(R.id.et_code_operation);
+        et_name_full = (CustomEditTextRegular) v.findViewById(R.id.et_name_full);
+        et_code_operation = (CustomEditTextRegular) v.findViewById(R.id.et_code_operation);
 
 
         spinner_code = (Spinner) v.findViewById(R.id.et_cost);
@@ -81,7 +81,7 @@ public class PortabilityFragment extends Fragment implements WebBridge.WebBridge
                 addNewUser();
             }
         });
-        Button button = (Button) v.findViewById(R.id.btn_send_new);
+        CustomButtonRegular button = (CustomButtonRegular) v.findViewById(R.id.btn_send_new);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,7 +113,7 @@ public class PortabilityFragment extends Fragment implements WebBridge.WebBridge
                 result_listUser = data.getStringExtra("list_name_user");
                 register_id = data.getStringExtra("register_id");
 
-                et_name_full = (EditText) v.findViewById(R.id.et_name_full);
+                et_name_full = (CustomEditTextRegular) v.findViewById(R.id.et_name_full);
                 et_name_full.setKeyListener(null);
                 et_name_full.setText(result_listUser);
 

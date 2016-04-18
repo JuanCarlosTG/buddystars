@@ -23,6 +23,8 @@ import java.util.HashMap;
 import mx.com.ioblok.buddystars.R;
 import mx.com.ioblok.buddystars.adapter.BlogElementAdapter;
 import mx.com.ioblok.buddystars.adapter.DataBaseElementAdapter;
+import mx.com.ioblok.buddystars.customviews.CustomEditTextRegular;
+import mx.com.ioblok.buddystars.customviews.CustomTextViewRegular;
 import mx.com.ioblok.buddystars.utils.User;
 import mx.com.ioblok.buddystars.utils.WebBridge;
 
@@ -30,7 +32,7 @@ public class BlogActivity extends Activity implements WebBridge.WebBridgeListene
 
     private RecyclerView recyclerViewBlog;
     private ImageButton btnBackHeader;
-    private TextView txtTitle;
+    private CustomTextViewRegular txtTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +49,7 @@ public class BlogActivity extends Activity implements WebBridge.WebBridgeListene
             }
         });
 
-        txtTitle = (TextView) findViewById(R.id.txt_title);
+        txtTitle = (CustomTextViewRegular) findViewById(R.id.txt_title);
         txtTitle.setText("Blog");
 
         recyclerViewBlog.setHasFixedSize(false);

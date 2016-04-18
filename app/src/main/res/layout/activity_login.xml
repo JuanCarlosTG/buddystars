@@ -14,7 +14,7 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <EditText
+        <mx.com.ioblok.buddystars.customviews.CustomEditTextRegular
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/txt_username"
@@ -25,7 +25,7 @@
             android:maxLines="1"
             android:layout_marginBottom="20sp"/>
 
-        <EditText
+        <mx.com.ioblok.buddystars.customviews.CustomEditTextRegular
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/txt_password"
@@ -37,7 +37,7 @@
             android:maxLines="1"
             android:layout_marginTop="20sp"/>
 
-        <Button
+        <mx.com.ioblok.buddystars.customviews.CustomButtonRegular
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/back_login"

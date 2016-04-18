@@ -37,6 +37,8 @@ import io.realm.RealmResults;
 import mx.com.ioblok.buddystars.R;
 import mx.com.ioblok.buddystars.adapter.CalendarDates;
 import mx.com.ioblok.buddystars.adapter.DiaryElementAdapter;
+import mx.com.ioblok.buddystars.customviews.CustomButtonRegular;
+import mx.com.ioblok.buddystars.customviews.CustomTextViewRegular;
 import mx.com.ioblok.buddystars.utils.WebBridge;
 
 /**
@@ -55,9 +57,9 @@ public class DiaryFragment extends Fragment implements WebBridge.WebBridgeListen
     };
 
     private CompactCalendarView compactCalendarView;
-    private TextView textViewCalendar;
+    private CustomTextViewRegular textViewCalendar;
     private ImageButton imageButtonAdd;
-    private Button btnPreviousMonth, btnNextMonth;
+    private CustomButtonRegular btnPreviousMonth, btnNextMonth;
     private Date date;
     private String strYear;
     private String strMonth;
@@ -86,9 +88,9 @@ public class DiaryFragment extends Fragment implements WebBridge.WebBridgeListen
         RecyclerView.LayoutManager rvLayoutManager = new LinearLayoutManager(getActivity().getBaseContext());
         recyclerViewDiary.setLayoutManager(rvLayoutManager);
 
-        btnPreviousMonth = (Button) v.findViewById(R.id.btn_previous_month);
-        btnNextMonth = (Button) v.findViewById(R.id.btn_next_month);
-        textViewCalendar = (TextView) v.findViewById(R.id.tv_current_date);
+        btnPreviousMonth = (CustomButtonRegular) v.findViewById(R.id.btn_previous_month);
+        btnNextMonth = (CustomButtonRegular) v.findViewById(R.id.btn_next_month);
+        textViewCalendar = (CustomTextViewRegular) v.findViewById(R.id.tv_current_date);
         imageButtonAdd = (ImageButton) v.findViewById(R.id.btn_add);
         compactCalendarView = (CompactCalendarView) v.findViewById(R.id.compact_calendar_view);
 

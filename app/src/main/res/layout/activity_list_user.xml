@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:background="#000">
 
-        <TextView
+        <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
             style="@style/title_fragment"
             android:layout_centerInParent="true"
             android:drawableLeft="@drawable/bt_down"

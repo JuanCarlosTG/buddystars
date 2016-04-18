@@ -16,7 +16,7 @@
             android:padding="30sp"
             android:background="@drawable/back_white"
             android:orientation="horizontal">
-            <TextView
+            <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
                 android:id="@+id/tv_total_pts"
                 android:layout_width="wrap_content"
                 android:layout_weight="0.5"
@@ -24,7 +24,7 @@
                 android:gravity="right"
                 android:text="1000000"
                 android:textSize="50sp" />
-            <TextView
+            <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
                 android:layout_width="wrap_content"
                 android:layout_weight="0.5"
                 android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
                 android:layout_marginTop="10sp"
                 android:orientation="horizontal">
 
-                <TextView
+                <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
                     android:layout_width="0sp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".6"
@@ -73,7 +73,7 @@
                     android:text="@string/txt_points_adds"
                     android:textSize="25sp" />
 
-                <TextView
+                <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
                     android:id="@+id/tv_new"
                     android:layout_width="0sp"
                     android:layout_height="wrap_content"
@@ -83,7 +83,7 @@
                     android:paddingBottom="20sp"
                     android:paddingTop="20sp"
                     android:textSize="25sp" />
-                <TextView
+                <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
                     android:layout_width="0sp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".2"
@@ -109,7 +109,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <TextView
+                <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
                     android:layout_width="0sp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".6"
@@ -120,7 +120,7 @@
                     android:text="@string/txt_points_portability"
                     android:textSize="25sp" />
 
-                <TextView
+                <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
                     android:id="@+id/tv_portability"
                     android:layout_width="0sp"
                     android:layout_height="wrap_content"
@@ -130,7 +130,7 @@
                     android:paddingBottom="20sp"
                     android:paddingTop="20sp"
                     android:textSize="25sp" />
-                <TextView
+                <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
                     android:layout_width="0sp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".2"
@@ -159,7 +159,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:progressDrawable="@drawable/progress_bar_portability" />
-            <TextView
+            <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -180,7 +180,7 @@
                 android:layout_weight="0.5"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:progressDrawable="@drawable/progress_bar_new" />
-            <TextView
+            <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -200,7 +200,7 @@
                 android:layout_marginRight="10sp"
                 android:background="@color/azulMovistar" />
 
-            <TextView
+            <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_title_add" />
@@ -211,7 +211,7 @@
                 android:layout_margin="10sp"
                 android:background="@color/colorPrimaryDark" />
 
-            <TextView
+            <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txt_title_portability" />

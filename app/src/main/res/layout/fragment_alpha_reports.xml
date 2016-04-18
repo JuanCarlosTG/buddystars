@@ -12,7 +12,7 @@
         android:background="@drawable/back_white"
         android:orientation="vertical">
 
-        <TextView
+        <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".6"
@@ -39,7 +39,7 @@
             android:layout_marginTop="10sp"
             android:orientation="horizontal">
 
-            <TextView
+            <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
                 android:layout_weight=".6"
@@ -52,7 +52,7 @@
                 android:text="@string/txt_beta_adds"
                 android:textSize="25sp" />
 
-            <TextView
+            <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
                 android:id="@+id/new_container"
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
+            <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
                 android:layout_weight=".6"
@@ -83,7 +83,7 @@
                 android:text="@string/txt_beta_portability"
                 android:textSize="25sp" />
 
-            <TextView
+            <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
                 android:id="@+id/new_portability"
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
@@ -107,7 +107,7 @@
         android:background="@drawable/back_white"
         android:orientation="vertical">
 
-        <TextView
+        <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".6"

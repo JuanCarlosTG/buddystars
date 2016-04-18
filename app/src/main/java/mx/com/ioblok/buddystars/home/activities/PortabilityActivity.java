@@ -13,6 +13,8 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 
 import mx.com.ioblok.buddystars.R;
+import mx.com.ioblok.buddystars.customviews.CustomButtonRegular;
+import mx.com.ioblok.buddystars.customviews.CustomEditTextRegular;
 import mx.com.ioblok.buddystars.utils.Constants;
 
 /**
@@ -25,9 +27,9 @@ public class PortabilityActivity extends Activity{
             cost = "", result_listUser, register_id, type_new = "1", type_amount, ciennueve = "199", trescuatronueve = "349",
             cuatrocuatronueve = "449", cincocuatronueve = "549", sietecuatronueve = "749", nuvenuevenueve = "999";
     Spinner spinner_code;
-    Button button_send;
-    private EditText et_name_full;
-    private EditText et_code_operation;
+    CustomButtonRegular button_send;
+    private CustomEditTextRegular et_name_full;
+    private CustomEditTextRegular et_code_operation;
     ImageButton btnWebView;
 
     @Override
@@ -43,10 +45,10 @@ public class PortabilityActivity extends Activity{
         fecha = Constants.getRegisterSchedule();
         name_full = name + " " + lastname;
 
-        et_name_full = (EditText) findViewById(R.id.et_name_full);
+        et_name_full = (CustomEditTextRegular) findViewById(R.id.et_name_full);
         et_name_full.setText(name_full);
 
-        et_code_operation = (EditText) findViewById(R.id.et_code_operation);
+        et_code_operation = (CustomEditTextRegular) findViewById(R.id.et_code_operation);
 
         spinner_code = (Spinner) findViewById(R.id.et_cost);
         ArrayAdapter<CharSequence> staticAdapter = ArrayAdapter.createFromResource(PortabilityActivity.this, R.array.mont_add, android.R.layout.simple_spinner_item);
@@ -76,7 +78,7 @@ public class PortabilityActivity extends Activity{
             }
         });
 
-        button_send = (Button) findViewById(R.id.btn_send_new);
+        button_send = (CustomButtonRegular) findViewById(R.id.btn_send_new);
 
         button_send.setOnClickListener(new View.OnClickListener() {
             @Override

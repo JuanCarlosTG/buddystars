@@ -21,6 +21,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import mx.com.ioblok.buddystars.R;
+import mx.com.ioblok.buddystars.customviews.CustomButtonRegular;
+import mx.com.ioblok.buddystars.customviews.CustomTextViewRegular;
 import mx.com.ioblok.buddystars.home.HomeActivity;
 
 /**
@@ -35,8 +37,8 @@ public class DataBaseElementAdapter extends RecyclerView.Adapter<DataBaseElement
 
     public static class ContactsViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView textViewContactName;
-        public Button btnContact;
+        public CustomTextViewRegular textViewContactName;
+        public CustomButtonRegular btnContact;
         public String contactPhone;
         public String contactMail;
 
@@ -46,8 +48,8 @@ public class DataBaseElementAdapter extends RecyclerView.Adapter<DataBaseElement
             CardView cardViewItem = (CardView) itemView;
             cardViewItem.setCardBackgroundColor(Color.argb(255, 255, 255, 255));
 
-            btnContact = (Button) cardViewItem.findViewById(R.id.btn_contact);
-            textViewContactName = (TextView) cardViewItem.findViewById(R.id.tv_contact_name);
+            btnContact = (CustomButtonRegular) cardViewItem.findViewById(R.id.btn_contact);
+            textViewContactName = (CustomTextViewRegular) cardViewItem.findViewById(R.id.tv_contact_name);
 
             btnContact.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -12,6 +12,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import mx.com.ioblok.buddystars.customviews.CustomTextViewRegular;
+
 /**
  * Created by noisedan on 4/6/15.
  */
@@ -64,7 +66,7 @@ public class SectionActivity extends Activity {
     }
 
     public void setTitle(String title) {
-        TextView txtTitle = (TextView) findViewById(R.id.txt_title);
+        CustomTextViewRegular txtTitle = (CustomTextViewRegular) findViewById(R.id.txt_title);
         if (txtTitle != null) {
             txtTitle.setText(title);
         }

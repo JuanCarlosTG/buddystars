@@ -16,7 +16,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="20sp" />
 
-        <TextView
+        <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
             android:id="@+id/tv_name_menu"
             style="@style/menu_text_view_style"
             android:text="@string/app_name"/>

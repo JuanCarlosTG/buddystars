@@ -10,13 +10,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import mx.com.ioblok.buddystars.R;
+import mx.com.ioblok.buddystars.customviews.CustomTextViewRegular;
 import mx.com.ioblok.buddystars.home.fragments.RegisterFragment;
 import mx.com.ioblok.buddystars.utils.WebBridge;
 
@@ -73,7 +73,7 @@ public class ListUsers extends Activity implements WebBridge.WebBridgeListener {
 
                 final String id = c.getString("register_id");
                 String n = c.getString("name");
-                final TextView tv_name_user = (TextView) llCell.findViewById(R.id.tv_name_user);
+                final CustomTextViewRegular tv_name_user = (CustomTextViewRegular) llCell.findViewById(R.id.tv_name_user);
                 tv_name_user.setText(n);
                 tv_name_user.setOnClickListener(new View.OnClickListener() {
                     @Override

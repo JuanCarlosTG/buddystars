@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
+        <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20sp"
@@ -27,7 +27,7 @@
             android:layout_centerVertical="true"
             />
 
-        <Button
+        <mx.com.ioblok.buddystars.customviews.CustomButtonRegular
             android:layout_width="100sp"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"

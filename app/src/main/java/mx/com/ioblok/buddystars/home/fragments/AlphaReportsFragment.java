@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
@@ -16,12 +15,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import mx.com.ioblok.buddystars.R;
+import mx.com.ioblok.buddystars.customviews.CustomTextViewRegular;
 import mx.com.ioblok.buddystars.utils.WebBridge;
 
 public class AlphaReportsFragment extends Fragment  implements WebBridge.WebBridgeListener  {
 
     View v;
-    TextView new_container, new_portability;
+    CustomTextViewRegular new_container, new_portability;
 
     LinearLayout llDynamic;
     LayoutInflater inflater;
@@ -32,8 +32,8 @@ public class AlphaReportsFragment extends Fragment  implements WebBridge.WebBrid
 
         v = inflater.inflate(R.layout.fragment_alpha_reports, null);
 
-        new_container = (TextView) v.findViewById(R.id.new_container);
-        new_portability = (TextView) v.findViewById(R.id.new_portability);
+        new_container = (CustomTextViewRegular) v.findViewById(R.id.new_container);
+        new_portability = (CustomTextViewRegular) v.findViewById(R.id.new_portability);
 
         getData();
         initialize();
@@ -95,10 +95,10 @@ public class AlphaReportsFragment extends Fragment  implements WebBridge.WebBrid
 
                 ImageView iv_avatar = (ImageView) llCell.findViewById(R.id.iv_avatar);
                 Glide.with(this).load(a).into(iv_avatar);
-                TextView tv_full_name = (TextView) llCell.findViewById(R.id.tv_full_name);
+                CustomTextViewRegular tv_full_name = (CustomTextViewRegular) llCell.findViewById(R.id.tv_full_name);
                 tv_full_name.setText(fn);
                 tv_full_name.setTextColor(getResources().getColor(R.color.grisMovistar));
-                TextView tv_percent_point = (TextView) llCell.findViewById(R.id.tv_percent_point);
+                CustomTextViewRegular tv_percent_point = (CustomTextViewRegular) llCell.findViewById(R.id.tv_percent_point);
                 tv_percent_point.setText(pp);
                 tv_percent_point.setTextColor(getResources().getColor(R.color.azulMovistar));
 

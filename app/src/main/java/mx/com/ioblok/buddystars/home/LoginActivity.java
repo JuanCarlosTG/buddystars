@@ -18,15 +18,17 @@ import java.util.HashMap;
 import java.util.Objects;
 
 import mx.com.ioblok.buddystars.R;
+import mx.com.ioblok.buddystars.customviews.CustomEditTextRegular;
+import mx.com.ioblok.buddystars.customviews.CustomTextViewRegular;
 import mx.com.ioblok.buddystars.utils.Constants;
 import mx.com.ioblok.buddystars.utils.User;
 import mx.com.ioblok.buddystars.utils.WebBridge;
 
 public class LoginActivity extends Activity implements WebBridge.WebBridgeListener{
 
-    private EditText editTextUser, editTextPass;
+    private CustomEditTextRegular editTextUser, editTextPass;
     private ImageButton btnBackHeader;
-    private TextView txtTitle;
+    private CustomTextViewRegular txtTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +47,11 @@ public class LoginActivity extends Activity implements WebBridge.WebBridgeListen
             }
         });
 
-        txtTitle = (TextView) findViewById(R.id.txt_title);
+        txtTitle = (CustomTextViewRegular) findViewById(R.id.txt_title);
         txtTitle.setText("Ingresar");
 
-        editTextUser = (EditText) findViewById(R.id.txt_username);
-        editTextPass = (EditText) findViewById(R.id.txt_password);
+        editTextUser = (CustomEditTextRegular) findViewById(R.id.txt_username);
+        editTextPass = (CustomEditTextRegular) findViewById(R.id.txt_password);
     }
 
     public void login(View view){

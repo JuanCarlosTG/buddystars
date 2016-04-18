@@ -21,7 +21,7 @@
             android:gravity="center"
             android:id="@+id/ll_calendar_tools">
 
-            <Button
+            <mx.com.ioblok.buddystars.customviews.CustomButtonRegular
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
                 android:layout_weight=".25"
@@ -31,7 +31,7 @@
                 android:textStyle="bold"
                 android:textSize="30sp"/>
 
-            <TextView
+            <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
                 android:layout_weight=".5"
@@ -40,7 +40,7 @@
                 android:id="@+id/tv_current_date"
                 android:background="@android:color/transparent" />
 
-            <Button
+            <mx.com.ioblok.buddystars.customviews.CustomButtonRegular
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
                 android:layout_weight=".25"
@@ -69,7 +69,7 @@
             android:layout_height="wrap_content"
             android:background="#A5D464">
 
-            <TextView
+            <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
                 style="@style/title_fragment"
                 android:layout_centerInParent="true"
                 android:text="@string/txt_schedules"/>

@@ -11,7 +11,7 @@
         android:background="@drawable/back_white"
         android:orientation="vertical">
 
-        <TextView
+        <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight=".6"
@@ -38,7 +38,7 @@
             android:layout_marginTop="5sp"
             android:orientation="horizontal">
 
-            <TextView
+            <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
                 android:layout_weight=".6"
@@ -51,7 +51,7 @@
                 android:textColor="@color/grisMovistar"
                 android:textSize="20sp" />
 
-            <TextView
+            <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
                 android:id="@+id/new_container"
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <TextView
+            <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
                 android:layout_weight=".6"
@@ -82,7 +82,7 @@
                 android:textColor="@color/grisMovistar"
                 android:textSize="20sp" />
 
-            <TextView
+            <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
                 android:id="@+id/new_portability"
                 android:layout_width="0sp"
                 android:layout_height="wrap_content"
@@ -111,7 +111,7 @@
             android:background="@drawable/back_white"
             android:orientation="vertical">
 
-            <TextView
+            <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight=".6"
@@ -139,7 +139,7 @@
                 android:layout_marginTop="10sp"
                 android:orientation="horizontal">
 
-                <TextView
+                <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Abril" />
@@ -170,7 +170,7 @@
                 android:layout_marginBottom="10sp"
                 android:orientation="horizontal">
 
-                <TextView
+                <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
                     android:id="@+id/tv_required_person"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

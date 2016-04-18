@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/image_blog"/>
 
-        <TextView
+        <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorBlog"
