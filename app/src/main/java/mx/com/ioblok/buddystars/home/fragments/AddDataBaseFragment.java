@@ -29,7 +29,8 @@ import mx.com.ioblok.buddystars.utils.WebBridge;
 public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridgeListener {
 
     View v;
-    private CustomEditTextRegular et_name, et_lastname, et_telephone, et_email, et_diary, et_code_register, et_code_portability, et_alta_sim;
+    private CustomEditTextRegular et_name, et_lastname, et_telephone, et_email;
+    private CustomButtonRegular btnDiary, btnCodeRegister, btnCodePortability, btnAltaSim;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,10 +42,10 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
         et_lastname = (CustomEditTextRegular) v.findViewById(R.id.et_lastname);
         et_telephone = (CustomEditTextRegular) v.findViewById(R.id.et_telephone);
         et_email = (CustomEditTextRegular) v.findViewById(R.id.et_email);
-        et_diary = (CustomEditTextRegular) v.findViewById(R.id.et_diary);
-        et_code_register = (CustomEditTextRegular) v.findViewById(R.id.et_code_register);
-        et_code_portability = (CustomEditTextRegular) v.findViewById(R.id.et_code_portability);
-        et_alta_sim = (CustomEditTextRegular)v.findViewById(R.id.et_alta_sim);
+        btnDiary = (CustomButtonRegular) v.findViewById(R.id.et_diary);
+        btnCodeRegister = (CustomButtonRegular) v.findViewById(R.id.et_code_register);
+        btnCodePortability = (CustomButtonRegular) v.findViewById(R.id.et_code_portability);
+        btnAltaSim = (CustomButtonRegular)v.findViewById(R.id.et_alta_sim);
 
         Button button = (CustomButtonRegular) v.findViewById(R.id.btn_send_reg);
         button.setOnClickListener(new View.OnClickListener() {
@@ -55,7 +56,7 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
             }
         });
 
-        et_diary.setOnClickListener(new View.OnClickListener() {
+        btnDiary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addDate();
@@ -63,19 +64,19 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
         });
 
 
-        et_code_register.setOnClickListener(new View.OnClickListener() {
+        btnCodeRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addAltaCode();
             }
         });
-        et_alta_sim.setOnClickListener(new View.OnClickListener() {
+        btnAltaSim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addAltaSim();
             }
         });
-        et_code_portability.setOnClickListener(new View.OnClickListener() {
+        btnCodePortability.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 codePortability();
@@ -111,10 +112,10 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
         params.put("surename", et_lastname.getText().toString());
         params.put("phone", et_telephone.getText().toString());
         params.put("email", et_email.getText().toString());
-        params.put("schedule", et_diary.getText().toString());
-        params.put("code_new", et_code_register.getText().toString());
-        params.put("code_portability", et_code_portability.getText().toString());
-        params.put("alta_chip", et_alta_sim.getText().toString());
+        params.put("schedule", btnDiary.getText().toString());
+        params.put("code_new", btnCodeRegister.getText().toString());
+        params.put("code_portability", btnCodePortability.getText().toString());
+        params.put("alta_chip", btnAltaSim.getText().toString());
 
         WebBridge.send("/register-add", params, "Enviando", getActivity(), this);
     }
@@ -164,7 +165,7 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
             errors.add(getString(R.string.txt_error_mail));
         if (et_telephone == null || et_telephone.getText().toString().equals(""))
             errors.add(getString(R.string.txt_error_phone));
-        if (et_diary == null || et_diary.getText().toString().equals(""))
+        if (btnDiary == null || btnDiary.getText().toString().equals(""))
             errors.add(getString(R.string.txt_error_diary));
 
         if (errors.size() != 0) {
@@ -180,7 +181,7 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
         Constants.setRegisterLastName(et_lastname.getText().toString());
         Constants.setRegisterPhone(et_telephone.getText().toString());
         Constants.setRegisterMail(et_email.getText().toString());
-        Constants.setRegisterSchedule(et_diary.getText().toString());
+        Constants.setRegisterSchedule(btnDiary.getText().toString());
 
         startActivity(registerIntent);
     }
@@ -198,7 +199,7 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
             errors.add(getString(R.string.txt_error_mail));
         if (et_telephone == null || et_telephone.getText().toString().equals(""))
             errors.add(getString(R.string.txt_error_phone));
-        if (et_diary == null || et_diary.getText().toString().equals(""))
+        if (btnDiary == null || btnDiary.getText().toString().equals(""))
             errors.add(getString(R.string.txt_error_diary));
 
         if (errors.size() != 0) {
@@ -214,7 +215,7 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
         Constants.setRegisterLastName(et_lastname.getText().toString());
         Constants.setRegisterPhone(et_telephone.getText().toString());
         Constants.setRegisterMail(et_email.getText().toString());
-        Constants.setRegisterSchedule(et_diary.getText().toString());
+        Constants.setRegisterSchedule(btnDiary.getText().toString());
 
         startActivity(registerIntent);
     }
@@ -257,9 +258,9 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
             errors.add(getString(R.string.txt_error_mail));
         if (et_telephone == null || et_telephone.getText().toString().equals(""))
             errors.add(getString(R.string.txt_error_phone));
-        if (et_diary == null || et_diary.getText().toString().equals(""))
+        if (btnDiary == null || btnDiary.getText().toString().equals(""))
             errors.add(getString(R.string.txt_error_diary));
-        if (et_code_register == null || et_code_register.getText().toString().equals(""))
+        if (btnCodeRegister == null || btnCodeRegister.getText().toString().equals(""))
             errors.add(getString(R.string.txt_error_code));
 
         if (errors.size() != 0) {
@@ -275,16 +276,15 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
         Constants.setRegisterLastName(et_lastname.getText().toString());
         Constants.setRegisterPhone(et_telephone.getText().toString());
         Constants.setRegisterMail(et_email.getText().toString());
-        Constants.setRegisterSchedule(et_diary.getText().toString());
-        Constants.setRegisterCode(et_code_register.getText().toString());
+        Constants.setRegisterSchedule(btnDiary.getText().toString());
+        Constants.setRegisterCode(btnCodeRegister.getText().toString());
 
         startActivity(portabilityIntent);
     }
 
     public void Eliminar() {
-        et_code_portability = (CustomEditTextRegular) v.findViewById(R.id.et_code_portability);
-        et_code_portability.setKeyListener(null);
-        et_code_portability.setText("");
+        btnCodePortability = (CustomButtonRegular) v.findViewById(R.id.et_code_portability);
+        btnCodePortability.setText("");
     }
 
     public void Cancelar() {
@@ -301,10 +301,10 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
                 et_lastname.setText("");
                 et_telephone.setText("");
                 et_email.setText("");
-                et_diary.setText("");
-                et_code_register.setText("");
-                et_code_portability.setText("");
-                et_alta_sim.setText("");
+                btnDiary.setText("");
+                btnCodeRegister.setText("");
+                btnCodePortability.setText("");
+                btnAltaSim.setText("");
 
                 Constants.clear();
             }
@@ -335,9 +335,9 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
         et_lastname.setText(Constants.getRegisterLastName());
         et_telephone.setText(Constants.getRegisterPhone());
         et_email.setText(Constants.getRegisterMail());
-        et_diary.setText(Constants.getRegisterSchedule());
-        et_code_register.setText(Constants.getRegisterCode());
-        et_code_portability.setText(Constants.getRegisterPortability());
-        et_alta_sim.setText(Constants.getRegisterSim());
+        btnDiary.setText(Constants.getRegisterSchedule());
+        btnCodeRegister.setText(Constants.getRegisterCode());
+        btnCodePortability.setText(Constants.getRegisterPortability());
+        btnAltaSim.setText(Constants.getRegisterSim());
     }
 }

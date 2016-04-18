@@ -57,6 +57,8 @@
     <Spinner
         android:id="@+id/et_cost"
         style="@style/register_edit_text"
+        android:gravity="center"
+        android:layout_gravity="center"
         android:background="@drawable/bt_select"/>
 
 

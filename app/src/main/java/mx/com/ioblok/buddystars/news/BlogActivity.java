@@ -41,7 +41,7 @@ public class BlogActivity extends Activity implements WebBridge.WebBridgeListene
         });
 
         txtTitle = (CustomTextViewRegular) findViewById(R.id.txt_title);
-        txtTitle.setText("Blog");
+        txtTitle.setText("Invitados");
 
         recyclerViewBlog.setHasFixedSize(false);
         RecyclerView.LayoutManager rvLayoutManager = new LinearLayoutManager(this);

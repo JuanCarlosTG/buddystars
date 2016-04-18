@@ -31,8 +31,8 @@ public class RegisterSimFragment extends Fragment implements WebBridge.WebBridge
 
     private static final int RESULT_OK = 1;
     String name_full = "", strtext = "", name = "", lastname = "", phone = "", email = " ", fecha = " ",
-            cost = "", result_listUser, register_id, type_new = "3", type_amount, ciennueve = "199", trescuatronueve = "349",
-            cuatrocuatronueve = "449", cincocuatronueve = "549", sietecuatronueve = "749", nuvenuevenueve = "999";
+            cost = "", result_listUser, register_id, type_new = "3", type_amount, ciennueve = "$199", trescuatronueve = "$349",
+            cuatrocuatronueve = "$449", cincocuatronueve = "$549", sietecuatronueve = "$749", nuvenuevenueve = "$999";
     View v;
     Spinner spinner_code;
     Button button_send;
@@ -51,8 +51,8 @@ public class RegisterSimFragment extends Fragment implements WebBridge.WebBridge
         et_code_operation = (EditText) v.findViewById(R.id.et_code_operation);
 
         spinner_code = (Spinner) v.findViewById(R.id.et_cost);
-        ArrayAdapter<CharSequence> staticAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.mont_add, android.R.layout.simple_spinner_item);
-        staticAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> staticAdapter = ArrayAdapter.createFromResource(getActivity(), R.array.mont_add, R.layout.simple_spinner_item);
+        staticAdapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item);
         spinner_code.setAdapter(staticAdapter);
         spinner_code.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> arg0, View arg1,

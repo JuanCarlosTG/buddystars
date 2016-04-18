@@ -41,7 +41,7 @@ public class DetailBlogActivity extends Activity{
 
         Glide.with(this).load(Constants.getSpotFullImage()).into(iv_description_blog);
         tv_txt_description_video.setText(Constants.getSpotDescription());
-        txtTitle.setText(Constants.getSpotTitle());
+        txtTitle.setText("Invitados");
     }
 
     public void clickBack(View v) {

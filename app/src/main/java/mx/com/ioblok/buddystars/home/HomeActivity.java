@@ -148,7 +148,7 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
             manager.beginTransaction().add(R.id.flContent, addDataBaseFragment).commit();
         }
 
-        setTitle("Agreagr");
+        setTitle("Agregar");
         setMainImage(R.drawable.icon_database);
 
 
