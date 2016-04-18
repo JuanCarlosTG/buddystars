@@ -305,6 +305,7 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
                 et_diary.setText("");
                 et_code_register.setText("");
                 et_code_portability.setText("");
+                et_alta_sim.setText("");
 
                 Constants.clear();
             }
@@ -338,6 +339,6 @@ public class AddDataBaseFragment extends Fragment implements WebBridge.WebBridge
         et_diary.setText(Constants.getRegisterSchedule());
         et_code_register.setText(Constants.getRegisterCode());
         et_code_portability.setText(Constants.getRegisterPortability());
-        et_alta_sim.setText(Constants.getRegisterPortability());
+        et_alta_sim.setText(Constants.getRegisterSim());
     }
 }

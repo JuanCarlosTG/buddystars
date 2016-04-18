@@ -15,14 +15,14 @@
         <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
             style="@style/title_fragment_register"
             android:text="@string/txt_title_add"
-            android:textSize="14sp"/>
+            android:textSize="16sp"/>
 
         <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
             style="@style/title_fragment_register"
             android:layout_toLeftOf="@+id/btn_trademark"
             android:layout_toStartOf="@+id/btn_trademark"
             android:text="@string/txt_tilte_go_to"
-            android:textSize="10sp"/>
+            android:textSize="12sp"/>
 
         <ImageButton
             android:id="@+id/btn_trademark"

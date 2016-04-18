@@ -37,6 +37,7 @@ public class RegisterSimActivity extends Activity{
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_register_sim);
+        overridePendingTransition(R.anim.slide_up, R.anim.slide_up);
 
         name = Constants.getRegisterName();
         lastname = Constants.getRegisterLastName();
@@ -99,8 +100,10 @@ public class RegisterSimActivity extends Activity{
 
     public void completeData() {
 
-        Constants.setRegisterCode(et_code_operation.getText().toString());
+        Constants.setRegisterSim(et_code_operation.getText().toString());
         finish();
+        RegisterSimActivity.this.overridePendingTransition(R.anim.slide_down, R.anim.slide_down);
+
 
     }
 

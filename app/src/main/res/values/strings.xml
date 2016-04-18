@@ -43,7 +43,7 @@
     <string name="txt_menu_register">ALTAS</string>
     <string name="txt_menu_news">Nuevas</string>
     <string name="txt_menu_portability">Portabilidad</string>
-    <string name="txt_menu_register_sim">ALTA CHIP</string>
+    <string name="txt_menu_register_sim">Alta chip</string>
     <string name="txt_menu_reports">REPORTES</string>
     <string name="txt_menu_points">PUNTOS</string>
     <string name="txt_menu_support">SOPORTE</string>
@@ -59,6 +59,7 @@
     <string name="txt_alta_sim">Alta Chip</string>
 
     <string name="txt_title_add">Nuevo</string>
+    <string name="txt_title_add_chip">Alta Chip</string>
     <string name="txt_title_portability">Portabilidad</string>
     <string name="txt_tilte_go_to">Ir A</string>
 

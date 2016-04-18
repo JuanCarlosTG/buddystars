@@ -35,6 +35,7 @@ public class RegisterActivity extends Activity{
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_register);
+        overridePendingTransition(R.anim.slide_up, R.anim.slide_up);
 
         name = Constants.getRegisterName();
         lastname = Constants.getRegisterLastName();
@@ -101,6 +102,7 @@ public class RegisterActivity extends Activity{
 
         Constants.setRegisterCode(et_code_operation.getText().toString());
         finish();
+        RegisterActivity.this.overridePendingTransition(R.anim.slide_down, R.anim.slide_down);
 
     }
 

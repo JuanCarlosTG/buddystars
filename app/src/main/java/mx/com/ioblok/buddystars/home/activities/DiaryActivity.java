@@ -57,6 +57,8 @@ public class DiaryActivity extends Activity{
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary);
+        overridePendingTransition(R.anim.slide_up, R.anim.slide_up);
+
 
         btnPreviousMonth    = (CustomButtonRegular) findViewById(R.id.btn_previous_month);
         btnNextMonth        = (CustomButtonRegular) findViewById(R.id.btn_next_month);
@@ -168,6 +170,7 @@ public class DiaryActivity extends Activity{
                 + strDay + " " + strHour + ":" + strMinute + ":00");
 
         finish();
+        DiaryActivity.this.overridePendingTransition(R.anim.slide_down, R.anim.slide_down);
     }
 
     private void setHeaderDate(){

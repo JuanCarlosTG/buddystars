@@ -78,13 +78,11 @@ public class CustomMenuAdapter extends ArrayAdapter<ListModelMenu> {
 
     public void hideSubmenu(ListModelMenuHolder holder, int position) {
 
-        if(position == 0 || position == 1 || position == 3 || position == 4 || position == 8){
+        if(position == 0 || position == 1 || position == 3 || position == 4 || position == 5 || position == 8){
             holder.separator.setVisibility(View.GONE);
-
-
         }
 
-        if(position == 1 || position == 2 || position == 4 || position == 5){
+        if(position == 1 || position == 2 || position == 4 || position == 5 || position == 6){
 
             final int marginTopAndBottom = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 5, homeActivity.getResources().getDisplayMetrics());
             final int marginLeft = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 60, homeActivity.getResources().getDisplayMetrics());
