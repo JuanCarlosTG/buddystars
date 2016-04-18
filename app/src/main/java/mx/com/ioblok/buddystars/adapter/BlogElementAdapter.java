@@ -20,6 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import mx.com.ioblok.buddystars.R;
+import mx.com.ioblok.buddystars.customviews.CustomTextViewRegular;
 import mx.com.ioblok.buddystars.news.FBLoginActivity;
 import mx.com.ioblok.buddystars.utils.Constants;
 
@@ -36,7 +37,7 @@ public class BlogElementAdapter extends RecyclerView.Adapter<BlogElementAdapter.
     public static class BlogViewHolder extends RecyclerView.ViewHolder {
 
         public ImageView imageBlog;
-        public TextView txtBlog;
+        public CustomTextViewRegular txtBlog;
         public String descriptionBlog;
         public String urlImageBlog;
         public String id;
@@ -48,7 +49,7 @@ public class BlogElementAdapter extends RecyclerView.Adapter<BlogElementAdapter.
             cardViewItem.setCardBackgroundColor(Color.argb(0, 255, 255, 255));
 
             imageBlog = (ImageView) cardViewItem.findViewById(R.id.image_blog);
-            txtBlog = (TextView) cardViewItem.findViewById(R.id.txt_blog);
+            txtBlog = (CustomTextViewRegular) cardViewItem.findViewById(R.id.txt_blog);
 
             cardViewItem.setOnClickListener(new View.OnClickListener() {
                 @Override
