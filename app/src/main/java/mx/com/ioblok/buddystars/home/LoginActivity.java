@@ -34,6 +34,7 @@ public class LoginActivity extends Activity implements WebBridge.WebBridgeListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        overridePendingTransition(R.anim.slide_left_from, R.anim.slide_left);
 
         btnBackHeader = (ImageButton) findViewById(R.id.btn_back_login);
         btnBackHeader.setOnClickListener(new View.OnClickListener() {
@@ -43,7 +44,13 @@ public class LoginActivity extends Activity implements WebBridge.WebBridgeListen
                     Intent selectLogin = new Intent(LoginActivity.this, SelectActivity.class);
                     startActivity(selectLogin);
                     finish();
-                }else finish();
+                    LoginActivity.this.overridePendingTransition(R.anim.slide_right_from, R.anim.slide_right);
+                }else
+                {
+                    finish();
+                    LoginActivity.this.overridePendingTransition(R.anim.slide_right_from, R.anim.slide_right);
+
+                }
             }
         });
 
@@ -95,7 +102,9 @@ public class LoginActivity extends Activity implements WebBridge.WebBridgeListen
 
                 startActivity(home);
                 SelectActivity.selectActivity.finish();
+
                 finish();
+                LoginActivity.this.overridePendingTransition(R.anim.slide_right_from, R.anim.slide_right);
 
             }
 
@@ -108,5 +117,16 @@ public class LoginActivity extends Activity implements WebBridge.WebBridgeListen
     @Override
     public void onWebBridgeFailure(String url, String response) {
         Log.e("JSON", response);
+    }
+
+
+    public void clickBack(View v) {
+        finish();
+        overridePendingTransition(R.anim.slide_right_from, R.anim.slide_right);
+    }
+
+    @Override
+    public void onBackPressed() {
+        clickBack(null);
     }
 }

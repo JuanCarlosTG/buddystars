@@ -38,19 +38,6 @@
         </activity>
 
         <activity
-            android:name=".home.ActivityAddDataBase"
-            android:theme="@android:style/Theme.Light.NoTitleBar">
-        </activity>
-        <activity
-            android:name=".home.ActivityRegister"
-            android:theme="@android:style/Theme.Light.NoTitleBar">
-        </activity>
-        <activity
-            android:name=".home.ActivityPortability"
-            android:theme="@android:style/Theme.Light.NoTitleBar">
-        </activity>
-
-        <activity
             android:name=".home.ListUsers"
             android:theme="@android:style/Theme.Light.NoTitleBar">
         </activity>

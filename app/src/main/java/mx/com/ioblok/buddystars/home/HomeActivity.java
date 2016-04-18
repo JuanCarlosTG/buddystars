@@ -1,26 +1,19 @@
 package mx.com.ioblok.buddystars.home;
 
 import android.Manifest;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.app.FragmentManager;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.SyncStateContract;
-import android.support.annotation.BoolRes;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v4.widget.TextViewCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
@@ -28,7 +21,6 @@ import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
@@ -191,7 +183,7 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
         setTitle("Agregar");
         setMainImage(R.drawable.icon_database);
         final AddDataBaseFragment replaceDataBaseFragment = new AddDataBaseFragment();
-        getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, replaceDataBaseFragment).commit();
+        getFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_in_left, R.anim.slide_in_left).addToBackStack(null).replace(R.id.flContent, replaceDataBaseFragment).commit();
     }
 
 
@@ -200,7 +192,7 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
         setTitle("Reportes");
         setMainImage(R.drawable.icon_reports);
         final BetaReportsFragment alphaReportsFragment = new BetaReportsFragment();
-        getFragmentManager().beginTransaction().add(R.id.flContent, alphaReportsFragment).commit();
+        getFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_in_left, R.anim.slide_in_left).add(R.id.flContent, alphaReportsFragment).commit();
 
     }
 
@@ -209,7 +201,7 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
         setTitle("Reportes");
         setMainImage(R.drawable.icon_reports);
         final AlphaReportsFragment betaReportsFragment = new AlphaReportsFragment();
-        getFragmentManager().beginTransaction().add(R.id.flContent, betaReportsFragment).commit();
+        getFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_in_left, R.anim.slide_in_left).add(R.id.flContent, betaReportsFragment).commit();
 
     }
 
@@ -218,7 +210,7 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
         setTitle("Base de Datos");
         setMainImage(R.drawable.icon_database);
         final DataBaseFragment dataBaseFragment = new DataBaseFragment();
-        getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, dataBaseFragment).commit();
+        getFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_in_left, R.anim.slide_in_left).addToBackStack(null).replace(R.id.flContent, dataBaseFragment).commit();
     }
 
     public void diaryFragment(View view) {
@@ -226,7 +218,7 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
         setTitle("Agenda");
         setMainImage(R.drawable.icon_calendar);
         final DiaryFragment diaryFragment = new DiaryFragment();
-        getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, diaryFragment).commit();
+        getFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_in_up, R.anim.slide_out_up).addToBackStack(null).replace(R.id.flContent, diaryFragment).commit();
 
     }
 
@@ -235,7 +227,7 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
         setTitle("Puntos");
         setMainImage(R.drawable.icon_points);
         final PointsFragment pointsFragment = new PointsFragment();
-        getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, pointsFragment).commit();
+        getFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_in_left, R.anim.slide_in_left).addToBackStack(null).replace(R.id.flContent, pointsFragment).commit();
 
     }
 
@@ -244,7 +236,7 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
         setTitle("ALTA");
         setMainImage(R.drawable.icon_add);
         final PortabilityFragment portabilityFragment = new PortabilityFragment();
-        getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, portabilityFragment).commit();
+        getFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_in_up, R.anim.slide_out_up).addToBackStack(null).replace(R.id.flContent, portabilityFragment).commit();
 
     }
 
@@ -253,7 +245,7 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
         setTitle("ALTA");
         setMainImage(R.drawable.icon_add);
         RegisterFragment registerFragment = new RegisterFragment();
-        getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, registerFragment).commit();
+        getFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_in_up, R.anim.slide_out_up).addToBackStack(null).replace(R.id.flContent, registerFragment).commit();
     }
 
     public void registerSimFragment(View view) {
@@ -261,7 +253,7 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
         setTitle("ALTA");
         setMainImage(R.drawable.icon_add);
         RegisterSimFragment registerSimFragment = new RegisterSimFragment();
-        getFragmentManager().beginTransaction().addToBackStack(null).replace(R.id.flContent, registerSimFragment).commit();
+        getFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_in_up, R.anim.slide_out_up).addToBackStack(null).replace(R.id.flContent, registerSimFragment).commit();
     }
 
     public void supportFragment(View view) {
@@ -269,7 +261,7 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
         setTitle("Soporte");
         setMainImage(R.drawable.icon_support);
         final SupportFragment supportFragment = new SupportFragment();
-        getFragmentManager().beginTransaction().add(R.id.flContent, supportFragment).commit();
+        getFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_in_left, R.anim.slide_in_left).add(R.id.flContent, supportFragment).commit();
 
     }
 

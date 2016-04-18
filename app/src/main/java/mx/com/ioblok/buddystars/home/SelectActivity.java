@@ -14,10 +14,13 @@ public class SelectActivity extends Activity {
     public static SelectActivity selectActivity;
     ImageButton btnNormalLogin, btnFBLogin;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select);
+        overridePendingTransition(R.anim.slide_right_from, R.anim.slide_right);
+
 
         selectActivity = this;
         btnNormalLogin  = (ImageButton) findViewById(R.id.btn_buddystars);
@@ -38,6 +41,16 @@ public class SelectActivity extends Activity {
 
         if (login == null) return;
         startActivity(login);
+    }
+
+    public void clickBack(View v) {
+        finish();
+        overridePendingTransition(R.anim.slide_right_from, R.anim.slide_right);
+    }
+
+    @Override
+    public void onBackPressed() {
+        clickBack(null);
     }
 
 }

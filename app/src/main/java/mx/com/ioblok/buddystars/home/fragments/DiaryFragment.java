@@ -259,9 +259,6 @@ public class DiaryFragment extends Fragment implements WebBridge.WebBridgeListen
             if (json.getBoolean("success")) {
                 JSONArray jsonArrayDates = json.getJSONArray("data");
 
-                /*RecyclerView.Adapter rvAdapter = new DataBaseElementAdapter(jsonArrayFarmers, getActivity());
-                recyclerViewDataBase.setAdapter(rvAdapter);*/
-
                 RealmResults<CalendarDates> results = realm.where(CalendarDates.class).findAll();
                 realm.beginTransaction();
                 results.clear();

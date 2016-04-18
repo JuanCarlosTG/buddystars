@@ -80,6 +80,16 @@ public class BlogActivity extends Activity implements WebBridge.WebBridgeListene
         }
     }
 
+    public void clickBack(View v) {
+        finish();
+        overridePendingTransition(R.anim.slide_right_from, R.anim.slide_right);
+    }
+
+    @Override
+    public void onBackPressed() {
+        clickBack(null);
+    }
+
     @Override
     public void onWebBridgeFailure(String url, String response) {
         Log.e("JSON", response);

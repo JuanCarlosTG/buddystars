@@ -53,4 +53,14 @@ public class DetailBlogActivity extends Activity{
         txtTitle.setText(Constants.getSpotTitle());
     }
 
+    public void clickBack(View v) {
+        finish();
+        overridePendingTransition(R.anim.slide_right_from, R.anim.slide_right);
+    }
+
+    @Override
+    public void onBackPressed() {
+        clickBack(null);
+    }
+
 }
