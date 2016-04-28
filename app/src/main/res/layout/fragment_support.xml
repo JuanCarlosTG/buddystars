@@ -1,48 +1,56 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/bg"
-    android:gravity="center"
-    android:orientation="vertical">
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <View
-        style="@style/view_support"/>
-
-    <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15sp"
+        android:background="@drawable/bg"
         android:gravity="center"
-        android:text="@string/txt_support_phone"
-        />
+        android:orientation="vertical">
 
-    <View
-        style="@style/view_support"/>
+        <View
+            style="@style/view_support"/>
 
-    <mx.com.ioblok.buddystars.customviews.CustomButtonRegular
-        android:id="@+id/btn_call"
-        style="@style/btn_support"
-        android:background="@drawable/bt_call"
-        android:text="@string/bt_call"/>
+        <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15sp"
+            android:gravity="center"
+            android:text="@string/txt_support_phone"
+            />
 
-    <View
-        style="@style/view_support"/>
+        <View
+            style="@style/view_support"/>
 
-    <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/txt_support_mail"
-        android:layout_margin="15sp"/>
+        <mx.com.ioblok.buddystars.customviews.CustomButtonRegular
+            android:id="@+id/btn_call"
+            style="@style/btn_support"
+            android:background="@drawable/bt_call"
+            android:text="@string/bt_call"/>
 
-    <View
-        style="@style/view_support"/>
+        <View
+            style="@style/view_support"/>
 
-    <mx.com.ioblok.buddystars.customviews.CustomButtonRegular
-        style="@style/btn_support"
-        android:background="@drawable/bt_email"
-        android:id="@+id/btn_mail"
-        android:text="@string/bt_mail"/>
+        <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/txt_support_mail"
+            android:layout_margin="15sp"/>
+
+        <View
+            style="@style/view_support"/>
+
+        <mx.com.ioblok.buddystars.customviews.CustomButtonRegular
+            style="@style/btn_support"
+            android:background="@drawable/bt_email"
+            android:id="@+id/btn_mail"
+            android:text="@string/bt_mail"/>
+
+    </LinearLayout>
 
 
-</LinearLayout>
+
+</RelativeLayout>
+

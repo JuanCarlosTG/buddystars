@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent">
+
+    <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_support_question_comment"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"
+        android:textColor="@color/colorWhite"
+        android:id="@+id/txt_title"/>
+
+    <mx.com.ioblok.buddystars.customviews.CustomButtonRegular
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:layout_marginLeft="20sp"
+        android:id="@+id/btn_close_dialog"
+        android:layout_marginRight="20sp"
+        android:textColor="@color/colorWhite"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:text="@string/btn_support_close"/>
+
+    <mx.com.ioblok.buddystars.customviews.CustomEditTextRegular
+        android:layout_width="match_parent"
+        android:layout_height="120sp"
+        android:layout_marginLeft="20sp"
+        android:layout_marginRight="20sp"
+        android:layout_marginTop="5sp"
+        android:padding="5sp"
+        android:gravity="left"
+        android:background="@drawable/txt_textfield"
+        android:layout_marginBottom="5sp"
+        android:id="@+id/txt_comment"
+        android:layout_below="@+id/txt_title"/>
+
+    <mx.com.ioblok.buddystars.customviews.CustomButtonRegular
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/back_login"
+        android:text="@string/btn_send"
+        android:paddingTop="10sp"
+        android:paddingBottom="10sp"
+        android:paddingLeft="30sp"
+        android:paddingRight="30sp"
+        android:textColor="@color/colorWhite"
+        android:layout_below="@+id/txt_comment"
+        android:layout_marginRight="20sp"
+        android:layout_marginLeft="20sp"
+        android:id="@+id/btn_send_comment"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"/>
+
+
+</RelativeLayout>

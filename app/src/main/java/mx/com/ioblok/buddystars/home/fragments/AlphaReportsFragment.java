@@ -2,19 +2,18 @@ package mx.com.ioblok.buddystars.home.fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-
-import com.bumptech.glide.Glide;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import mx.com.ioblok.buddystars.R;
+import mx.com.ioblok.buddystars.adapter.AlphaReportElementAdapter;
 import mx.com.ioblok.buddystars.customviews.CustomTextViewRegular;
 import mx.com.ioblok.buddystars.utils.WebBridge;
 
@@ -22,9 +21,7 @@ public class AlphaReportsFragment extends Fragment  implements WebBridge.WebBrid
 
     View v;
     CustomTextViewRegular new_container, new_portability;
-
-    LinearLayout llDynamic;
-    LayoutInflater inflater;
+    private RecyclerView recyclerViewReports;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,7 +39,13 @@ public class AlphaReportsFragment extends Fragment  implements WebBridge.WebBrid
     }
 
     public void initialize() {
-        llDynamic = (LinearLayout) v.findViewById(R.id.ll_content);
+
+        recyclerViewReports = (RecyclerView) v.findViewById(R.id.recycler_view_blog);
+        recyclerViewReports.setHasFixedSize(false);
+        RecyclerView.LayoutManager rvLayoutManager = new LinearLayoutManager(getActivity());
+        recyclerViewReports.setLayoutManager(rvLayoutManager);
+
+
     }
 
     public void getData(){
@@ -80,34 +83,9 @@ public class AlphaReportsFragment extends Fragment  implements WebBridge.WebBrid
     }
 
     public void showResults(JSONArray b) {
-        inflater = LayoutInflater.from(getContext());
-        llDynamic.removeAllViews();
 
-        for (int i = 0; i < b.length(); i++) {
+        RecyclerView.Adapter rvAdapter = new AlphaReportElementAdapter(b, getActivity());
+        recyclerViewReports.setAdapter(rvAdapter);
 
-            try {
-                JSONObject c = b.getJSONObject(i);
-                LinearLayout llCell = (LinearLayout) inflater.inflate(R.layout.ui_buddies, null);
-
-                String a = c.getString("avatar");
-                String fn = c.getString("full_name");
-                String pp = c.getString("percent_total");
-
-                ImageView iv_avatar = (ImageView) llCell.findViewById(R.id.iv_avatar);
-                Glide.with(this).load(a).into(iv_avatar);
-                CustomTextViewRegular tv_full_name = (CustomTextViewRegular) llCell.findViewById(R.id.tv_full_name);
-                tv_full_name.setText(fn);
-                tv_full_name.setTextColor(getResources().getColor(R.color.grisMovistar));
-                CustomTextViewRegular tv_percent_point = (CustomTextViewRegular) llCell.findViewById(R.id.tv_percent_point);
-                tv_percent_point.setText(pp);
-                tv_percent_point.setTextColor(getResources().getColor(R.color.azulMovistar));
-
-
-                llDynamic.addView(llCell);
-            } catch (Exception e) {
-                Log.e("Exception show result", e.toString());
-            }
-
-        }
     }
 }

@@ -101,6 +101,8 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
         mDrawerOptions.addFooterView(footer);
         mDrawerOptions.setAdapter(adapterActivity);
 
+        final String userRole = User.get("role", this);
+
         mDrawerOptions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
@@ -119,7 +121,9 @@ public class HomeActivity extends SectionActivity implements ActivityCompat.OnRe
                 } else if (position == 7) {
                     registerSimFragment(arg1);
                 } else if (position == 8) {
-                    betaReportFragment(arg1);
+                    if(userRole.equals("alpha"))
+                        alphaReportFragment(arg1);
+                    else betaReportFragment(arg1);
                 } else if (position == 9) {
                     pointsFragment(arg1);
                 } else if (position == 10) {

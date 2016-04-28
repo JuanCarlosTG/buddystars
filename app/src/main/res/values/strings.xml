@@ -69,7 +69,10 @@
     <string name="txt_register_amount">Monto de Alta</string>
 
     <string name="txt_support_phone">56.78.90.45</string>
-    <string name="txt_support_mail">soporte@movistar.com</string>
+    <string name="txt_support_mail">Enviar Correo</string>
+    <string name="txt_support_question_comment">Pregunta /Comentario</string>
+    <string name="btn_support_close">[ x ]</string>
+    <string name="txt_support_error">Tu pregunta/comentario debe tener al menos 10 caracteres</string>
 
     <string name="bt_call">Llamar</string>
     <string name="bt_mail">Mensaje</string>
@@ -100,7 +103,7 @@
     <string name="title_gracias">Gracias</string>
     <string name="codigo_exitoso">El código ha sido guardado</string>
     <string name="cliente_exitoso">El cliente ha sido guardado</string>
-    <string name="confirmar_llamada">¿Quieres llamar al 56-78-90-45?</string>
+    <string name="confirmar_llamada">¿Quieres llamar al 55-50-01-58-21?</string>
     <string name="confirmar_mail">¿Quieres mandar un correo a soporte@movistar.com?</string>
     <string name="cerrar">Cerrar</string>
     <string name="cancelar">Cancelar</string>

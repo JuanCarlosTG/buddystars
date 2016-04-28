@@ -56,6 +56,9 @@ public class LoginActivity extends Activity implements WebBridge.WebBridgeListen
 
         editTextUser = (CustomEditTextRegular) findViewById(R.id.txt_username);
         editTextPass = (CustomEditTextRegular) findViewById(R.id.txt_password);
+
+        editTextUser.setText("buddy1");
+        editTextPass.setText("123456");
     }
 
     public void login(View view){
@@ -84,7 +87,7 @@ public class LoginActivity extends Activity implements WebBridge.WebBridgeListen
 
     @Override
     public void onWebBridgeSuccess(String url, JSONObject json) {
-
+        Log.e("JSON", json.toString());
 
         try {
             if (json.getBoolean("success")){
@@ -98,7 +101,8 @@ public class LoginActivity extends Activity implements WebBridge.WebBridgeListen
                 User.set("last_name", json.getJSONObject("data").getString("last_name"), this);
 
                 startActivity(home);
-                SelectActivity.selectActivity.finish();
+                if(SelectActivity.selectActivity != null)
+                    SelectActivity.selectActivity.finish();
 
                 finish();
                 LoginActivity.this.overridePendingTransition(R.anim.slide_right_from, R.anim.slide_right);

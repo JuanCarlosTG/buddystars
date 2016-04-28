@@ -59,6 +59,9 @@
 
         <activity android:name=".news.DetailBlogActivity"/>
 
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="a34df7c556e8744d4522cab980dd00fb202d859f" />
     </application>
 
 </manifest>
