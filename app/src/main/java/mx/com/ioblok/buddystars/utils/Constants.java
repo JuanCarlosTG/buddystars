@@ -15,6 +15,7 @@ public class Constants {
     private static String spotDescription = "";
     private static String spotFullImage = "";
     private static String spotTitle = "";
+    private static String spotLink = "";
     private static int tagFragment = -1;
 
     private static String registerName = "";
@@ -173,5 +174,13 @@ public class Constants {
 
     public static void setSpotTitle(String spotTitle) {
         Constants.spotTitle = spotTitle;
+    }
+
+    public static String getSpotLink() {
+        return spotLink;
+    }
+
+    public static void setSpotLink(String spotLink) {
+        Constants.spotLink = spotLink;
     }
 }

@@ -39,6 +39,7 @@ public class BlogElementAdapter extends RecyclerView.Adapter<BlogElementAdapter.
         public String descriptionBlog;
         public String urlImageBlog;
         public String titleBlog;
+        public String linkBlog;
 
         public BlogViewHolder(View itemView) {
             super(itemView);
@@ -55,6 +56,7 @@ public class BlogElementAdapter extends RecyclerView.Adapter<BlogElementAdapter.
                     Constants.setSpotDescription(descriptionBlog);
                     Constants.setSpotFullImage(urlImageBlog);
                     Constants.setSpotTitle(titleBlog);
+                    Constants.setSpotLink(linkBlog);
 
                     Intent fbLogin = new Intent(blogActivity, FBLoginActivity.class);
                     blogActivity.startActivity(fbLogin);
@@ -89,6 +91,7 @@ public class BlogElementAdapter extends RecyclerView.Adapter<BlogElementAdapter.
             String blogDescription = blog.getString("description");
             String blogReleased = blog.getString("released");
             String blogFull = blog.getString("full");
+            String blogLink = blog.getString("link");
 
             blogFull = blogFull.equals("null") ? "http://inthecheesefactory.com/uploads/source/glidepicasso/cover.jpg" : blogFull;
             Glide.with(activity).load(blogFull).into(holder.imageBlog);
@@ -97,6 +100,7 @@ public class BlogElementAdapter extends RecyclerView.Adapter<BlogElementAdapter.
             holder.descriptionBlog = blogDescription;
             holder.urlImageBlog = blogFull;
             holder.titleBlog = blogTitle;
+            holder.linkBlog = blogLink;
 
         } catch (JSONException jsonE) {
 

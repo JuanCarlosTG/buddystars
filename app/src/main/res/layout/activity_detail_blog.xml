@@ -10,29 +10,67 @@
         android:id="@+id/header"
         layout="@layout/header_login" />
 
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/header"
         android:layout_marginLeft="30sp"
-        android:layout_marginRight="30sp"
-        android:orientation="vertical">
+        android:layout_marginRight="30sp">
 
-        <ImageView
-            android:id="@+id/iv_description_blog"
-            android:layout_width="match_parent"
-            android:layout_height="138sp"
-            />
-
-        <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
-            android:id="@+id/tv_txt_description_video"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/iv_description_blog"
-            android:background="@color/colorBlog"
-            android:gravity="center"
-            android:padding="20sp"
-            android:textColor="@color/colorWhite" />
-    </LinearLayout>
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_description_blog"
+                android:layout_width="match_parent"
+                android:layout_height="138sp"
+                />
+
+            <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
+                android:id="@+id/tv_txt_title_spot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorBlog"
+                android:gravity="center"
+                android:padding="10sp"
+                android:textColor="@color/colorWhite" />
+
+            <mx.com.ioblok.buddystars.customviews.CustomTextViewRegular
+                android:id="@+id/tv_txt_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:gravity="left"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp"
+                android:textColor="@color/colorWhite" />
+
+            <mx.com.ioblok.buddystars.customviews.CustomButtonRegular
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/back_login"
+                android:text="@string/btn_see_more"
+                android:paddingTop="5sp"
+                android:paddingBottom="5sp"
+                android:paddingLeft="30sp"
+                android:paddingRight="30sp"
+                android:textColor="@color/colorWhite"
+                android:id="@+id/btn_see_more"
+                android:layout_gravity="end"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
 </RelativeLayout>
